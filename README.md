@@ -2,10 +2,38 @@
 
 This is a system for running product management work so AI does the heavy lifting and a person still owns every decision.
 
-It has two halves. 
+It has two halves: the **framework** defines *what* happens, and the **harness** defines *who* does it.
 
-**The framework defines what happens:** signal is captured into one shared record (Store), AI drafts the documents a team needs, a person reviews and approves, and outputs are distributed to each team in the channel they already use. 
-**The harness defines who does it:** eight specialised agents (Scribe, Custodian, Drafter, Courier, Strategist, Analyst, Challenger, and a Conductor that routes but never writes). The [engineering companion](./ENGINEERING-COMPANION.md) is the deeper build-facing counterpart to this README — it explains how the harness is staffed and governed, the principles each agent must hold, the anti-patterns that break them, and the checklist for adding a new one.
+```mermaid
+flowchart LR
+    subgraph FW["THE FRAMEWORK · what happens"]
+        direction TB
+        f1["<b>Capture</b><br/>signal into one shared record (Store)"]:::green
+        f2["<b>Author</b><br/>AI drafts the documents a team needs"]:::green
+        f3["<b>Review</b><br/>a person reviews and approves"]:::human
+        f4["<b>Distribute</b><br/>to each team, in the channel they use"]:::green
+        f1 --> f2 --> f3 --> f4
+    end
+    subgraph HN["THE HARNESS · who does it"]
+        direction TB
+        h1["<b>Scribe · Custodian</b><br/><b>Drafter · Courier</b><br/>knowledge-loop agents"]:::green
+        h2["<b>Strategist · Analyst</b><br/>decision-loop agents"]:::blue
+        h3["<b>Challenger</b><br/>adversarial review · spans both loops"]:::span
+        h4["<b>Conductor</b><br/>routes work, writes no content"]:::infra
+        h1 --- h2 --- h3 --- h4
+    end
+    FW ~~~ HN
+
+    classDef green fill:#84c65a,stroke:#4f7d33,color:#0b2200;
+    classDef blue fill:#0d76eb,stroke:#0a4f9c,color:#ffffff;
+    classDef span fill:#7b4fe0,stroke:#4b2c94,color:#ffffff;
+    classDef infra fill:#9aa0a6,stroke:#5f6368,color:#111111;
+    classDef human fill:#f5a623,stroke:#b9781a,color:#241300;
+```
+
+*Diagram summary: the framework, on the left, is the sequence of steps — Capture into Store, Author the drafts, a human Review gate, then Distribute to each team. The harness, on the right, is the eight agents that staff those steps: four green knowledge-loop agents, two blue decision-loop agents, the purple Challenger spanning both, and the grey Conductor that routes work but writes no content.*
+
+The [engineering companion](./ENGINEERING-COMPANION.md) is the deeper build-facing counterpart to this README — it explains how the harness is staffed and governed, the principles each agent must hold, the anti-patterns that break them, and the checklist for adding a new one.
 
 Four feedback loops run through it, all sharing one source of truth and one human review gate:
 

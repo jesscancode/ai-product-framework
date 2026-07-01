@@ -151,3 +151,34 @@ It is easy to mistake this for tidy paperwork. It is not. One shared record with
 Removing all three is what lets a team move fast without the mess building up. The decision memo adds a fourth defence, earlier in the process: it catches a flawed test before it runs, rather than a flawed decision after it ships.
 
 There is a second point worth stating plainly. This framework is a product built for the people who build products. It treats the product manager's own process as something worth designing. It has real users — the product manager and the internal teams — and shapes the content to what each of them needs. It also puts AI to work in how the product gets built, not only in what the product does for customers.
+
+## **Next steps: a risk and trade-off layer**
+
+Everything above answers *what did we decide and why*. It doesn't yet answer *what did we knowingly accept to get there*. 
+
+Right now Decide sets the direction and Validate tests it, but the cost of a choice — rarely gets written down in the same disciplined way. It lives in the PM's head, same problem the whole framework exists to remove elsewhere.
+
+**Risk & Trade-off** sits alongside Decide, the way the decision memo sits alongside Validate. Author drafts it the moment a Decide record is created, pulling from Store — known dependencies, how similar past decisions played out, how thin or solid the evidence behind this one actually is. The PM reviews it the same way they review everything else: reads, edits, decides, owns it.
+
+![Full Workflow](./images/risk_tradeoff_layer.svg)
+
+
+Each record holds a small, consistent shape:
+
+- **the risk** — named plainly
+- **reversibility** — a one-way door or a two-way door, since that alone should set how much scrutiny it gets
+- **blast radius** — who or what breaks if this is wrong
+- **the call** — accept, mitigate, avoid, or transfer, stated outright
+- **the reasoning** — in the PM's own words, so it's a decision and not just a checkbox
+- **an owner**
+- **a revisit trigger** — a date or condition that forces a second look, so the record doesn't just sit there
+
+For anything irreversible or wide-blast-radius, it can circulate like the decision memo does — out to the small circle before the trade-off is locked in, so someone else gets a chance to catch it while it's still cheap to change.
+
+The revisit trigger is what keeps this clear over time. It feeds Learn exactly the way Measure does: did the risk we accepted actually happen, did the mitigation hold etc. That answer goes back into Store, so the next Risk & Trade-off record Author drafts is a little sharper than the last one — creating a growing memory of what this team's trade-offs actually cost.
+
+And it plugs into Ask Store for free. *"What did we accept when we shipped X"* or *"what were we assuming about Y"* becomes answerable the same way *"what did we decide about X"* already is — sourced, or it says it doesn't know.
+
+Documentation debt is decisions going stale. Strategic debt is decisions being re-argued. Technical debt is teams acting on mismatched information. 
+
+This is **risk debt** — the cost of a choice arriving later as a surprise, to someone who never got to weigh in on whether it was worth taking.

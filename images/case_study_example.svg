@@ -1,0 +1,143 @@
+<svg width="100%" viewBox="0 0 740 900" role="img" xmlns="http://www.w3.org/2000/svg">
+<title>Concrete example: from raw signal to an executive's WhatsApp reply, and back again</title>
+<desc>Five raw inputs flow into Capture, which an AI organises into the shared knowledge base (Store). Author drafts research summaries, prioritisation recommendations, a roadmap, and team-specific updates. The product manager reviews, edits, and updates prompts, then Distribute sends each team an update shaped for their own tool. Centred underneath, a zoomed panel shows the executive receiving a concise WhatsApp roadmap update, replying with a voice note, which is transcribed and fed back into Capture, closing the loop.</desc>
+
+<rect x="0" y="0" width="740" height="900" fill="#FFFFFF"/>
+
+<text x="370" y="22" text-anchor="middle" style="font-family:'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;font-size:15px;font-weight:600;fill:#111111">Worked example: from raw signal to an exec's WhatsApp reply ✦ and back again</text>
+
+<rect x="15" y="36" width="12" height="12" rx="3" fill="#84c65a"/>
+<text x="32" y="46" style="font-family:'Anthropic Sans', sans-serif;font-size:11px;fill:#333333">AI-run step</text>
+<rect x="170" y="36" width="12" height="12" rx="3" fill="#111111"/>
+<text x="187" y="46" style="font-family:'Anthropic Sans', sans-serif;font-size:11px;fill:#333333">human checkpoint / hub</text>
+<rect x="380" y="36" width="12" height="12" rx="3" fill="#0d76eb"/>
+<text x="397" y="46" style="font-family:'Anthropic Sans', sans-serif;font-size:11px;fill:#333333">input / channel detail</text>
+<rect x="590" y="36" width="12" height="12" rx="3" fill="#5fa834"/>
+<text x="607" y="46" style="font-family:'Anthropic Sans', sans-serif;font-size:11px;fill:#333333">feedback loop</text>
+
+<!-- Five raw sources -->
+<g style="font-family:'Anthropic Sans', sans-serif">
+<rect x="20" y="64" width="120" height="50" rx="8" fill="#EAF3FD" stroke="#0d76eb" stroke-width="1"/>
+<text x="80" y="84" text-anchor="middle" style="font-size:10px;font-weight:600;fill:#111111">Qual interviews</text>
+<text x="80" y="98" text-anchor="middle" style="font-size:9px;fill:#4d4d4d">customer recordings</text>
+
+<rect x="150" y="64" width="120" height="50" rx="8" fill="#EAF3FD" stroke="#0d76eb" stroke-width="1"/>
+<text x="210" y="84" text-anchor="middle" style="font-size:10px;font-weight:600;fill:#111111">Team meetings</text>
+<text x="210" y="98" text-anchor="middle" style="font-size:9px;fill:#4d4d4d">Google Meet transcripts</text>
+
+<rect x="280" y="64" width="120" height="50" rx="8" fill="#EAF3FD" stroke="#0d76eb" stroke-width="1"/>
+<text x="340" y="84" text-anchor="middle" style="font-size:10px;font-weight:600;fill:#111111">Product metrics</text>
+<text x="340" y="98" text-anchor="middle" style="font-size:9px;fill:#4d4d4d">pulled from APIs</text>
+
+<rect x="410" y="64" width="120" height="50" rx="8" fill="#EAF3FD" stroke="#0d76eb" stroke-width="1"/>
+<text x="470" y="84" text-anchor="middle" style="font-size:10px;font-weight:600;fill:#111111">Support tickets</text>
+<text x="470" y="98" text-anchor="middle" style="font-size:9px;fill:#4d4d4d">raw ticket text</text>
+
+<rect x="540" y="64" width="120" height="50" rx="8" fill="#EAF3FD" stroke="#0d76eb" stroke-width="1"/>
+<text x="600" y="84" text-anchor="middle" style="font-size:10px;font-weight:600;fill:#111111">Sales conversations</text>
+<text x="600" y="98" text-anchor="middle" style="font-size:9px;fill:#4d4d4d">call / CRM notes</text>
+</g>
+
+<defs>
+<marker id="arrowGreen" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#5fa834" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker>
+<marker id="arrowBlue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#0d76eb" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker>
+<marker id="arrowBlack" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="#111111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker>
+</defs>
+
+<!-- converging lines from sources into Capture -->
+<line x1="80" y1="114" x2="345" y2="144" stroke="#0d76eb" stroke-width="1" marker-end="url(#arrowBlue)"/>
+<line x1="210" y1="114" x2="348" y2="144" stroke="#0d76eb" stroke-width="1" marker-end="url(#arrowBlue)"/>
+<line x1="340" y1="114" x2="350" y2="144" stroke="#0d76eb" stroke-width="1" marker-end="url(#arrowBlue)"/>
+<line x1="470" y1="114" x2="352" y2="144" stroke="#0d76eb" stroke-width="1" marker-end="url(#arrowBlue)"/>
+<line x1="600" y1="114" x2="355" y2="144" stroke="#0d76eb" stroke-width="1" marker-end="url(#arrowBlue)"/>
+
+<!-- Capture -->
+<rect x="210" y="144" width="280" height="50" rx="8" fill="#F1FAEA" stroke="#84c65a" stroke-width="1"/>
+<text x="350" y="163" text-anchor="middle" style="font-family:'Anthropic Sans', sans-serif;font-size:14px;font-weight:500;fill:#111111">Capture</text>
+<text x="350" y="181" text-anchor="middle" style="font-family:'Anthropic Sans', sans-serif;font-size:12px;fill:#4d4d4d">AI structures &amp; tags every input</text>
+
+<line x1="350" y1="194" x2="350" y2="212" stroke="#111111" stroke-width="1" marker-end="url(#arrowBlack)"/>
+
+<!-- Store -->
+<rect x="210" y="212" width="280" height="76" rx="8" fill="#111111"/>
+<text x="350" y="234" text-anchor="middle" style="font-family:'Anthropic Sans', sans-serif;font-size:14px;font-weight:500;fill:#FFFFFF">Store</text>
+<text x="350" y="256" text-anchor="middle" style="font-family:'Anthropic Sans', sans-serif;font-size:11px;fill:#cfd2d6">a single queryable source of truth</text>
+<text x="350" y="274" text-anchor="middle" style="font-family:'Anthropic Sans', sans-serif;font-size:11px;fill:#cfd2d6">✦ adjacent LLM chat bot</text>
+
+<line x1="350" y1="288" x2="350" y2="306" stroke="#111111" stroke-width="1" marker-end="url(#arrowBlack)"/>
+
+<!-- Author -->
+<rect x="190" y="306" width="320" height="92" rx="8" fill="#F1FAEA" stroke="#84c65a" stroke-width="1"/>
+<text x="350" y="326" text-anchor="middle" style="font-family:'Anthropic Sans', sans-serif;font-size:14px;font-weight:500;fill:#111111">Author</text>
+<text x="350" y="348" text-anchor="middle" style="font-family:'Anthropic Sans', sans-serif;font-size:11px;fill:#4d4d4d">drafts research summaries · prioritisation recs</text>
+<text x="350" y="366" text-anchor="middle" style="font-family:'Anthropic Sans', sans-serif;font-size:11px;fill:#4d4d4d">a product roadmap · team-specific updates</text>
+<text x="350" y="384" text-anchor="middle" style="font-family:'Anthropic Sans', sans-serif;font-size:10px;fill:#84c65a;font-style:italic">dated &amp; hard to rewrite</text>
+
+<line x1="350" y1="398" x2="350" y2="416" stroke="#111111" stroke-width="1" marker-end="url(#arrowBlack)"/>
+
+<!-- Review -->
+<rect x="210" y="416" width="280" height="50" rx="8" fill="#111111"/>
+<text x="350" y="435" text-anchor="middle" style="font-family:'Anthropic Sans', sans-serif;font-size:14px;font-weight:500;fill:#FFFFFF">Review (product manager)</text>
+<text x="350" y="453" text-anchor="middle" style="font-family:'Anthropic Sans', sans-serif;font-size:12px;fill:#cfd2d6">reads, reviews, edits ✦ updates prompts</text>
+
+<line x1="350" y1="466" x2="350" y2="484" stroke="#111111" stroke-width="1" marker-end="url(#arrowBlack)"/>
+
+<!-- Distribute -->
+<rect x="210" y="484" width="280" height="50" rx="8" fill="#F1FAEA" stroke="#84c65a" stroke-width="1"/>
+<text x="350" y="503" text-anchor="middle" style="font-family:'Anthropic Sans', sans-serif;font-size:14px;font-weight:500;fill:#111111">Distribute</text>
+<text x="350" y="521" text-anchor="middle" style="font-family:'Anthropic Sans', sans-serif;font-size:12px;fill:#4d4d4d">each team, in the tool they use</text>
+
+<line x1="350" y1="534" x2="350" y2="550" stroke="#111111" stroke-width="1" marker-end="url(#arrowBlack)"/>
+
+<!-- Teams chip box -->
+<rect x="40" y="550" width="620" height="82" rx="8" fill="#FAFAFA" stroke="#D9D9D9" stroke-width="1"/>
+<text x="350" y="566" text-anchor="middle" style="font-family:'Anthropic Sans', sans-serif;font-size:12px;font-weight:600;fill:#333333">shaped per team</text>
+
+<rect x="60" y="576" width="108" height="26" rx="6" fill="#FFFFFF" stroke="#111111" stroke-width="1"/>
+<text x="114" y="592" text-anchor="middle" style="font-family:'Anthropic Sans', sans-serif;font-size:10px;fill:#111111">Sales</text>
+
+<rect x="178" y="576" width="108" height="26" rx="6" fill="#FFFFFF" stroke="#111111" stroke-width="1"/>
+<text x="232" y="592" text-anchor="middle" style="font-family:'Anthropic Sans', sans-serif;font-size:10px;fill:#111111">Support</text>
+
+<rect x="296" y="576" width="108" height="26" rx="6" fill="#FFFFFF" stroke="#111111" stroke-width="1"/>
+<text x="350" y="592" text-anchor="middle" style="font-family:'Anthropic Sans', sans-serif;font-size:10px;fill:#111111">Engineering</text>
+
+<rect x="414" y="576" width="108" height="26" rx="6" fill="#FFFFFF" stroke="#111111" stroke-width="1"/>
+<text x="468" y="592" text-anchor="middle" style="font-family:'Anthropic Sans', sans-serif;font-size:10px;fill:#111111">Customer Success</text>
+
+<rect x="532" y="576" width="108" height="26" rx="6" fill="#EAF3FD" stroke="#0d76eb" stroke-width="1.5"/>
+<text x="586" y="592" text-anchor="middle" style="font-family:'Anthropic Sans', sans-serif;font-size:10px;font-weight:600;fill:#111111">Executive</text>
+
+<text x="350" y="622" text-anchor="middle" style="font-family:'Anthropic Sans', sans-serif;font-size:9px;fill:#4d4d4d">Sales → CRM note · Support → helpdesk macro · Engineering → Jira ticket · CS → playbook update</text>
+
+<!-- rounded connector from "shaped per team" down to the centred zoom panel -->
+<path d="M350 632 C 402 636, 402 646, 350 650" fill="none" stroke="#0d76eb" stroke-width="1.3" marker-end="url(#arrowBlue)"/>
+
+<!-- zoom panel, centred under the main spine -->
+<rect x="200" y="650" width="300" height="222" rx="10" fill="none" stroke="#0d76eb" stroke-width="1" stroke-dasharray="4 3"/>
+<text x="350" y="668" text-anchor="middle" style="font-family:'Anthropic Sans', sans-serif;font-size:11px;font-style:italic;fill:#0d76eb">zooming into the Executive channel</text>
+
+<!-- WhatsApp -->
+<rect x="230" y="680" width="240" height="52" rx="8" fill="#EAF3FD" stroke="#0d76eb" stroke-width="1"/>
+<text x="350" y="699" text-anchor="middle" style="font-family:'Anthropic Sans', sans-serif;font-size:13px;font-weight:500;fill:#111111">Executive ✦ WhatsApp</text>
+<text x="350" y="717" text-anchor="middle" style="font-family:'Anthropic Sans', sans-serif;font-size:10px;fill:#4d4d4d">receives a concise roadmap update</text>
+
+<line x1="350" y1="732" x2="350" y2="746" stroke="#0d76eb" stroke-width="1" marker-end="url(#arrowBlue)"/>
+
+<!-- Voice note reply -->
+<rect x="230" y="746" width="240" height="52" rx="8" fill="#EAF3FD" stroke="#0d76eb" stroke-width="1"/>
+<text x="350" y="765" text-anchor="middle" style="font-family:'Anthropic Sans', sans-serif;font-size:13px;font-weight:500;fill:#111111">Replies with a voice note</text>
+<text x="350" y="783" text-anchor="middle" style="font-family:'Anthropic Sans', sans-serif;font-size:10px;fill:#4d4d4d">new feedback / ideas, in seconds</text>
+
+<line x1="350" y1="798" x2="350" y2="812" stroke="#0d76eb" stroke-width="1" marker-end="url(#arrowBlue)"/>
+
+<!-- Transcribed -->
+<rect x="230" y="812" width="240" height="52" rx="8" fill="#EAF3FD" stroke="#0d76eb" stroke-width="1"/>
+<text x="350" y="831" text-anchor="middle" style="font-family:'Anthropic Sans', sans-serif;font-size:13px;font-weight:500;fill:#111111">Automatically transcribed</text>
+<text x="350" y="849" text-anchor="middle" style="font-family:'Anthropic Sans', sans-serif;font-size:10px;fill:#4d4d4d">added to Store as new evidence</text>
+
+<!-- feedback loop curve back to Capture -->
+<path d="M470 838 C 700 838, 700 169, 490 169" fill="none" stroke="#5fa834" stroke-width="1.3" marker-end="url(#arrowGreen)"/>
+<text x="716" y="500" text-anchor="middle" transform="rotate(-90 716 500)" style="font-family:'Anthropic Sans', sans-serif;font-size:10px;font-style:italic;fill:#5fa834">feeds the next round of Capture ✦ continuous learning loop</text>
+
+</svg>

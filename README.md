@@ -12,6 +12,16 @@ Simply put, I've pointed the discipline of content design inward, at my own work
 
 Most teams aim that at customers. This framework aims it at the product manager's own process: the research, the decisions, the specs, and the updates other teams depend on. Heavily guided AI tooling gathers the raw material and drafts the outputs. The person reviews, decides, and approves. Everything traces back to one shared record.
 
+## A quick example of how this could work
+
+![Full Workflow](./images/case_study_example.svg)
+
+Qual customer interviews recordings, Team meeting transcriptions from Google Meet, product metrics from APIs, support tickets, sales conversations all flow into the Capture layer, where AI organises them into a shared knowledge base. 
+
+From there, it drafts research summaries, prioritisation recommendations, a product roadmap and team-specific updates, which the product manager reviews before they're distributed to each team in the tools they already use. 
+
+The executive receives a concise roadmap update on WhatsApp, replies with a voice note containing new feedback or ideas, and that response is automatically transcribed and fed back into the Capture layer, where it becomes part of the evidence that informs the next round of product decisions, creating a continuous learning loop.
+
 ## **The problem it removes**
 
 Every product team has the same leak.

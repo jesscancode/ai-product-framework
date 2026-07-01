@@ -24,13 +24,13 @@ Every diagram uses the same colours. Colour is never the only signal — each no
 
 | Colour | Meaning |
 |--------|---------|
-| Green | Knowledge loop — Capture, Store, Author, Review, Distribute |
-| Blue | Decision loop — Strategy, Decide, Validate, Measure, Learn |
-| Black | Shared hub — Store and Review, used by both loops |
-| Grey | Infrastructure — the Conductor, which routes but produces no content |
-| Orange | Human — the product manager, who owns every gate |
-| Purple | Spans both loops — the Challenger, plus the enforcement spine |
-| Red | Boundary failures — where the system breaks first |
+| Green | Knowledge loop ✦ Capture, Store, Author, Review, Distribute |
+| Blue | Decision loop ✦ Strategy, Decide, Validate, Measure, Learn |
+| Black | Shared hub ✦ Store and Review, used by both loops |
+| Grey | Infrastructure ✦ the Conductor, which routes but produces no content |
+| Orange | Human ✦ the product manager, who owns every gate |
+| Purple | Spans both loops ✦ the Challenger, plus the enforcement spine |
+| Red | Boundary failures ✦ where the system breaks first |
 
 ## The framework in one idea
 

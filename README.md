@@ -65,7 +65,7 @@ Every diagram uses the same colours. Colour is never the only signal — each no
 | Purple | Spans both loops ✦ the Challenger, plus the enforcement spine |
 | Red | Boundary failures ✦ where the system breaks first |
 
-## The framework in one idea
+## The framework 
 
 I have been more than a little obsessed with the work [Sarah Winters](https://www.linkedin.com/in/sarahwinterscontentstrategist/) and her team are doing at [Content Design London](https://contentdesign.london/). Their work on Content Design has changed the way I work entirely and I've used their principles here to start thinking about how product teams may work alongside AI tooling.
 
@@ -85,11 +85,15 @@ The fix is the loop: make a better call, record it once, deliver it to each team
 
 ## A worked example
 
-One small workflow shows the shape of the whole thing. Customer interview recordings, Google Meet transcripts, product metrics from APIs, support tickets, and sales conversations all flow into Capture, where AI organises them into the shared record.
+One small story shows the shape of the whole thing. Read it from the end — the reply — because that is where the loop closes.
 
-From there, AI drafts research summaries, prioritisation recommendations, a roadmap, and team-specific updates. The PM reviews them before they go out to each team in the tools they already use.
+An exec receives a concise roadmap update on WhatsApp and answers with a four-minute voice note. That reply is transcribed automatically, flows into Capture, lands in Store as evidence, and reshapes the next decision. Ask the same person to log into a tool and fill in a form and you would have got silence — the channel is what makes the feedback happen at all.
 
-The exec receives a concise roadmap update on WhatsApp and replies with a voice note. That reply is transcribed automatically and fed back into Capture, where it becomes evidence for the next round of decisions — closing the loop. In practice the orchestration layer runs on something like n8n, but the tool is an implementation detail, not part of the design.
+That single arrow — out to each team in the channel they already use, back in through the same one — is one of the four loops closing. Everything upstream of it is the rest of the system doing its job: customer interviews, Google Meet transcripts, product metrics from APIs, support tickets, and sales conversations all flowed into Capture and into Store; AI drafted the research summaries, the prioritisation call, and the team-specific updates; and the PM reviewed them before a word went out.
+
+![Example n8n workflow](./images/n8n_workflow.png)
+
+In practice the orchestration layer runs on something like n8n, but the tool is an implementation detail, not part of the design.
 
 
 
@@ -527,6 +531,6 @@ It is easy to mistake this for tidy paperwork. It is not. One shared record with
 
 Removing all four is what lets a team move fast without the mess building up.
 
-There is a second point worth stating plainly. This is a product built for the people who build products. It treats the product manager's own process as something worth designing, with real users — the PM and the internal teams — and shapes the content to what each of them needs. It puts AI to work in how the product gets built, not only in what the product does for customers.
+This is a product built for the people who build products. It treats the product manager's own process as something worth designing, with real users — the PM and the internal teams — and shapes the content to what each of them needs. It puts AI to work in how the product gets built, not only in what the product does for customers.
 
 

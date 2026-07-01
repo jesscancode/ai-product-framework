@@ -215,9 +215,9 @@ The teams are not the end of the line. The same people who receive documents are
 
 An exec who gets a briefing on WhatsApp can reply with a voice note in seconds. Ask the same person to log into a tool and complete a form, and you get silence. The channel decides whether feedback happens at all, so the framework treats each person's channel as part of the design.
 
-## Four loops, not two
+## The four loops
 
-A review of the framework found that it *described* three feedback circuits but never drew them as closed loops — so revisit triggers rot, Store decays, and team feedback depends on someone choosing to speak up. Formalising them gives four loops, each with its own cadence and trigger, each passing a human gate.
+Four feedback loops run through the system, each with its own cadence and trigger, each passing a human gate. Because each is drawn as a closed loop, the system does not decay: revisit triggers fire on time, Store stays clean, and team feedback returns as signal rather than depending on someone choosing to speak up.
 
 ```mermaid
 flowchart LR
@@ -251,9 +251,9 @@ flowchart LR
 
 *Diagram summary: four loops all write back to Store. The knowledge loop runs continuously. The decision loop is event-driven. The risk validation loop fires when a revisit trigger's date or condition is met, and asks whether an accepted risk materialised. The system health loop runs on a schedule to audit Store for stale, duplicate, orphaned, or off-schema records.*
 
-## The pull loops the review added
+## The pull loops
 
-Generation was already strong: AI drafts, a human reviews. What was missing were the signals that tell you something has gone stale, unread, or contested.
+Generation runs one way: AI drafts, a human reviews. The pull loops run the other way — they carry the signals that tell you something has gone stale, unread, or contested back into the system.
 
 ```mermaid
 flowchart LR
@@ -365,7 +365,7 @@ flowchart LR
     classDef hub fill:#111111,stroke:#000000,color:#ffffff;
 ```
 
-*Diagram summary: four disciplines feed every agent. Context engineering controls what information is surfaced. Prompt engineering controls how the agent behaves. Harness engineering controls how the system moves. Boundary engineering — added after the review — controls what crosses between agents, and is where the four failures below live.*
+*Diagram summary: four disciplines feed every agent. Context engineering controls what information is surfaced. Prompt engineering controls how the agent behaves. Harness engineering controls how the system moves. Boundary engineering controls what crosses between agents, and is where the four failures below live.*
 
 ### The four boundary failures to engineer against
 
@@ -382,7 +382,7 @@ flowchart LR
 
 ## The enforcement spine
 
-The review's core verdict: the framework's design is sound, but it lacks the enforcement that stops it degrading when agents or humans take shortcuts. These patterns run across every layer as deterministic code, not prompts. They are set out in full in the [transferable rules](./agentic-design-patterns/transferrable_rules.md) — the enforcement architecture and the order to build it in — which pair with the broader [design pattern library](./agentic-design-patterns/design-patterns.md): the patterns name what is possible, the rules say what to enforce.
+A sound design still degrades when agents or humans take shortcuts, unless something holds it in place. That is the enforcement spine: patterns that run across every layer as deterministic code, not prompts. They are set out in full in the [transferable rules](./agentic-design-patterns/transferrable_rules.md) — the enforcement architecture and the order to build it in — which pair with the broader [design pattern library](./agentic-design-patterns/design-patterns.md): the patterns name what is possible, the rules say what to enforce.
 
 ```mermaid
 flowchart TB
@@ -456,7 +456,7 @@ sequenceDiagram
 
 ## From framework step to agentic system
 
-The through-line is unchanged: AI does the heavy lifting, a person owns every decision, everything traces back to one Store. The harness turns described intentions into mechanisms — named owners, closed loops, an orchestration model, an engineering lens that predicts where it breaks, and an enforcement spine that stops it decaying.
+One through-line holds across the whole system: AI does the heavy lifting, a person owns every decision, everything traces back to one Store. The harness gives each framework step a mechanism — a named owner, closed loops, an orchestration model, an engineering lens that predicts where it breaks, and an enforcement spine that stops it decaying.
 
 | Framework step or property | Agent | PM role |
 |----------------------------|-------|---------|

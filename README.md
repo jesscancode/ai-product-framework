@@ -8,27 +8,30 @@ It has two halves: the **framework** defines *what* happens, and the **harness**
 flowchart LR
     subgraph FW["THE FRAMEWORK · what happens"]
         direction TB
-        f1["<b>Capture</b><br/>signal into one shared record (Store)"]:::green
-        f2["<b>Author</b><br/>AI drafts the documents a team needs"]:::green
-        f3["<b>Review</b><br/>a person reviews and approves"]:::human
-        f4["<b>Distribute</b><br/>to each team, in the channel they use"]:::green
+        f1["<b>Capture</b><br/>signal into one<br/>shared record (Store)"]:::green
+        f2["<b>Author</b><br/>AI drafts the<br/>documents a team needs"]:::green
+        f3["<b>Review</b><br/>a person reviews<br/>and approves"]:::light
+        f4["<b>Distribute</b><br/>to each team, in<br/>the channel they use"]:::green
         f1 --> f2 --> f3 --> f4
     end
     subgraph HN["THE HARNESS · who does it"]
         direction TB
         h1["<b>Scribe · Custodian</b><br/><b>Drafter · Courier</b><br/>knowledge-loop agents"]:::green
         h2["<b>Strategist · Analyst</b><br/>decision-loop agents"]:::blue
-        h3["<b>Challenger</b><br/>adversarial review · spans both loops"]:::span
-        h4["<b>Conductor</b><br/>routes work, writes no content"]:::infra
+        h3["<b>Challenger</b><br/>adversarial review<br/>spans both loops"]:::span
+        h4["<b>Conductor</b><br/>routes work,<br/>writes no content"]:::infra
         h1 --- h2 --- h3 --- h4
     end
     FW ~~~ HN
+
+    style FW fill:#e8f1fb,stroke:#9cc0e8,color:#1a2b45;
+    style HN fill:#e8f1fb,stroke:#9cc0e8,color:#1a2b45;
 
     classDef green fill:#84c65a,stroke:#4f7d33,color:#0b2200;
     classDef blue fill:#0d76eb,stroke:#0a4f9c,color:#ffffff;
     classDef span fill:#7b4fe0,stroke:#4b2c94,color:#ffffff;
     classDef infra fill:#9aa0a6,stroke:#5f6368,color:#111111;
-    classDef human fill:#f5a623,stroke:#b9781a,color:#241300;
+    classDef light fill:#cfe8fc,stroke:#5a9bd4,color:#0b2233;
 ```
 
 *Diagram summary: the framework, on the left, is the sequence of steps — Capture into Store, Author the drafts, a human Review gate, then Distribute to each team. The harness, on the right, is the eight agents that staff those steps: four green knowledge-loop agents, two blue decision-loop agents, the purple Challenger spanning both, and the grey Conductor that routes work but writes no content.*
@@ -64,7 +67,9 @@ Every diagram uses the same colours. Colour is never the only signal — each no
 
 ## The framework in one idea
 
-The discipline of [content design](https://contentdesign.london/blog/why-content-design-exists), from [Sarah Winters](https://www.linkedin.com/in/sarahwinterscontentstrategist/) and [Content Design London](https://contentdesign.london/), asks one question before any writing starts: what does the reader actually need, and what is the best form to meet it? This framework points that question inward — at the product manager's own process rather than at customers.
+I have been more than a little obsessed with the work [Sarah Winters](https://www.linkedin.com/in/sarahwinterscontentstrategist/) and her team are doing at [Content Design London](https://contentdesign.london/). Their work on Content Design has changed the way I work entirely and I've used their principles here to start thinking about how product teams may work alongside AI tooling.
+
+The discipline of [content design](https://contentdesign.london/blog/why-content-design-exists) asks one question before any writing starts: what does the reader actually need, and what is the best form to meet it? This framework points that question inward — at the product manager's own process rather than at customers.
 
 > Content used to be something you read. Now it's something you use. Content design is about giving your audience what they want, when they need it, in the way they expect. — Sarah Winters
 
@@ -94,7 +99,7 @@ The framework says *what* happens (the steps). The harness says *who* does it (t
 
 ```mermaid
 flowchart TB
-    SRC["Signal in — interviews · meetings · metrics<br/>tickets · sales notes · exec voice notes"]:::green
+    SRC["Signal in —<br/>interviews · meetings<br/>metrics · tickets<br/>sales notes · voice notes"]:::green
 
     %% ---------- KNOWLEDGE LOOP ----------
     subgraph KL["KNOWLEDGE LOOP  (continuous)"]
@@ -108,8 +113,8 @@ flowchart TB
     subgraph HUB["SHARED HUB"]
         direction TB
         STAGE["Staging / Factory<br/>drafts land here first"]:::infra
-        STORE[("Store — single source of truth<br/><b>Custodian</b> maintains")]:::hub
-        REVIEW{{"Review — human gate<br/><b>Challenger</b> pre-screens · <b>PM</b> decides"}}:::hub
+        STORE[("Store<br/>single source of truth<br/><b>Custodian</b> maintains")]:::hub
+        REVIEW{{"Review — human gate<br/><b>Challenger</b> pre-screens<br/><b>PM</b> decides"}}:::hub
         ASK["Ask Store<br/>plain-language pull"]:::blue
     end
 
@@ -124,11 +129,11 @@ flowchart TB
     end
 
     %% ---------- SATELLITES ----------
-    MEMO["Decision Memo<br/><b>Drafter</b> writes · <b>Challenger</b> red-teams"]:::blue
-    RISK["Risk & Trade-off<br/><b>Strategist</b> owns · <b>Challenger</b> tests"]:::blue
+    MEMO["Decision Memo<br/><b>Drafter</b> writes<br/><b>Challenger</b> red-teams"]:::blue
+    RISK["Risk & Trade-off<br/><b>Strategist</b> owns<br/><b>Challenger</b> tests"]:::blue
 
     PM(["PM — reviews · decides · owns"]):::human
-    COND{{"Conductor — routes work, holds session state,<br/>fires triggers, enforces gates"}}:::infra
+    COND{{"Conductor — routes work<br/>holds session state<br/>fires triggers · enforces gates"}}:::infra
 
     %% Knowledge flow (draft -> staging -> gate -> store)
     SRC --> CAP --> STORE
@@ -143,7 +148,7 @@ flowchart TB
 
     %% Satellites
     DECIDE --> RISK --> REVIEW
-    VALID --> MEMO --> SMALL["Small circle<br/>eng lead · commercial · PM peer"]:::blue
+    VALID --> MEMO --> SMALL["Small circle<br/>eng lead · commercial<br/>PM peer"]:::blue
 
     %% Pull routes
     STORE --- ASK
@@ -255,7 +260,7 @@ flowchart LR
     end
     subgraph D["DECISION  · event-driven"]
         direction LR
-        d1["strategy change /<br/>opportunity / Learn output"]:::blue --> d2["Strategy -> Decide -> Validate -> Measure -> Learn"]:::blue --> d3{{"Review: PM decides"}}:::hub
+        d1["strategy change /<br/>opportunity /<br/>Learn output"]:::blue --> d2["Strategy -> Decide<br/>Validate -> Measure<br/>-> Learn"]:::blue --> d3{{"Review:<br/>PM decides"}}:::hub
     end
     subgraph R["RISK VALIDATION  · event-triggered"]
         direction LR
@@ -347,7 +352,7 @@ The Conductor is infrastructure — it decides *when* and *where*, never *what*.
 
 ```mermaid
 flowchart TB
-    COND{{"CONDUCTOR<br/>cadence · routing · gate enforcement · escalation"}}:::infra
+    COND{{"CONDUCTOR<br/>cadence · routing<br/>gate enforcement · escalation"}}:::infra
 
     COND -.->|new signal / poll| SC1["<b>Scribe</b> ×N<br/>parallel capture:<br/>API · transcripts · tickets"]:::green
     COND -.->|post-Review, Distribute| DR1["<b>Drafter</b> ×N<br/>parallel author:<br/>roadmap · team update · summary"]:::green
@@ -378,9 +383,9 @@ Every agent is a blend of four engineering disciplines. The ratio differs by age
 
 ```mermaid
 flowchart LR
-    CTX["Context Engineering<br/>what information gets surfaced<br/>(retrieval · chunking · freshness)"]:::disc
-    PRM["Prompt Engineering<br/>how the agent behaves<br/>(tone · adversarial framing · output shape)"]:::disc
-    HRN["Harness Engineering<br/>how the system moves<br/>(routing · gates · timers · errors)"]:::disc
+    CTX["Context Engineering<br/>what information gets surfaced<br/>(retrieval · chunking ·<br/>freshness)"]:::disc
+    PRM["Prompt Engineering<br/>how the agent behaves<br/>(tone · adversarial framing<br/>· output shape)"]:::disc
+    HRN["Harness Engineering<br/>how the system moves<br/>(routing · gates ·<br/>timers · errors)"]:::disc
     BND["Boundary Engineering<br/>what crosses between agents<br/>(interface design)"]:::bnd
 
     CTX --> AGENT(["every agent is a blend"]):::hub
@@ -399,10 +404,10 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-    g1["<b>1 · Misroute cascade</b><br/>Conductor routing needs a<br/>classification layer, not keyword match"]:::bnd
-    g2["<b>2 · Toothless Challenger</b><br/>needs retrieval of contradictory<br/>evidence, not just adversarial prompts"]:::bnd
-    g3["<b>3 · Unowned human input</b><br/>'ship it, but watch latency' =<br/>approval + condition + risk flag; parse it"]:::bnd
-    g4["<b>4 · Lossy handoffs</b><br/>Strategist -> Drafter: what crosses?<br/>full memo drowns, summary loses 'why'"]:::bnd
+    g1["<b>1 · Misroute cascade</b><br/>Conductor routing needs a<br/>classification layer,<br/>not keyword match"]:::bnd
+    g2["<b>2 · Toothless Challenger</b><br/>needs retrieval of<br/>contradictory evidence,<br/>not just adversarial prompts"]:::bnd
+    g3["<b>3 · Unowned human input</b><br/>'ship it, but watch latency' =<br/>approval + condition +<br/>risk flag; parse it"]:::bnd
+    g4["<b>4 · Lossy handoffs</b><br/>Strategist -> Drafter:<br/>what crosses? full memo<br/>drowns, summary loses 'why'"]:::bnd
     classDef bnd fill:#b23c17,stroke:#7a2810,color:#ffffff;
 ```
 
@@ -419,11 +424,11 @@ flowchart TB
         e1["Golden Source<br/>write-boundary hooks"]:::gov
         e2["Factory Staging<br/>draft -> stage -> gate -> Store"]:::gov
         e3["Write Boundaries<br/>agents can't write outside scope"]:::gov
-        e4["Context Tiering<br/>always / role / conditional / on-demand"]:::gov
-        e5["Provenance<br/>every output links its evidence"]:::gov
-        e6["REFLEXION<br/>Learn -> tagged lesson -> recalled next time"]:::gov
-        e7["Post-Mortem Audit<br/>independent check of agent output"]:::gov
-        e8["Session Handoff<br/>PM re-engages without context loss"]:::gov
+        e4["Context Tiering<br/>always / role /<br/>conditional / on-demand"]:::gov
+        e5["Provenance<br/>every output<br/>links its evidence"]:::gov
+        e6["REFLEXION<br/>Learn -> tagged lesson<br/>-> recalled next time"]:::gov
+        e7["Post-Mortem Audit<br/>independent check<br/>of agent output"]:::gov
+        e8["Session Handoff<br/>PM re-engages<br/>without context loss"]:::gov
     end
     SPINE --> ALL[("applies to every agent<br/>and every loop")]:::hub
     classDef gov fill:#4a148c,stroke:#2e0e57,color:#ffffff;

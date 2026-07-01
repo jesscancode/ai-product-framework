@@ -1,229 +1,153 @@
-<h1 align="center">hey, i'm jess ✦</h1>
+# **A framework for running product work with AI tooling**
 
-<p align="center">
-  Strategic Operator · Social Worker to AI Engineer · Cape Town
-</p>
+This framework is a way of running product management work so AI does the heavy lifting and a person still owns every decision. This walkthrough covers what it is, why it helps, and how the workflow fits together, layer by layer.
 
-<p align="center">
-  <a href="https://creategoodcontent.com" target="_blank"><img alt="Good Content" src="https://img.shields.io/badge/Good%20Content%20✦-1a1a1a.svg?&style=flat-square&logo=googlechrome&logoColor=white" /></a>
-  <a href="https://www.linkedin.com/in/jessklette" target="_blank"><img alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn-%230077B5.svg?&style=flat-square&logo=linkedin&logoColor=white" /></a>
-  <a href="mailto:jess@creategoodcontent.com"><img alt="Email" src="https://img.shields.io/badge/Email-D14836.svg?&style=flat-square&logo=gmail&logoColor=white" /></a>
-</p>
+# **The framework in one idea**
 
-10+ years designing systems, leading teams, and helping early-stage orgs scale ✦ first as a social worker, then in tech ops. Most recently as Head of Operations at CodeSpace.
+I have been more than a little obsessed with the work [Sarah Winter's](https://www.linkedin.com/in/sarahwinterscontentstrategist/) and her team are doing at [Content Design London](https://contentdesign.london/). Their work on [Content Design](https://contentdesign.london/blog/why-content-design-exists) has changed the way I work entirely and I've used their principles here to start thinking about how product teams may work alongside AI tooling. 
 
-## What I do
+Simply put, I've pointed the discipline of content design inward, at my own work and the work of the teams I run. 
 
-I help companies **build smarter products and operations with AI tooling** and **sharpen their strategic edge** through competitive intelligence, organizational design, and good product strategy. I bring software dev skills, mixed-methods research, systems thinking, and an unexpectedly useful social work background ✦ solving complex business problems with empathy, and analytical rigor.
+`Content used to be something you read. Now it's something you use. Content design is about giving your audience what they want, when they need it, in the way they expect.` - Sarah Winters
 
-Working on 'Get a Job in Tech' and finding my next best fit in tech. Reach out, and let's do some good work.
+Most teams aim that at customers. This framework aims it at the product manager's own process: the research, the decisions, the specs, and the updates other teams depend on. Heavily guided AI tooling gathers the raw material and drafts the outputs. The person reviews, decides, and approves. Everything traces back to one shared record.
 
-## What I'm building
+## A quick example case study for a small workflow
 
-<table>
+![Full Workflow](./images/case_study_example.svg)
 
-<!-- ROW START: AI Product Framework -->
-<tr>
-<td width="40%" valign="top">
+Qual customer interviews recordings, Team meeting transcriptions from Google Meet, product metrics from APIs, support tickets, sales conversations all flow into the Capture layer, where AI organises them into a shared knowledge base. 
 
-<img src="./images/case_study_example.svg" alt="AI Product Framework diagram" width="100%" />
+From there, it drafts research summaries, prioritisation recommendations, a product roadmap and team-specific updates, which the product manager reviews before they're distributed to each team in the tools they already use. 
 
-</td>
-<td width="60%" valign="top">
+The executive receives a concise roadmap update on WhatsApp, replies with a voice note containing new feedback or ideas, and that response is automatically transcribed and fed back into the Capture layer, where it becomes part of the evidence that informs the next round of product decisions, creating a continuous learning loop.
 
-**[A Framework for Running Product Work with AI Tooling](https://github.com/jesscancode/ai-product-framework)**
+Here's what the workflow could look like at the orchestration layer in n8n as an example.
 
-A system for running product management so AI does the heavy lifting and a person still owns every decision. Two loops — knowledge and decision — share one queryable source of truth, with a human review checkpoint before anything ships. Captures signal from meetings, tickets, and voice notes; drafts decision logs, specs, and team updates; routes everything back through the same hub so nothing drifts out of sync.
+![Full Workflow](./images/n8n_worfklow.png)
 
-<img alt="Product management" src="https://img.shields.io/badge/Product%20management-1a1a1a?style=flat-square" />
-<img alt="Content design" src="https://img.shields.io/badge/Content%20design-1a1a1a?style=flat-square" />
-<img alt="AI workflows" src="https://img.shields.io/badge/AI%20workflows-1a1a1a?style=flat-square" />
-<img alt="AI-native PM" src="https://img.shields.io/badge/AI--native%20PM-1a1a1a?style=flat-square" />
-<img alt="n8n" src="https://img.shields.io/badge/n8n-EA4B71?style=flat-square&logo=n8n&logoColor=white" />
-<img alt="MCP" src="https://img.shields.io/badge/MCP-1a1a1a?style=flat-square" />
+## **The problem it removes**
 
-[→ Read the framework](https://github.com/jesscancode/ai-product-framework)
+Every product team has the same leak.
 
-</td>
-</tr>
-<tr><td colspan="2"><br></td></tr>
-<!-- ROW END: AI Product Framework -->
+Decisions live in one person's head, so they get re-argued or accidentally reversed. Documents drift out of date, so people act on stale information. Sales promises one thing while the roadmap says another, and engineering absorbs the gap as rushed rework. Insight arrives in a quarterly rush instead of arriving continuously.
 
-<!-- ROW START: Customer Research & Competitive Intelligence -->
-<tr>
-<td width="40%" valign="top">
+This is often not a people problem but a missing system.
 
-<img src="./images/research-case-study.gif" alt="Customer research & competitive intelligence case study demo" width="100%" />
+Faster documents do not help if a team is acting on the wrong decision. The fix is the loop: make a better call, record it once, deliver it to each team in a form they will actually use, measure what happens, and feed that back in.
 
-</td>
-<td width="60%" valign="top">
+The framework helps your team hold one queryable source of truth — one place where the real evidence and reasoning live — and generates everything else from it. Decisions get recorded, teams stay aligned, insight stays current, and debt stops piling up.
 
-**[Customer Research & Competitive Intelligence](https://github.com/jesscancode/research-case-study)**
+## **The whole workflow, in one diagram**
 
-Deep customer research and competitive intelligence for a major SA property brand ✦ what drives customer choice, and who they *really* compete with. I led it end to end: survey design, **national-scale WhatsApp fielding** (which beat email 6:1), Python analysis, and AI-assisted thematic synthesis of hundreds of open-ended responses. ~2,100 respondents across two surveys.
+![Full Workflow](./images/throughline_master_workflow_brand.svg)
 
-<img alt="Python" src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" />
-<img alt="pandas" src="https://img.shields.io/badge/pandas-150458?style=flat-square&logo=pandas&logoColor=white" />
-<img alt="OpenAI" src="https://img.shields.io/badge/OpenAI-412991?style=flat-square&logo=openai&logoColor=white" />
-<img alt="WhatsApp" src="https://img.shields.io/badge/WhatsApp-25D366?style=flat-square&logo=whatsapp&logoColor=white" />
-<img alt="Mixed-methods research" src="https://img.shields.io/badge/Mixed--methods%20research-1a1a1a?style=flat-square" />
-<img alt="Competitive intelligence" src="https://img.shields.io/badge/Competitive%20intelligence-1a1a1a?style=flat-square" />
-<img alt="Thematic analysis" src="https://img.shields.io/badge/Thematic%20analysis-1a1a1a?style=flat-square" />
-<img alt="Survey design + NPS" src="https://img.shields.io/badge/Survey%20design%20%2B%20NPS-1a1a1a?style=flat-square" />
+*The full workflow (the master view, updated to include the decision memo loop and the Store query node).*
 
-[→ Read the Customer Research case study](https://github.com/jesscancode/research-case-study)
+The workflow runs top to bottom. Two loops move through it, and they share one hub.
 
-</td>
-</tr>
-<tr><td colspan="2"><br></td></tr>
-<!-- ROW END: Customer Research & Competitive Intelligence -->
+The knowledge loop moves raw signal into a shared record, turns it into documents, and sends those out to the teams.
 
-<!-- ROW START: Get a Job in Tech -->
-<tr>
-<td width="40%" valign="top">
-<img src="./images/demo.gif" alt="Get a Job in Tech demo" width="100%" />
-</td>
-<td width="60%" valign="top">
+The decision loop sets the goal, makes the call, tests it, measures the result, and learns from it.
 
-**[Get a Job in Tech](https://getajobintech.co.za)**
+Both loops read from and write to the same hub, called Store. Both pass through one human checkpoint, called Review. Colour tells the two apart in every diagram here: teal for the knowledge loop, purple for the decision loop.
 
-SA's friendliest tech job board ✦ clean listings and plain-English summaries. I built the site **and** the self-healing AI enriched data pipeline that feeds it daily.
+Two more things sit close to Store, and each gets its own section below: a decision memo that circulates early, while a call is still being tested, and a way to query Store directly, in plain language, at any time.
 
-<img alt="Python" src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" />
-<img alt="Next.js" src="https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=nextdotjs&logoColor=white" />
-<img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white" />
-<img alt="Tailwind CSS" src="https://img.shields.io/badge/Tailwind-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white" />
-<img alt="Supabase" src="https://img.shields.io/badge/Supabase-3FCF8E?style=flat-square&logo=supabase&logoColor=white" />
-<img alt="PostgreSQL" src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white" />
-<img alt="n8n" src="https://img.shields.io/badge/n8n-EA4B71?style=flat-square&logo=n8n&logoColor=white" />
-<img alt="OpenAI" src="https://img.shields.io/badge/OpenAI-412991?style=flat-square&logo=openai&logoColor=white" />
-<img alt="Vercel" src="https://img.shields.io/badge/Vercel-000000?style=flat-square&logo=vercel&logoColor=white" />
+## **The knowledge loop**
 
-[→ Read the Data Engineering case study](https://github.com/jesscancode/tech-job-scraper-case-study)
+![Full Workflow](./images/knowledge_loop_brand.svg)
 
-</td>
-</tr>
-<tr><td colspan="2"><br></td></tr>
-<!-- ROW END: Get a Job in Tech -->
+*The knowledge loop: Capture, Store, Author, Review, Distribute as one teal strand, plus the return arrow from the teams back to Capture.*
 
-<!-- ROW START: Full Art -->
-<tr>
-<td width="40%" valign="top">
+**Capture** — takes in signal from every source, in whatever form it arrives: product metrics from an API, meeting transcriptions, a support ticket, a sales note, a voice message from an exec, raw usage data. It meets people where they are instead of forcing everything into one channel.
 
-<img src="./images/full-art.png" alt="Full Art demo" width="100%" />
+**Store** — the shared record, and the hub of the whole system. One place where the real evidence and reasoning live. Everything downstream is generated from it rather than copied by hand, so nothing drifts out of sync.
 
-</td>
-<td width="60%" valign="top">
+**Author** — AI drafts the working documents straight from Store: decision logs, research summaries, specifications, work logs. Guardrails keep the record honest, so it is dated to the real work and hard to rewrite.
 
-**Full Art** ✦ Launching in July 2026
+**Review** — the human checkpoint. AI drafts; a person edits, decides, and approves. Nothing leaves this step without judgment behind it.
 
-Semantic search over Pokémon card **art** — find a card by what the picture shows (*"pokemon sleeping"*), not its name. A vision model reads every card; embeddings + pgvector make it searchable. A fun project to help me learn about computer vision and vector databases.
+**Distribute** — sends each team the document it needs, shaped for that team and delivered in the channel they use. Because every version is generated from Store, the teams never end up working from conflicting copies.
 
-<img alt="TCGdex API" src="https://img.shields.io/badge/TCGdex%20API-1a1a1a?style=flat-square" />
-<img alt="Astro" src="https://img.shields.io/badge/Astro-BC52EE?style=flat-square&logo=astro&logoColor=white" />
-<img alt="Svelte" src="https://img.shields.io/badge/Svelte-FF3E00?style=flat-square&logo=svelte&logoColor=white" />
-<img alt="Supabase" src="https://img.shields.io/badge/Supabase-3FCF8E?style=flat-square&logo=supabase&logoColor=white" />
-<img alt="pgvector" src="https://img.shields.io/badge/pgvector-4169E1?style=flat-square&logo=postgresql&logoColor=white" />
-<img alt="OpenAI" src="https://img.shields.io/badge/OpenAI-412991?style=flat-square&logo=openai&logoColor=white" />
-<img alt="n8n" src="https://img.shields.io/badge/n8n-EA4B71?style=flat-square&logo=n8n&logoColor=white" />
-<img alt="Embeddings" src="https://img.shields.io/badge/Embeddings-1a1a1a?style=flat-square" />
-<img alt="Computer vision" src="https://img.shields.io/badge/Computer%20vision-1a1a1a?style=flat-square" />
+## **The decision loop**
 
-[→ Read the Computer Vision case study](https://github.com/jesscancode/full-art-case-study)
+![Full Workflow](./images/decision_loop_brand.svg)
 
-</td>
-</tr>
-<tr><td colspan="2"><br></td></tr>
-<!-- ROW END: Full Art -->
+*The decision loop: Strategy, Decide, Validate, Measure, Learn as one purple strand, sharing Store and Review, with the return arrow from Learn back to Strategy.*
 
-<!-- ROW START: The Newsletter -->
-<tr>
-<td width="40%" valign="top">
+The decision loop shares Store and Review with the knowledge loop. It adds the parts that make and test a call.
 
-<img src="./images/newsletter.png" alt="Newsletter preview" width="100%"/>
+**Strategy and objectives** — the yardstick. The numbers this product area exists to move, such as gross profit, retention, and activation. Every later decision is judged against them.
 
-</td>
-<td width="60%" valign="top">
+**Decide and prioritise** — the call itself. Weigh the options against the objectives, choose what to build and in what order, and record why the other options were deprioritised. This is what sets the roadmap.
 
-**[The Newsletter](https://www.getajobintech.co.za/newsletter)**
+**Validate and experiment** — test the riskiest assumption cheaply before committing to it. My own approach here, as the product manager, is to spin up the test myself: build the MCP layers, use n8n and a bit of code, and move as fast as I can. A small test produces fresh evidence, which flows straight back into Store.
 
-A weekly read on tech jobs worth applying to, career stuff that actually helps, and thoughts on working with machines.
+**Measure** — choose the success metric at the moment you make the decision, then set up the measurement and watch it after launch. The metric is set up front, not reverse-engineered later.
 
-<img alt="Fresh SA tech jobs" src="https://img.shields.io/badge/fresh%20SA%20tech%20jobs-1a1a1a?style=flat-square" />
-<img alt="Essential tech news" src="https://img.shields.io/badge/essential%20tech%20news-1a1a1a?style=flat-square" />
-<img alt="Career resources that work" src="https://img.shields.io/badge/career%20resources%20that%20work-1a1a1a?style=flat-square" />
-<img alt="Future of work trends" src="https://img.shields.io/badge/future%20of%20work%20trends-1a1a1a?style=flat-square" />
-<img alt="Founder interviews" src="https://img.shields.io/badge/founder%20interviews-1a1a1a?style=flat-square" />
-<img alt="Tools to level up" src="https://img.shields.io/badge/tools%20to%20level%20up-1a1a1a?style=flat-square" />
+**Learn** — compare what you predicted with what actually happened. The gap is the lesson, and it feeds back into strategy and the next decision, so decisions get better over time.
 
-[→ Subscribe](https://www.getajobintech.co.za/newsletter)
+## **The decision memo: a provisional distribution, while the call is still in flight**
 
-</td>
-</tr>
-<tr><td colspan="2"><br></td></tr>
-<!-- ROW END: The Newsletter -->
+![Full Workflow](./images/decision_memo_loop_brand.svg)
 
-<!-- ROW START: Good Content -->
-<tr>
-<td width="40%" valign="top">
+*The decision memo loop: Validate branching right to the memo, out to a small circle, back through Capture.*
 
-<img src="./images/good-content.png" alt="Good Content" width="100%" /> 
+Distribute is not the only point where a document leaves the system. At Validate, before a decision is settled, I circulate a decision memo: a timestamped snapshot of the thinking so far. The riskiest assumption, how it is being tested, what I am assuming, what I expect to see.
 
-</td>
-<td width="60%" valign="top">
+This goes to a small circle, not the whole company: engineering, product peers, and the management layer above. Their job is to pressure-test the thinking, not to sign off on a finished decision.
 
-**[Good Content ✦](https://creategoodcontent.com)**
+It runs in two versions, not one. The first goes out before the test, with the assumptions and the test plan, so the circle can catch a bad test before it costs any effort. The second goes out after, with what was found and what I now think, for a final check. Both versions are just Author's existing guardrails at work: dated, and hard to quietly rewrite after the fact.
 
-AI ops and product strategy ✦ helping companies build smarter products and operations with competitive intelligence research and AI tooling.
+Whatever comments come back are signal, so they come in the same way as everything else: through Capture, then into Store, sharpening the decision before it is finalised.
 
-<img alt="AI tooling + automation" src="https://img.shields.io/badge/AI%20tooling%20%2B%20automation-1a1a1a?style=flat-square" />
-<img alt="Content strategy" src="https://img.shields.io/badge/Content%20strategy-1a1a1a?style=flat-square" />
-<img alt="AEO + authority building" src="https://img.shields.io/badge/AEO%20%2B%20authority%20building-1a1a1a?style=flat-square" />
-<img alt="Competitive intelligence + customer research" src="https://img.shields.io/badge/Competitive%20intelligence%20%2B%20customer%20research-1a1a1a?style=flat-square" />
-<img alt="Org design" src="https://img.shields.io/badge/Org%20design-1a1a1a?style=flat-square" />
-<img alt="GTM" src="https://img.shields.io/badge/GTM-1a1a1a?style=flat-square" />
+The difference between this and Distribute is temperature, not mechanism. Distribute is wide and settled: it tells a large audience a decision is made. The decision memo is narrow and provisional: it asks a small audience to find the holes before the decision is made.
 
-[→ creategoodcontent.com](https://creategoodcontent.com) · [Email](mailto:jess@creategoodcontent.com) · [WhatsApp](https://wa.me/27725449049)
+## **Ask Store directly**
+![Full Workflow](./images/ask_store_brand.svg)
 
-</td>
-</tr>
-<tr><td colspan="2"><br></td></tr>
-<!-- ROW END: Good Content -->
+*A small sidecar node beside Store, labelled "ask a question," with its three rules shown as a short legend.*
 
-<!-- ROW START: claude-like-a-baby-engineer -->
-<tr>
-<td width="40%" valign="top">
+Distribute is one route out of Store: push, on a schedule, shaped for each team. There is a second route: pull, on demand, in plain language. Anyone can ask Store a direct question — "what did we decide about X", "what's the status of Y" — and get an answer sourced from the real documents.
 
-<!-- add gif: <img src="./images/claude-like-an-engineer.png" alt="claude-like-an-engineer demo" width="100%" /> -->
+Three rules keep this honest:
 
-</td>
-<td width="60%" valign="top">
+- it answers only from documents that are actually in Store, never from general knowledge
+- every answer names and links to the document it came from
+- if nothing in Store covers the question, it says so, rather than guessing
 
-**claude-like-a-baby-engineer**
+This only reads from the approved layer of Store, after Review, never from drafts still in Author. A half-finished draft is not yet true, and this must never present it as if it were.
 
-A toolkit that makes Claude Code help you become an engineer not just a vibe coder. Really about **learning as you build** — for new developers and product people shipping safe, scalable software with AI.
+The benefit compounds. Small, in-the-moment questions no longer wait for a scheduled Distribute or a message to the product manager. The source of truth becomes something a person can interrogate directly, not something only one person can navigate.
 
-<img alt="Claude Code" src="https://img.shields.io/badge/Claude%20Code-D97757?style=flat-square&logo=claude&logoColor=white" />
-<img alt="AI workflows" src="https://img.shields.io/badge/AI%20workflows-1a1a1a?style=flat-square" />
-<img alt="Node.js" src="https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white" />
-<img alt="Git" src="https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white" />
+## **The teams, both ways**
 
-</td>
-</tr>
-<!-- ROW END: claude-like-a-baby-engineer -->
+![Full Workflow](./images/team_hinge_brand.svg)
 
-</table>
+*The team hinge (the close-up built earlier).*
 
-## What I bring
+The teams are not the end of the line. The same people who receive documents are the freshest source of signal you have, so the arrow runs both ways. Distribute sends out in each person's preferred format. Capture takes feedback back in that same format.
 
-| | |
-|---|---|
-| **Operations & strategy** | Business strategy · org design · competitive intelligence · GTM · product-market fit |
-| **People & change** | Team leadership · people management · HR + labour relations · change management · crisis intervention |
-| **Competitive Research** | Mixed-methods research · customer interviews · data analytics · competitive positioning |
-| **Content & AEO** | Content strategy · AEO + authority building · AI Content Workflows |
-| **Building with AI** | Systems thinking + AI tooling and workflows to ship working products. |
+An exec who gets a briefing on WhatsApp can reply with a voice note in seconds. Ask the same person to log into a tool and complete a form, and you get silence. The channel decides whether feedback happens at all, so the framework treats each person's channel as part of the design.
 
-## Off the clock
+## **Properties that run through every layer**
 
-Hanging out with my senior dog, Forrest · Obsessing over Neapolitan pizza dough 🍕 · TCG Vending and learning competitive Pokemon TCG · Helldivers 2 (for Managed Democracy) · Engine-building board games like Wingspan · and an *arguably unreasonable* quest to find one specific Pokémon card — Detective Pikachu #098/SV-P. If you have leads, you know what to do.
+Four things apply to every layer, so they sit across the whole framework rather than inside any single step:
+
+- provenance — every output can be traced back to the evidence that justified it, including every answer given through Ask Store
+- access control — who can see what, with sensitive material such as personal data or exec-only notes kept protected
+- system ownership — one person keeps the system itself healthy, with prompts current, tags tidy, and stale evidence archived
+- channel routing — each person's preferred platform and format, used both to send to them and to hear back from them, including the small circle who receive the decision memo
+
+# **Why this is content design, not admin**
+
+It is easy to mistake this for tidy paperwork. It is not. One shared record with generated outputs removes three kinds of debt at once:
+
+- documentation debt — docs go stale and start to contradict each other
+- strategic debt — decisions get re-argued, or built over
+- technical debt — teams act on mismatched information, and someone patches the gap under deadline
+
+Removing all three is what lets a team move fast without the mess building up. The decision memo adds a fourth defence, earlier in the process: it catches a flawed test before it runs, rather than a flawed decision after it ships.
+
+There is a second point worth stating plainly. This framework is a product built for the people who build products. It treats the product manager's own process as something worth designing. It has real users — the product manager and the internal teams — and shapes the content to what each of them needs. It also puts AI to work in how the product gets built, not only in what the product does for customers.

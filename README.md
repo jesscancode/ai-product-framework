@@ -5,7 +5,7 @@ This is a system for running product management work so AI does the heavy liftin
 It has two halves. 
 
 **The framework defines what happens:** signal is captured into one shared record (Store), AI drafts the documents a team needs, a person reviews and approves, and outputs are distributed to each team in the channel they already use. 
-**The harness defines who does it:** eight specialised agents (Scribe, Custodian, Drafter, Courier, Strategist, Analyst, Challenger, and a Conductor that routes but never writes).
+**The harness defines who does it:** eight specialised agents (Scribe, Custodian, Drafter, Courier, Strategist, Analyst, Challenger, and a Conductor that routes but never writes). The [engineering companion](./ENGINEERING-COMPANION.md) is the deeper build-facing counterpart to this README — it explains how the harness is staffed and governed, the principles each agent must hold, the anti-patterns that break them, and the checklist for adding a new one.
 
 Four feedback loops run through it, all sharing one source of truth and one human review gate:
 
@@ -16,9 +16,9 @@ Four feedback loops run through it, all sharing one source of truth and one huma
 
 Underneath sits an enforcement layer of deterministic rules — staging before Store, write boundaries, provenance, active recall — that stops the system decaying when agents or people take shortcuts. The whole thing applies the discipline of content design inward, at the product manager's own process, removing four kinds of debt at once: documentation, strategic, technical, and risk.
 
-This README covers the whole system: the idea, the two loops, the shared hub, the satellites, the eight agents that staff it, the loops the design was missing, and the enforcement that keeps it from decaying. Every part is drawn as a diagram, with a short text summary beside it.
+This README covers the whole system: the idea, the loops, the shared hub, the satellites, the eight agents that staff it, and the enforcement that keeps it from decaying. Every part is drawn as a diagram, with a short text summary beside it.
 
-If you only want the concept, read **The framework in one idea** and **The whole system in one diagram**, then stop. If you want to build it, keep going.
+If you only want the concept, read **The framework in one idea** and **The whole system in one diagram**, then stop. If you want to build it, keep going. A parallel [LLM-facing reference](./core-idea-llm--facing-reference/index.md) holds the same idea split into small, individually addressable sections, written for an agent to load one piece at a time rather than read end to end.
 
 ## Colour key
 
@@ -40,7 +40,7 @@ The discipline of [content design](https://contentdesign.london/blog/why-content
 
 > Content used to be something you read. Now it's something you use. Content design is about giving your audience what they want, when they need it, in the way they expect. — Sarah Winters
 
-Most teams aim that at customers. This framework aims it at the research, the decisions, the specs, and the updates other teams depend on.
+Most teams aim that at customers. This framework aims it at the research, the decisions, the specs, and the updates other teams depend on. The [content design principles](./content_design_principals/universal-content-design-rules.md) it draws on are written up separately as a domain-agnostic set of rules — the same discipline stated for any document, which the framework then turns inward on the PM's own process.
 
 ## The problem it removes
 
@@ -382,7 +382,7 @@ flowchart LR
 
 ## The enforcement spine
 
-The review's core verdict: the framework's design is sound, but it lacks the enforcement that stops it degrading when agents or humans take shortcuts. These patterns run across every layer as deterministic code, not prompts.
+The review's core verdict: the framework's design is sound, but it lacks the enforcement that stops it degrading when agents or humans take shortcuts. These patterns run across every layer as deterministic code, not prompts. They are set out in full in the [transferable rules](./agentic-design-patterns/transferrable_rules.md) — the enforcement architecture and the order to build it in — which pair with the broader [design pattern library](./agentic-design-patterns/design-patterns.md): the patterns name what is possible, the rules say what to enforce.
 
 ```mermaid
 flowchart TB
@@ -403,6 +403,8 @@ flowchart TB
 ```
 
 *Diagram summary: eight enforcement patterns apply to every agent and loop. Golden Source and Factory Staging keep Store clean. Write Boundaries and Context Tiering control what each agent can touch and see. Provenance, REFLEXION, and Post-Mortem Audit keep outputs traceable, make lessons compound, and check quality independently. Session Handoff lets the PM re-engage without losing context.*
+
+Session Handoff is concrete, not abstract: the PM's start- and end-of-session rituals are written up as runnable [session protocols](./session-protocols/) — a full boot ([`sos`](./session-protocols/sos.md)) and its scoped counterpart ([`fsos`](./session-protocols/fsos.md)) for re-engaging, and their write-half closes ([`eos`](./session-protocols/eos.md), [`feos`](./session-protocols/feos.md)) that record state for next time.
 
 Priority by effort against impact: **Deterministic-First** and **Factory Staging** are low-effort and high-impact — build them first. Write Boundaries, Context Tiering, and REFLEXION are the high-impact structural changes after that.
 

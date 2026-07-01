@@ -1,185 +1,483 @@
-# **A framework for running product work with AI tooling**
+# A framework for running product work with AI tooling
 
-This framework is a way of running product management work so AI does the heavy lifting and a person still owns every decision. This walkthrough covers what it is, why it helps, and how the workflow fits together, layer by layer.
+This is a way of running product management so AI does the heavy lifting and a person still owns every decision. AI gathers the raw material and drafts the outputs. The person reviews, decides, and approves. Everything traces back to one shared record.
 
-**Legend** ![Knowledge loop](https://img.shields.io/badge/Knowledge%20loop-84c65a?style=flat-square) ![Decision & query loop](https://img.shields.io/badge/Decision%20%26%20query%20loop-0d76eb?style=flat-square) ![Shared hub](https://img.shields.io/badge/Shared%20hub-111111?style=flat-square)
-# **The framework in one idea**
+This README covers the whole system: the idea, the two loops, the shared hub, the satellites, the eight agents that staff it, the loops the design was missing, and the enforcement that keeps it from decaying. Every part is drawn as a diagram, with a short text summary beside it.
 
-I have been more than a little obsessed with the work [Sarah Winter's](https://www.linkedin.com/in/sarahwinterscontentstrategist/) and her team are doing at [Content Design London](https://contentdesign.london/). Their work on [Content Design](https://contentdesign.london/blog/why-content-design-exists) has changed the way I work entirely and I've used their principles here to start thinking about how product teams may work alongside AI tooling.
+If you only want the concept, read **The framework in one idea** and **The whole system in one diagram**, then stop. If you want to build it, keep going.
 
-Simply put, I've pointed the discipline of content design inward, at my own work and the work of the teams I run.
+## Colour key
 
-`Content used to be something you read. Now it's something you use. Content design is about giving your audience what they want, when they need it, in the way they expect.` - Sarah Winters
+Every diagram uses the same colours. Colour is never the only signal — each node is also labelled in text.
 
-Most teams aim that at customers. This framework aims it at the product manager's own process: the research, the decisions, the specs, and the updates other teams depend on. Heavily guided AI tooling gathers the raw material and drafts the outputs. The person reviews, decides, and approves. Everything traces back to one shared record.
+| Colour | Meaning |
+|--------|---------|
+| Green | Knowledge loop — Capture, Store, Author, Review, Distribute |
+| Blue | Decision loop — Strategy, Decide, Validate, Measure, Learn |
+| Black | Shared hub — Store and Review, used by both loops |
+| Grey | Infrastructure — the Conductor, which routes but produces no content |
+| Orange | Human — the product manager, who owns every gate |
+| Purple | Spans both loops — the Challenger, plus the enforcement spine |
+| Red | Boundary failures — where the system breaks first |
 
-## A quick example case study for a small workflow
+## The framework in one idea
 
-![Full Workflow](./images/case_study_example.svg)
+The discipline of [content design](https://contentdesign.london/blog/why-content-design-exists), from [Sarah Winters](https://www.linkedin.com/in/sarahwinterscontentstrategist/) and [Content Design London](https://contentdesign.london/), asks one question before any writing starts: what does the reader actually need, and what is the best form to meet it? This framework points that question inward — at the product manager's own process rather than at customers.
 
-Qual customer interviews recordings, Team meeting transcriptions from Google Meet, product metrics from APIs, support tickets, sales conversations all flow into the ![Capture](https://img.shields.io/badge/Capture-84c65a?style=flat-square) layer, where AI organises them into a shared knowledge base.
+> Content used to be something you read. Now it's something you use. Content design is about giving your audience what they want, when they need it, in the way they expect. — Sarah Winters
 
-From there, it drafts research summaries, prioritisation recommendations, a product roadmap and team-specific updates, which the product manager reviews before they're distributed to each team in the tools they already use.
+Most teams aim that at customers. This framework aims it at the research, the decisions, the specs, and the updates other teams depend on.
 
-The executive receives a concise roadmap update on WhatsApp, replies with a voice note containing new feedback or ideas, and that response is automatically transcribed and fed back into the ![Capture](https://img.shields.io/badge/Capture-84c65a?style=flat-square) layer, where it becomes part of the evidence that informs the next round of product decisions, creating a continuous learning loop.
+## The problem it removes
 
-Here's what the workflow could look like at the orchestration layer in n8n as an example.
+Every product team has the same leak. Decisions live in one person's head, so they get re-argued or reversed. Documents drift out of date, so people act on stale information. Sales promises one thing while the roadmap says another, and engineering absorbs the gap as rushed rework. Insight arrives in a quarterly rush instead of continuously.
 
-![Orchestration Layer Workflow](./images/n8n_workflow.png)
+This is a missing system, not a people problem. Faster documents do not help if a team is acting on the wrong decision.
 
-## **The problem it removes**
+The fix is the loop: make a better call, record it once, deliver it to each team in a form they will use, measure what happens, and feed that back in. Hold one queryable source of truth, and generate everything else from it.
 
-Every product team has the same leak.
+## A worked example
 
-Decisions live in one person's head, so they get re-argued or accidentally reversed. Documents drift out of date, so people act on stale information. Sales promises one thing while the roadmap says another, and engineering absorbs the gap as rushed rework. Insight arrives in a quarterly rush instead of arriving continuously.
+One small workflow shows the shape of the whole thing. Customer interview recordings, Google Meet transcripts, product metrics from APIs, support tickets, and sales conversations all flow into Capture, where AI organises them into the shared record.
 
-This is often not a people problem but a missing system.
+From there, AI drafts research summaries, prioritisation recommendations, a roadmap, and team-specific updates. The PM reviews them before they go out to each team in the tools they already use.
 
-Faster documents do not help if a team is acting on the wrong decision. The fix is the loop: make a better call, record it once, deliver it to each team in a form they will actually use, measure what happens, and feed that back in.
+The exec receives a concise roadmap update on WhatsApp and replies with a voice note. That reply is transcribed automatically and fed back into Capture, where it becomes evidence for the next round of decisions — closing the loop. In practice the orchestration layer runs on something like n8n, but the tool is an implementation detail, not part of the design.
 
-The framework helps your team hold one queryable source of truth — one place where the real evidence and reasoning live — and generates everything else from it. Decisions get recorded, teams stay aligned, insight stays current, and debt stops piling up.
 
-## **The whole workflow, in one diagram**
 
-![Full Workflow](./images/throughline_master_workflow_brand.svg)
+## The whole system in one diagram
 
-*The full workflow (the master view, updated to include the decision memo loop and the Store query node).*
+The framework says *what* happens (the steps). The harness says *who* does it (the agents). The PM owns every gate. The Conductor routes everything and produces no content.
 
-The workflow runs top to bottom. Two loops move through it, and they share one hub.
+```mermaid
+flowchart TB
+    SRC["Signal in — interviews · meetings · metrics<br/>tickets · sales notes · exec voice notes"]:::green
 
-The knowledge loop moves raw signal into a shared record, turns it into documents, and sends those out to the teams.
+    %% ---------- KNOWLEDGE LOOP ----------
+    subgraph KL["KNOWLEDGE LOOP  (continuous)"]
+        direction TB
+        CAP["Capture<br/><b>Scribe</b>"]:::green
+        AUTH["Author<br/><b>Drafter</b>"]:::green
+        DIST["Distribute<br/><b>Courier</b>"]:::green
+    end
 
-The decision loop sets the goal, makes the call, tests it, measures the result, and learns from it.
+    %% ---------- SHARED HUB ----------
+    subgraph HUB["SHARED HUB"]
+        direction TB
+        STAGE["Staging / Factory<br/>drafts land here first"]:::infra
+        STORE[("Store — single source of truth<br/><b>Custodian</b> maintains")]:::hub
+        REVIEW{{"Review — human gate<br/><b>Challenger</b> pre-screens · <b>PM</b> decides"}}:::hub
+        ASK["Ask Store<br/>plain-language pull"]:::blue
+    end
 
-Both loops read from and write to the same hub, called ![Store](https://img.shields.io/badge/Store-111111?style=flat-square). Both pass through one human checkpoint, called ![Review](https://img.shields.io/badge/Review-111111?style=flat-square). Colour tells the two apart in every diagram here: green for the knowledge loop, blue for the decision loop.
+    %% ---------- DECISION LOOP ----------
+    subgraph DL["DECISION LOOP  (event-driven)"]
+        direction TB
+        STRAT["Strategy<br/><b>Strategist</b>"]:::blue
+        DECIDE["Decide<br/><b>Strategist</b> frames · <b>PM</b> calls"]:::blue
+        VALID["Validate<br/><b>PM</b> runs · <b>Analyst</b> supports"]:::blue
+        MEAS["Measure<br/><b>Analyst</b>"]:::blue
+        LEARN["Learn<br/><b>Analyst</b>"]:::blue
+    end
 
-Two more things sit close to ![Store](https://img.shields.io/badge/Store-111111?style=flat-square), and each gets its own section below: a ![Decision Memo](https://img.shields.io/badge/Decision%20Memo-0d76eb?style=flat-square) that circulates early, while a call is still being tested, and a way to query ![Store](https://img.shields.io/badge/Store-111111?style=flat-square) directly, in plain language, at any time.
+    %% ---------- SATELLITES ----------
+    MEMO["Decision Memo<br/><b>Drafter</b> writes · <b>Challenger</b> red-teams"]:::blue
+    RISK["Risk & Trade-off<br/><b>Strategist</b> owns · <b>Challenger</b> tests"]:::blue
 
-## **The knowledge loop**
+    PM(["PM — reviews · decides · owns"]):::human
+    COND{{"Conductor — routes work, holds session state,<br/>fires triggers, enforces gates"}}:::infra
 
-![Full Workflow](./images/knowledge_loop_brand.svg)
+    %% Knowledge flow (draft -> staging -> gate -> store)
+    SRC --> CAP --> STORE
+    STORE --> AUTH --> STAGE --> REVIEW
+    REVIEW -->|approved| STORE
+    STORE --> DIST -->|team-shaped outputs| TEAMS["Teams<br/>eng · exec · sales · support"]:::green
 
-*The knowledge loop: Capture, Store, Author, Review, Distribute as one teal strand, plus the return arrow from the teams back to Capture.*
+    %% Decision flow
+    STORE --> STRAT --> DECIDE --> VALID --> MEAS --> LEARN
+    LEARN -->|lesson| STRAT
+    DECIDE -. reads/writes .-> STORE
 
-![Capture](https://img.shields.io/badge/Capture-84c65a?style=flat-square) — takes in signal from every source, in whatever form it arrives: product metrics from an API, meeting transcriptions, a support ticket, a sales note, a voice message from an exec, raw usage data. It meets people where they are instead of forcing everything into one channel.
+    %% Satellites
+    DECIDE --> RISK --> REVIEW
+    VALID --> MEMO --> SMALL["Small circle<br/>eng lead · commercial · PM peer"]:::blue
 
-![Store](https://img.shields.io/badge/Store-111111?style=flat-square) — the shared record, and the hub of the whole system. One place where the real evidence and reasoning live. Everything downstream is generated from it rather than copied by hand, so nothing drifts out of sync.
+    %% Pull routes
+    STORE --- ASK
+    ASK -.->|sourced answer or 'I don't know'| PM
+    REVIEW --- PM
 
-![Author](https://img.shields.io/badge/Author-84c65a?style=flat-square) — AI drafts the working documents straight from ![Store](https://img.shields.io/badge/Store-111111?style=flat-square): decision logs, research summaries, specifications, work logs. Guardrails keep the record honest, so it is dated to the real work and hard to rewrite.
+    %% Conductor orchestrates (dashed = control, not content)
+    COND -.->|routes ×N| CAP
+    COND -.->|routes ×N| AUTH
+    COND -.->|routes ×N| DIST
+    COND -.->|routes| STRAT
+    COND -.->|routes| MEMO
 
-![Review](https://img.shields.io/badge/Review-111111?style=flat-square) — the human checkpoint. AI drafts; a person edits, decides, and approves. Nothing leaves this step without judgment behind it.
+    classDef green fill:#84c65a,stroke:#4f7d33,color:#0b2200;
+    classDef blue fill:#0d76eb,stroke:#0a4f9c,color:#ffffff;
+    classDef hub fill:#111111,stroke:#000000,color:#ffffff;
+    classDef infra fill:#9aa0a6,stroke:#5f6368,color:#111111;
+    classDef human fill:#f5a623,stroke:#b9781a,color:#241300;
+```
 
-![Distribute](https://img.shields.io/badge/Distribute-84c65a?style=flat-square) — sends each team the document it needs, shaped for that team and delivered in the channel they use. Because every version is generated from ![Store](https://img.shields.io/badge/Store-111111?style=flat-square), the teams never end up working from conflicting copies.
+*Diagram summary: signal flows into Capture and lands in Store. From Store, the knowledge loop authors drafts, stages them, passes the human Review gate, and distributes team-shaped outputs. From Store, the decision loop runs Strategy, Decide, Validate, Measure, and Learn, feeding lessons back to Strategy. Two satellites branch off: a Risk & Trade-off record from Decide, and a Decision Memo from Validate to a small circle. Ask Store pulls sourced answers on demand. The Conductor routes work to every agent but writes no content.*
 
-## **The decision loop**
+## Where to start building
 
-![Full Workflow](./images/decision_loop_brand.svg)
+Not everything is built at once. This sequence follows dependencies — each phase produces something usable.
 
-*The decision loop: Strategy, Decide, Validate, Measure, Learn as one blue strand, sharing Store and Review, with the return arrow from Learn back to Strategy.*
+| Phase | Build | Delivers |
+|-------|-------|----------|
+| 1 | Store + Scribe + Custodian | A working knowledge base with ingestion and maintenance |
+| 2 | Drafter + Conductor | Documents generated from Store, with basic routing |
+| 3 | Challenger | Adversarial review before the PM sees anything |
+| 4 | Strategist + Analyst | A working decision loop with measurement and learning |
+| 5 | Courier | Channel-aware delivery, completing the knowledge loop |
+| 6 | Ask Store | A plain-language query interface on Store |
 
-The decision loop shares ![Store](https://img.shields.io/badge/Store-111111?style=flat-square) and ![Review](https://img.shields.io/badge/Review-111111?style=flat-square) with the knowledge loop. It adds the parts that make and test a call.
+A solo PM at low volume does not need eight agents on day one. The minimum viable harness is **Store + Scribe + Drafter** — the PM plays Challenger, Strategist, and Analyst, which is what they already do. Add each agent when its absence starts costing PM attention. Below the full-team threshold, fewer agents with the PM filling the gaps is not a compromise — it is the right configuration.
 
-![Strategy](https://img.shields.io/badge/Strategy-0d76eb?style=flat-square) — the yardstick. The numbers this product area exists to move, such as gross profit, retention, and activation. Every later decision is judged against them.
+## The knowledge loop
 
-![Decide](https://img.shields.io/badge/Decide-0d76eb?style=flat-square) — the call itself. Weigh the options against the objectives, choose what to build and in what order, and record why the other options were deprioritised. This is what sets the roadmap.
+The knowledge loop moves raw signal into the shared record, turns it into documents, and sends those to the teams. It runs continuously.
 
-![Validate](https://img.shields.io/badge/Validate-0d76eb?style=flat-square) — test the riskiest assumption cheaply before committing to it. My own approach here, as the product manager, is to spin up the test myself: build the MCP layers, use n8n and a bit of code, and move as fast as I can. A small test produces fresh evidence, which flows straight back into ![Store](https://img.shields.io/badge/Store-111111?style=flat-square).
+- **Capture** — takes in signal from every source, in whatever form it arrives: metrics from an API, meeting transcripts, a support ticket, a sales note, an exec's voice message
+- **Store** — the shared record and the hub of the whole system, the one place the real evidence and reasoning live
+- **Author** — AI drafts working documents straight from Store: decision logs, research summaries, specifications, work logs
+- **Review** — the human gate, where a person edits, decides, and approves; nothing leaves without judgment behind it
+- **Distribute** — sends each team the document it needs, shaped for that team, in the channel they already use
 
-![Measure](https://img.shields.io/badge/Measure-0d76eb?style=flat-square) — choose the success metric at the moment you make the decision, then set up the measurement and watch it after launch. The metric is set up front, not reverse-engineered later.
+Because every version is generated from Store, teams never work from conflicting copies.
 
-![Learn](https://img.shields.io/badge/Learn-0d76eb?style=flat-square) — compare what you predicted with what actually happened. The gap is the lesson, and it feeds back into strategy and the next decision, so decisions get better over time.
+## The decision loop
 
-## **The decision memo: a provisional distribution, while the call is still in flight**
+The decision loop sets the goal, makes the call, tests it, measures the result, and learns from it. It shares Store and Review with the knowledge loop, and it is event-driven rather than continuous.
 
-![Full Workflow](./images/decision_memo_loop_brand.svg)
+- **Strategy** — the yardstick: the numbers this product area exists to move, such as gross profit, retention, and activation
+- **Decide** — the call itself: weigh the options against the objectives, choose what to build and in what order, and record why the rest were deprioritised
+- **Validate** — test the riskiest assumption cheaply before committing; the PM spins the test up directly to stay closest to the evidence
+- **Measure** — choose the success metric at the moment of the decision, then set up measurement and watch it after launch
+- **Learn** — compare prediction with outcome; the gap is the lesson, and it feeds back into strategy and the next decision
 
-*The decision memo loop: Validate branching right to the memo, out to a small circle, back through Capture.*
+## The satellites
 
-![Distribute](https://img.shields.io/badge/Distribute-84c65a?style=flat-square) is not the only point where a document leaves the system. At ![Validate](https://img.shields.io/badge/Validate-0d76eb?style=flat-square), before a decision is settled, I circulate a ![Decision Memo](https://img.shields.io/badge/Decision%20Memo-0d76eb?style=flat-square): a timestamped snapshot of the thinking so far. The riskiest assumption, how it is being tested, what I am assuming, what I expect to see.
+Three mechanisms sit close to Store, each serving a need the two loops do not cover on their own.
 
-This goes to a small circle, not the whole company: engineering, product peers, and the management layer above. Their job is to pressure-test the thinking, not to sign off on a finished decision.
+### Decision memo
 
-It runs in two versions, not one. The first goes out before the test, with the assumptions and the test plan, so the circle can catch a bad test before it costs any effort. The second goes out after, with what was found and what I now think, for a final check. Both versions are just ![Author](https://img.shields.io/badge/Author-84c65a?style=flat-square)'s existing guardrails at work: dated, and hard to quietly rewrite after the fact.
+At Validate, before a decision is settled, the PM circulates a timestamped snapshot of the thinking so far: the riskiest assumption, how it is being tested, what is assumed, what is expected. It goes to a small circle — engineering, product peers, the management layer — whose job is to pressure-test, not to sign off.
 
-Whatever comments come back are signal, so they come in the same way as everything else: through ![Capture](https://img.shields.io/badge/Capture-84c65a?style=flat-square), then into ![Store](https://img.shields.io/badge/Store-111111?style=flat-square), sharpening the decision before it is finalised.
+It runs in two versions: one before the test, so the circle can catch a bad test before it costs effort, and one after, with what was found. Comments return through Capture like any other signal. The difference between a memo and Distribute is temperature, not mechanism: Distribute is wide and settled, the memo is narrow and provisional.
 
-The difference between ![Decision Memo](https://img.shields.io/badge/Decision%20Memo-0d76eb?style=flat-square) and ![Distribute](https://img.shields.io/badge/Distribute-84c65a?style=flat-square) is temperature, not mechanism. ![Distribute](https://img.shields.io/badge/Distribute-84c65a?style=flat-square) is wide and settled: it tells a large audience a decision is made. ![Decision Memo](https://img.shields.io/badge/Decision%20Memo-0d76eb?style=flat-square) is narrow and provisional: it asks a small audience to find the holes before the decision is made.
+### Ask Store
 
-## **Ask Store directly**
+Distribute is the push route out of Store — scheduled, shaped per team. Ask Store is the pull route: anyone can ask a plain-language question and get an answer sourced from the real documents. Three rules keep it honest:
 
-![Full Workflow](./images/ask_store_brand.svg)
+- it answers only from documents actually in Store, never from general knowledge
+- every answer names and links the document it came from
+- if nothing in Store covers the question, it says so rather than guessing
 
-*A small sidecar node beside Store, labelled "ask a question," with its three rules shown as a short legend.*
+It reads only the approved layer of Store, after Review, never drafts still in Author. A half-finished draft is not yet true.
 
-![Distribute](https://img.shields.io/badge/Distribute-84c65a?style=flat-square) is one route out of ![Store](https://img.shields.io/badge/Store-111111?style=flat-square): push, on a schedule, shaped for each team. There is a second route: pull, on demand, in plain language. Anyone can ![Ask Store](https://img.shields.io/badge/Ask%20Store-0d76eb?style=flat-square) a direct question — "what did we decide about X", "what's the status of Y" — and get an answer sourced from the real documents.
+### Risk and trade-off
 
-Three rules keep this honest:
+Decide sets the direction and Validate tests it, but the *cost* of a choice rarely gets written down in the same disciplined way. Risk & Trade-off sits alongside Decide the way the memo sits alongside Validate. The moment a Decide record is created, Author drafts a record from Store — known dependencies, how similar past decisions played out, how solid the evidence is. Each record holds a consistent shape:
 
-- it answers only from documents that are actually in ![Store](https://img.shields.io/badge/Store-111111?style=flat-square), never from general knowledge
-- every answer names and links to the document it came from
-- if nothing in ![Store](https://img.shields.io/badge/Store-111111?style=flat-square) covers the question, it says so, rather than guessing
+- **the risk** — named plainly
+- **reversibility** — a one-way or two-way door, which alone sets how much scrutiny it gets
+- **blast radius** — who or what breaks if this is wrong
+- **the call** — accept, mitigate, avoid, or transfer, stated outright
+- **the reasoning** — in the PM's own words, so it's a decision and not a checkbox
+- **an owner**
+- **a revisit trigger** — a date or condition that forces a second look
 
-This only reads from the approved layer of ![Store](https://img.shields.io/badge/Store-111111?style=flat-square), after ![Review](https://img.shields.io/badge/Review-111111?style=flat-square), never from drafts still in ![Author](https://img.shields.io/badge/Author-84c65a?style=flat-square). A half-finished draft is not yet true, and this must never present it as if it were.
+This is **risk debt**: the cost of a choice arriving later as a surprise, to someone who never got to weigh in on whether it was worth taking.
 
-The benefit compounds. Small, in-the-moment questions no longer wait for a scheduled ![Distribute](https://img.shields.io/badge/Distribute-84c65a?style=flat-square) or a message to the product manager. The source of truth becomes something a person can interrogate directly, not something only one person can navigate.
+## The teams, both ways
 
-## **The teams, both ways**
-
-![Full Workflow](./images/team_hinge_brand.svg)
-
-*The team hinge (the close-up built earlier).*
-
-The teams are not the end of the line. The same people who receive documents are the freshest source of signal you have, so the arrow runs both ways. ![Distribute](https://img.shields.io/badge/Distribute-84c65a?style=flat-square) sends out in each person's preferred format. ![Capture](https://img.shields.io/badge/Capture-84c65a?style=flat-square) takes feedback back in that same format.
+The teams are not the end of the line. The same people who receive documents are the freshest source of signal, so the arrow runs both ways. Distribute sends out in each person's preferred format. Capture takes feedback back in that same format.
 
 An exec who gets a briefing on WhatsApp can reply with a voice note in seconds. Ask the same person to log into a tool and complete a form, and you get silence. The channel decides whether feedback happens at all, so the framework treats each person's channel as part of the design.
 
-## **Properties that run through every layer**
+## Four loops, not two
 
-Four things apply to every layer, so they sit across the whole framework rather than inside any single step:
+A review of the framework found that it *described* three feedback circuits but never drew them as closed loops — so revisit triggers rot, Store decays, and team feedback depends on someone choosing to speak up. Formalising them gives four loops, each with its own cadence and trigger, each passing a human gate.
 
-- provenance — every output can be traced back to the evidence that justified it, including every answer given through ![Ask Store](https://img.shields.io/badge/Ask%20Store-0d76eb?style=flat-square)
-- access control — who can see what, with sensitive material such as personal data or exec-only notes kept protected
-- system ownership — one person keeps the system itself healthy, with prompts current, tags tidy, and stale evidence archived
-- channel routing — each person's preferred platform and format, used both to send to them and to hear back from them, including the small circle who receive the ![Decision Memo](https://img.shields.io/badge/Decision%20Memo-0d76eb?style=flat-square)
+```mermaid
+flowchart LR
+    subgraph K["KNOWLEDGE  · continuous"]
+        direction LR
+        k1["new signal"]:::green --> k2["Capture -> Store -> Author"]:::green --> k3{{"Review: PM approves"}}:::hub --> k4["Distribute"]:::green
+    end
+    subgraph D["DECISION  · event-driven"]
+        direction LR
+        d1["strategy change /<br/>opportunity / Learn output"]:::blue --> d2["Strategy -> Decide -> Validate -> Measure -> Learn"]:::blue --> d3{{"Review: PM decides"}}:::hub
+    end
+    subgraph R["RISK VALIDATION  · event-triggered"]
+        direction LR
+        r1["Revisit Trigger fires<br/>(date or condition)"]:::blue --> r2["did the risk materialise?<br/>did mitigation hold?"]:::blue --> r3{{"PM re-evaluates<br/>accepted risk"}}:::hub
+    end
+    subgraph S["SYSTEM HEALTH  · scheduled (weekly/monthly)"]
+        direction LR
+        s1["Custodian cadence"]:::infra --> s2["audit Store: stale ·<br/>duplicate · orphaned · schema"]:::infra --> s3{{"Custodian acts,<br/>PM informed"}}:::hub
+    end
 
-# **Why this is content design, not admin**
+    K --> HUB[("Store")]:::hub
+    D --> HUB
+    R --> HUB
+    S --> HUB
 
-It is easy to mistake this for tidy paperwork. It is not. One shared record with generated outputs removes three kinds of debt at once:
+    classDef green fill:#84c65a,stroke:#4f7d33,color:#0b2200;
+    classDef blue fill:#0d76eb,stroke:#0a4f9c,color:#ffffff;
+    classDef hub fill:#111111,stroke:#000000,color:#ffffff;
+    classDef infra fill:#9aa0a6,stroke:#5f6368,color:#111111;
+```
 
-- documentation debt — docs go stale and start to contradict each other
-- strategic debt — decisions get re-argued, or built over
-- technical debt — teams act on mismatched information, and someone patches the gap under deadline
+*Diagram summary: four loops all write back to Store. The knowledge loop runs continuously. The decision loop is event-driven. The risk validation loop fires when a revisit trigger's date or condition is met, and asks whether an accepted risk materialised. The system health loop runs on a schedule to audit Store for stale, duplicate, orphaned, or off-schema records.*
 
-Removing all three is what lets a team move fast without the mess building up. ![Decision Memo](https://img.shields.io/badge/Decision%20Memo-0d76eb?style=flat-square) adds a fourth defence, earlier in the process: it catches a flawed test before it runs, rather than a flawed decision after it ships.
+## The pull loops the review added
 
-There is a second point worth stating plainly. This framework is a product built for the people who build products. It treats the product manager's own process as something worth designing. It has real users — the product manager and the internal teams — and shapes the content to what each of them needs. It also puts AI to work in how the product gets built, not only in what the product does for customers.
+Generation was already strong: AI drafts, a human reviews. What was missing were the signals that tell you something has gone stale, unread, or contested.
 
-# **Next steps: a risk and trade-off layer**
+```mermaid
+flowchart LR
+    subgraph P1["Distribute -> Capture  (pull)"]
+        direction LR
+        a1["Distribute"]:::green --> a2["team acts / reacts"]:::green --> a3["'did this land?' poll"]:::green --> a4["Capture (<b>Scribe</b>)"]:::green --> a5[("Store")]:::hub
+    end
+    subgraph P2["Memo -> Decide  (gate)"]
+        direction LR
+        b1["Decision Memo out"]:::blue --> b2["small-circle feedback<br/>via Capture"]:::blue --> b3["<b>Strategist</b> synthesises<br/>into resolution options"]:::blue --> b4{"blocker raised?"}:::blue
+        b4 -->|yes| b5["Decide re-evaluates<br/>before Validate continues"]:::blue
+        b4 -->|no| b6["informs, does not block"]:::blue
+    end
+    classDef green fill:#84c65a,stroke:#4f7d33,color:#0b2200;
+    classDef blue fill:#0d76eb,stroke:#0a4f9c,color:#ffffff;
+    classDef hub fill:#111111,stroke:#000000,color:#ffffff;
+```
 
-Everything above answers *what did we decide and why*. It doesn't yet answer *what did we knowingly accept to get there*.
+*Diagram summary: two pull loops. The first turns Distribute into a source of signal — a "did this land?" poll flows back through Capture into Store. The second turns memo feedback into a gate — the Strategist synthesises small-circle comments into resolution options, and if a blocker is raised, Decide re-evaluates before Validate continues; otherwise the feedback informs without blocking.*
 
-Right now ![Decide](https://img.shields.io/badge/Decide-0d76eb?style=flat-square) sets the direction and ![Validate](https://img.shields.io/badge/Validate-0d76eb?style=flat-square) tests it, but the cost of a choice — rarely gets written down in the same disciplined way. It lives in the PM's head, same problem the whole framework exists to remove elsewhere.
+## The eight agents
 
-![Risk & Trade-off](https://img.shields.io/badge/Risk%20%26%20Trade--off-0d76eb?style=flat-square) sits alongside ![Decide](https://img.shields.io/badge/Decide-0d76eb?style=flat-square), the way ![Decision Memo](https://img.shields.io/badge/Decision%20Memo-0d76eb?style=flat-square) sits alongside ![Validate](https://img.shields.io/badge/Validate-0d76eb?style=flat-square). ![Author](https://img.shields.io/badge/Author-84c65a?style=flat-square) drafts it the moment a ![Decide](https://img.shields.io/badge/Decide-0d76eb?style=flat-square) record is created, pulling from ![Store](https://img.shields.io/badge/Store-111111?style=flat-square) — known dependencies, how similar past decisions played out, how thin or solid the evidence behind this one actually is. The PM reviews it the same way they review everything else: reads, edits, decides, owns it.
+The framework defines *what* happens. The harness defines *who* does it. Eight agents staff the loops — the minimum that gives each step a clear owner without collapsing distinct capabilities into one overloaded role. Each is stateless except the Conductor, which holds session state as infrastructure, not authority.
 
-![Full Workflow](./images/risk_tradeoff_layer.svg)
+| Agent | Primary capability | Steps served | Colour |
+|-------|-------------------|---------------|--------|
+| **Scribe** | Ingestion and transcription | Capture | Green |
+| **Custodian** | Store maintenance, dedup, schema, index | Store, System Ownership | Green |
+| **Drafter** | Document generation from Store | Author, Decision Memo | Green |
+| **Courier** | Channel-aware delivery and format shaping | Distribute, Channel Routing | Green |
+| **Strategist** | Objectives, option framing, feedback resolution | Strategy, Decide (framing) | Blue |
+| **Analyst** | Metric design, measurement, learn-forward tagging | Validate, Measure, Learn | Blue |
+| **Challenger** | Adversarial review and risk surfacing | Review (adversarial), Risk & Trade-off | Purple (spans both) |
+| **Conductor** | Routing, session state, triggers, gates | Infrastructure — no step | Grey |
 
-Each record holds a small, consistent shape:
+Two rules hold across all of them: **the PM owns every decision** (agents draft, challenge, and organise; a person reviews, decides, and approves), and **Store is the single source of truth** (agents read from and write to Store, and no agent keeps a private record that contradicts it).
 
-- **the risk** — named plainly
-- **reversibility** — a one-way door or a two-way door, since that alone should set how much scrutiny it gets
-- **blast radius** — who or what breaks if this is wrong
-- **the call** — accept, mitigate, avoid, or transfer, stated outright
-- **the reasoning** — in the PM's own words, so it's a decision and not just a checkbox
-- **an owner**
-- a ![Revisit Trigger](https://img.shields.io/badge/Revisit%20Trigger-0d76eb?style=flat-square) — a date or condition that forces a second look, so the record doesn't just sit there
+### Who is responsible for what
 
-For anything irreversible or wide-blast-radius, it can circulate like ![Decision Memo](https://img.shields.io/badge/Decision%20Memo-0d76eb?style=flat-square) does — out to the small circle before the trade-off is locked in, so someone else gets a chance to catch it while it's still cheap to change.
+One Responsible agent per workflow, with the PM Accountable for every decision-bearing step.
 
-![Revisit Trigger](https://img.shields.io/badge/Revisit%20Trigger-0d76eb?style=flat-square) is what keeps this clear over time. It feeds ![Learn](https://img.shields.io/badge/Learn-0d76eb?style=flat-square) exactly the way ![Measure](https://img.shields.io/badge/Measure-0d76eb?style=flat-square) does: did the risk we accepted actually happen, did the mitigation hold etc. That answer goes back into ![Store](https://img.shields.io/badge/Store-111111?style=flat-square), so the next ![Risk & Trade-off](https://img.shields.io/badge/Risk%20%26%20Trade--off-0d76eb?style=flat-square) record ![Author](https://img.shields.io/badge/Author-84c65a?style=flat-square) drafts is a little sharper than the last one — creating a growing memory of what this team's trade-offs actually cost.
+| Workflow | Responsible | PM role |
+|----------|-------------|---------|
+| Capture | Scribe | Informed |
+| Store maintenance | Custodian | Informed |
+| Author | Drafter | Accountable |
+| Review (adversarial) | Challenger | Accountable |
+| Review (editorial) | PM | Responsible |
+| Distribute | Courier | Accountable |
+| Strategy | Strategist | Accountable |
+| Decide (framing) | Strategist | Accountable |
+| Decide (final call) | PM | Responsible |
+| Risk & Trade-off | Strategist | Accountable |
+| Validate | PM | Responsible |
+| Measure | Analyst | Accountable |
+| Learn | Analyst | Accountable |
+| Decision Memo | Drafter | Accountable |
+| Ask Store | Custodian (index) | Informed |
 
-And it plugs into ![Ask Store](https://img.shields.io/badge/Ask%20Store-0d76eb?style=flat-square) for free. *"What did we accept when we shipped X"* or *"what were we assuming about Y"* becomes answerable the same way *"what did we decide about X"* already is — sourced, or it says it doesn't know.
+## Orchestration and parallel spawning
 
-Documentation debt is decisions going stale. Strategic debt is decisions being re-argued. Technical debt is teams acting on mismatched information.
+The Conductor is infrastructure — it decides *when* and *where*, never *what*. Much of the work fans out into parallel stateless subagents, shown as ×N.
 
-This is **risk debt** — the cost of a choice arriving later as a surprise, to someone who never got to weigh in on whether it was worth taking.
+```mermaid
+flowchart TB
+    COND{{"CONDUCTOR<br/>cadence · routing · gate enforcement · escalation"}}:::infra
+
+    COND -.->|new signal / poll| SC1["<b>Scribe</b> ×N<br/>parallel capture:<br/>API · transcripts · tickets"]:::green
+    COND -.->|post-Review, Distribute| DR1["<b>Drafter</b> ×N<br/>parallel author:<br/>roadmap · team update · summary"]:::green
+    COND -.->|Distribute event| CO1["<b>Courier</b> ×N<br/>parallel deliver:<br/>WhatsApp · Jira · email · Slack"]:::green
+
+    ST["<b>Strategist</b>"]:::blue -.->|Decide record created| CH["<b>Challenger</b><br/>red-team before Memo"]:::span
+    AN["<b>Analyst</b>"]:::blue -.->|Measure cadence fires| SC2["<b>Scribe</b><br/>pull fresh metrics -> Store"]:::green
+    CU["<b>Custodian</b>"]:::green -.->|System Health cadence| AN2["<b>Analyst</b><br/>Store-quality audit"]:::blue
+
+    CH --> PM(["PM gate"]):::human
+    DR1 --> PM
+    ST --> PM
+    AN --> PM
+    PM -->|approve / reject / decide| COND
+
+    classDef green fill:#84c65a,stroke:#4f7d33,color:#0b2200;
+    classDef blue fill:#0d76eb,stroke:#0a4f9c,color:#ffffff;
+    classDef span fill:#7b4fe0,stroke:#4b2c94,color:#ffffff;
+    classDef infra fill:#9aa0a6,stroke:#5f6368,color:#111111;
+    classDef human fill:#f5a623,stroke:#b9781a,color:#241300;
+```
+
+*Diagram summary: the Conductor fans work out to parallel agents — many Scribes capturing at once, many Drafters authoring at once, many Couriers delivering across channels at once. Agents also trigger each other: a Decide record wakes the Challenger, a Measure cadence wakes a Scribe, a system-health cadence wakes an Analyst. Everything decision-bearing lands at the PM gate, and the PM's approve, reject, or decide flows back to the Conductor.*
+
+## The four engineering disciplines
+
+Every agent is a blend of four engineering disciplines. The ratio differs by agent, and the boundaries between agents are where production bugs live first.
+
+```mermaid
+flowchart LR
+    CTX["Context Engineering<br/>what information gets surfaced<br/>(retrieval · chunking · freshness)"]:::disc
+    PRM["Prompt Engineering<br/>how the agent behaves<br/>(tone · adversarial framing · output shape)"]:::disc
+    HRN["Harness Engineering<br/>how the system moves<br/>(routing · gates · timers · errors)"]:::disc
+    BND["Boundary Engineering<br/>what crosses between agents<br/>(interface design)"]:::bnd
+
+    CTX --> AGENT(["every agent is a blend"]):::hub
+    PRM --> AGENT
+    HRN --> AGENT
+    BND --> AGENT
+
+    classDef disc fill:#0d76eb,stroke:#0a4f9c,color:#ffffff;
+    classDef bnd fill:#b23c17,stroke:#7a2810,color:#ffffff;
+    classDef hub fill:#111111,stroke:#000000,color:#ffffff;
+```
+
+*Diagram summary: four disciplines feed every agent. Context engineering controls what information is surfaced. Prompt engineering controls how the agent behaves. Harness engineering controls how the system moves. Boundary engineering — added after the review — controls what crosses between agents, and is where the four failures below live.*
+
+### The four boundary failures to engineer against
+
+```mermaid
+flowchart LR
+    g1["<b>1 · Misroute cascade</b><br/>Conductor routing needs a<br/>classification layer, not keyword match"]:::bnd
+    g2["<b>2 · Toothless Challenger</b><br/>needs retrieval of contradictory<br/>evidence, not just adversarial prompts"]:::bnd
+    g3["<b>3 · Unowned human input</b><br/>'ship it, but watch latency' =<br/>approval + condition + risk flag; parse it"]:::bnd
+    g4["<b>4 · Lossy handoffs</b><br/>Strategist -> Drafter: what crosses?<br/>full memo drowns, summary loses 'why'"]:::bnd
+    classDef bnd fill:#b23c17,stroke:#7a2810,color:#ffffff;
+```
+
+*Diagram summary: four failures at the boundaries. A misroute cascade when the Conductor matches keywords instead of classifying. A toothless Challenger with rhetoric but no evidence. Unowned human input, where "approved with conditions" is captured as a bare "approved". And lossy handoffs, where the reasoning behind options is dropped between agents.*
+
+## The enforcement spine
+
+The review's core verdict: the framework's design is sound, but it lacks the enforcement that stops it degrading when agents or humans take shortcuts. These patterns run across every layer as deterministic code, not prompts.
+
+```mermaid
+flowchart TB
+    subgraph SPINE["Cross-cutting enforcement (deterministic-first)"]
+        direction LR
+        e1["Golden Source<br/>write-boundary hooks"]:::gov
+        e2["Factory Staging<br/>draft -> stage -> gate -> Store"]:::gov
+        e3["Write Boundaries<br/>agents can't write outside scope"]:::gov
+        e4["Context Tiering<br/>always / role / conditional / on-demand"]:::gov
+        e5["Provenance<br/>every output links its evidence"]:::gov
+        e6["REFLEXION<br/>Learn -> tagged lesson -> recalled next time"]:::gov
+        e7["Post-Mortem Audit<br/>independent check of agent output"]:::gov
+        e8["Session Handoff<br/>PM re-engages without context loss"]:::gov
+    end
+    SPINE --> ALL[("applies to every agent<br/>and every loop")]:::hub
+    classDef gov fill:#4a148c,stroke:#2e0e57,color:#ffffff;
+    classDef hub fill:#111111,stroke:#000000,color:#ffffff;
+```
+
+*Diagram summary: eight enforcement patterns apply to every agent and loop. Golden Source and Factory Staging keep Store clean. Write Boundaries and Context Tiering control what each agent can touch and see. Provenance, REFLEXION, and Post-Mortem Audit keep outputs traceable, make lessons compound, and check quality independently. Session Handoff lets the PM re-engage without losing context.*
+
+Priority by effort against impact: **Deterministic-First** and **Factory Staging** are low-effort and high-impact — build them first. Write Boundaries, Context Tiering, and REFLEXION are the high-impact structural changes after that.
+
+## A typical week
+
+Where the PM actually touches the work. Everything else is agent-driven.
+
+```mermaid
+sequenceDiagram
+    autonumber
+    participant PM as PM (human)
+    participant C as Conductor
+    participant Sc as Scribe
+    participant Cu as Custodian
+    participant St as Store
+    participant Dr as Drafter
+    participant Ch as Challenger
+    participant Str as Strategist
+    participant An as Analyst
+    participant Co as Courier
+
+    Note over Sc,St: Mon — Capture & triage
+    Sc->>St: ingest weekend signal (auto, ×N)
+    Cu->>St: dedup, flag stale, schema check
+
+    Note over C,Ch: Tue — Author & challenge
+    C->>Dr: pending Decision Memo detected
+    Dr->>Ch: pre-test memo (draft in staging)
+    Ch->>PM: "blast radius understated" (surfaced, not fixed)
+    PM->>Co: edit + approve -> circulate to small circle
+
+    Note over Sc,Str: Wed — Feedback & synthesis
+    Sc->>St: capture small-circle replies
+    Str->>PM: 3 resolution options (no anchoring)
+    PM->>St: choose option 3 + record rationale
+
+    Note over PM,An: Thu — Validate & measure
+    PM->>An: run test on narrowed cohort
+    An->>St: metric designed up front, measurement live
+    C-->>C: session handoff written (context limit)
+
+    Note over An,Co: Fri — Learn & distribute
+    An->>St: learn-forward tag (7-day window)
+    Co->>PM: team-shaped outputs per channel (×N)
+    PM->>St: Ask Store answers "what did we decide?"
+```
+
+*Diagram summary: across a week, the PM touches the work at four points — approving a memo for circulation on Tuesday, choosing a resolution option on Wednesday, running the test on Thursday, and reviewing distributed outputs on Friday. Everything else — capture, dedup, drafting, challenging, measuring, tagging, and delivery — runs through the agents, with a session handoff written automatically when a context limit is reached.*
+
+## From framework step to agentic system
+
+The through-line is unchanged: AI does the heavy lifting, a person owns every decision, everything traces back to one Store. The harness turns described intentions into mechanisms — named owners, closed loops, an orchestration model, an engineering lens that predicts where it breaks, and an enforcement spine that stops it decaying.
+
+| Framework step or property | Agent | PM role |
+|----------------------------|-------|---------|
+| Capture | Scribe | Informed |
+| Store + System Ownership | Custodian | Informed |
+| Author + Decision Memo | Drafter | Accountable |
+| Review (adversarial) | Challenger | Accountable |
+| Review (editorial) | — | Responsible |
+| Strategy + Decide (framing) | Strategist | Accountable |
+| Decide (final call) | — | Responsible |
+| Validate | Analyst (support) | Responsible |
+| Measure + Learn | Analyst | Accountable |
+| Risk & Trade-off | Strategist (Challenger tests) | Accountable |
+| Distribute + Channel Routing | Courier | Accountable |
+| Routing, cadence, gates | Conductor | — |
+| Ask Store (pull) | Custodian indexes | Informed |
+
+## Properties that run through every layer
+
+Four things apply to every layer, so they sit across the whole system rather than inside any single step:
+
+- **provenance** — every output traces back to the evidence that justified it, including every Ask Store answer
+- **access control** — who can see what, with sensitive material such as personal data or exec-only notes kept protected
+- **system ownership** — one person keeps the system healthy, with prompts current, tags tidy, and stale evidence archived
+- **channel routing** — each person's preferred platform and format, used both to send to them and to hear back from them
+
+## Why this is content design, not admin
+
+It is easy to mistake this for tidy paperwork. It is not. One shared record with generated outputs removes four kinds of debt at once:
+
+- **documentation debt** — docs go stale and start to contradict each other
+- **strategic debt** — decisions get re-argued, or built over
+- **technical debt** — teams act on mismatched information, and someone patches the gap under deadline
+- **risk debt** — the cost of a choice arrives later as a surprise, to someone who never got to weigh in
+
+Removing all four is what lets a team move fast without the mess building up.
+
+There is a second point worth stating plainly. This is a product built for the people who build products. It treats the product manager's own process as something worth designing, with real users — the PM and the internal teams — and shapes the content to what each of them needs. It puts AI to work in how the product gets built, not only in what the product does for customers.
+
+

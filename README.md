@@ -6,11 +6,13 @@ It's for anyone weighing how a product manager works. That includes another prod
 
 # **The framework in one idea**
 
-I have been more than a little obsessed with the work [Sarah Winters](https://www.linkedin.com/in/sarahwinterscontentstrategist/) and her team are doing at [Content Design London](https://contentdesign.london/). Their work on [Content Design](https://contentdesign.london/blog/why-content-design-exists) has changed the way I work entirely and I've used their principles here to start thinkging about how product teams may work alongside AI tooling. 
+I have been more than a little obsessed with the work [Sarah Winter's](https://www.linkedin.com/in/sarahwinterscontentstrategist/) and her team are doing at [Content Design London](https://contentdesign.london/). Their work on [Content Design](https://contentdesign.london/blog/why-content-design-exists) has changed the way I work entirely and I've used their principles here to start thinking about how product teams may work alongside AI tooling. 
 
-Simply, that means I've pointed the discipline of content design inward, at my own work and the work of the teams I run. Content design means giving people the exact content they need, in a form they can use, based on evidence of what they are trying to do.
+Simply put, I've pointed the discipline of content design inward, at my own work and the work of the teams I run. 
 
-Most teams aim that at customers. This framework aims it at the product manager's own process: the research, the decisions, the specs, and the updates other teams depend on. Heavily guided AI gathers the raw material and drafts the outputs. The person reviews, decides, and approves. Everything traces back to one shared record.
+`Content design means giving people the exact content they need, in a form they can use, based on evidence of what they are trying to do.`
+
+Most teams aim that at customers. This framework aims it at the product manager's own process: the research, the decisions, the specs, and the updates other teams depend on. Heavily guided AI tooling gathers the raw material and drafts the outputs. The person reviews, decides, and approves. Everything traces back to one shared record.
 
 ## **The problem it removes**
 

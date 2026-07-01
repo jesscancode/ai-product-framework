@@ -152,7 +152,7 @@ Removing all three is what lets a team move fast without the mess building up. T
 
 There is a second point worth stating plainly. This framework is a product built for the people who build products. It treats the product manager's own process as something worth designing. It has real users — the product manager and the internal teams — and shapes the content to what each of them needs. It also puts AI to work in how the product gets built, not only in what the product does for customers.
 
-## **Next steps: a risk and trade-off layer**
+# **Next steps: a risk and trade-off layer**
 
 Everything above answers *what did we decide and why*. It doesn't yet answer *what did we knowingly accept to get there*. 
 

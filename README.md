@@ -22,6 +22,10 @@ From there, it drafts research summaries, prioritisation recommendations, a prod
 
 The executive receives a concise roadmap update on WhatsApp, replies with a voice note containing new feedback or ideas, and that response is automatically transcribed and fed back into the Capture layer, where it becomes part of the evidence that informs the next round of product decisions, creating a continuous learning loop.
 
+Here's what the workflow could look like at the orchestration layer in n8n as an example.
+
+![Full Workflow](./images/n8n_worfklow.png)
+
 ## **The problem it removes**
 
 Every product team has the same leak.

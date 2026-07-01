@@ -2,7 +2,10 @@
 
 This is a system for running product management work so AI does the heavy lifting and a person still owns every decision.
 
-It has two halves. The framework defines what happens: signal is captured into one shared record (Store), AI drafts the documents a team needs, a person reviews and approves, and outputs are distributed to each team in the channel they already use. The harness defines who does it: eight specialised agents (Scribe, Custodian, Drafter, Courier, Strategist, Analyst, Challenger, and a Conductor that routes but never writes).
+It has two halves. 
+
+**The framework defines what happens:** signal is captured into one shared record (Store), AI drafts the documents a team needs, a person reviews and approves, and outputs are distributed to each team in the channel they already use. 
+**The harness defines who does it:** eight specialised agents (Scribe, Custodian, Drafter, Courier, Strategist, Analyst, Challenger, and a Conductor that routes but never writes).
 
 Four feedback loops run through it, all sharing one source of truth and one human review gate:
 

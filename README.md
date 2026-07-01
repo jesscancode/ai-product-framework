@@ -12,7 +12,7 @@ Simply put, I've pointed the discipline of content design inward, at my own work
 
 Most teams aim that at customers. This framework aims it at the product manager's own process: the research, the decisions, the specs, and the updates other teams depend on. Heavily guided AI tooling gathers the raw material and drafts the outputs. The person reviews, decides, and approves. Everything traces back to one shared record.
 
-## A quick example of how this could work
+## A quick example case study for a small workflow
 
 ![Full Workflow](./images/case_study_example.svg)
 

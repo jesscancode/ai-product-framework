@@ -13,7 +13,6 @@ Four feedback loops run through it, all sharing one source of truth and one huma
 
 Underneath sits an enforcement layer of deterministic rules — staging before Store, write boundaries, provenance, active recall — that stops the system decaying when agents or people take shortcuts. The whole thing applies the discipline of content design inward, at the product manager's own process, removing four kinds of debt at once: documentation, strategic, technical, and risk.
 
-
 This README covers the whole system: the idea, the two loops, the shared hub, the satellites, the eight agents that staff it, the loops the design was missing, and the enforcement that keeps it from decaying. Every part is drawn as a diagram, with a short text summary beside it.
 
 If you only want the concept, read **The framework in one idea** and **The whole system in one diagram**, then stop. If you want to build it, keep going.

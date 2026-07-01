@@ -6,9 +6,9 @@ It's for anyone weighing how a product manager works. That includes another prod
 
 # **The framework in one idea**
 
-I have been more than a little obsessed with the work Sarah Winters and her team are doing at Content Design London.
+I have been more than a little obsessed with the work [Sarah Winters](https://www.linkedin.com/in/sarahwinterscontentstrategist/) and her team are doing at [Content Design London](https://contentdesign.london/). Their work on [Content Design](https://contentdesign.london/blog/why-content-design-exists) has changed the way I work entirely and I've used their principles here to start thinkging about how product teams may work alongside AI tooling. 
 
-Point the discipline of content design inward, at your own work. Content design means giving people the exact content they need, in a form they can use, based on evidence of what they are trying to do.
+Simply, that means I've pointed the discipline of content design inward, at my own work and the work of the teams I run. Content design means giving people the exact content they need, in a form they can use, based on evidence of what they are trying to do.
 
 Most teams aim that at customers. This framework aims it at the product manager's own process: the research, the decisions, the specs, and the updates other teams depend on. Heavily guided AI gathers the raw material and drafts the outputs. The person reviews, decides, and approves. Everything traces back to one shared record.
 
@@ -56,7 +56,7 @@ Two more things sit close to Store, and each gets its own section below: a decis
 
 **Distribute** — sends each team the document it needs, shaped for that team and delivered in the channel they use. Because every version is generated from Store, the teams never end up working from conflicting copies.
 
-**The decision loop**
+## **The decision loop**
 
 ![Full Workflow](./images/decision_loop_brand.svg)
 

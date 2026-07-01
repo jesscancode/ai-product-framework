@@ -24,7 +24,7 @@ The executive receives a concise roadmap update on WhatsApp, replies with a voic
 
 Here's what the workflow could look like at the orchestration layer in n8n as an example.
 
-![Full Workflow](./images/n8n_worfklow.png)
+![Orchestration Layer Workflow](./images/n8n_workflow.png)
 
 ## **The problem it removes**
 

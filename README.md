@@ -1,10 +1,10 @@
-**A framework for running product work with AI tooling**
+# **A framework for running product work with AI tooling**
 
 This framework is a way of running product management work so AI does the heavy lifting and a person still owns every decision. This walkthrough covers what it is, why it helps, and how the workflow fits together, layer by layer.
 
 It's for anyone weighing how a product manager works. That includes another product manager, a hiring manager, or a team deciding how to run product with AI in the mix.
 
-**The framework in one idea**
+# **The framework in one idea**
 
 I have been more than a little obsessed with the work Sarah Winters and her team are doing at Content Design London.
 
@@ -12,7 +12,7 @@ Point the discipline of content design inward, at your own work. Content design 
 
 Most teams aim that at customers. This framework aims it at the product manager's own process: the research, the decisions, the specs, and the updates other teams depend on. Heavily guided AI gathers the raw material and drafts the outputs. The person reviews, decides, and approves. Everything traces back to one shared record.
 
-**The problem it removes**
+## **The problem it removes**
 
 Every product team has the same leak.
 
@@ -24,7 +24,7 @@ Faster documents do not help if a team is acting on the wrong decision. The fix 
 
 The framework helps your team hold one queryable source of truth — one place where the real evidence and reasoning live — and generates everything else from it. Decisions get recorded, teams stay aligned, insight stays current, and debt stops piling up.
 
-**The whole workflow, in one diagram**
+## **The whole workflow, in one diagram**
 
 ![Full Workflow](./images/throughline_master_workflow_brand.svg)
 
@@ -40,7 +40,7 @@ Both loops read from and write to the same hub, called Store. Both pass through 
 
 Two more things sit close to Store, and each gets its own section below: a decision memo that circulates early, while a call is still being tested, and a way to query Store directly, in plain language, at any time.
 
-**The knowledge loop**
+## **The knowledge loop**
 
 ![Full Workflow](./images/knowledge_loop_brand.svg)
 
@@ -74,7 +74,7 @@ The decision loop shares Store and Review with the knowledge loop. It adds the p
 
 **Learn** — compare what you predicted with what actually happened. The gap is the lesson, and it feeds back into strategy and the next decision, so decisions get better over time.
 
-**The decision memo: a provisional distribution, while the call is still in flight**
+## **The decision memo: a provisional distribution, while the call is still in flight**
 
 ![Full Workflow](./images/decision_memo_loop_brand.svg)
 
@@ -90,7 +90,7 @@ Whatever comments come back are signal, so they come in the same way as everythi
 
 The difference between this and Distribute is temperature, not mechanism. Distribute is wide and settled: it tells a large audience a decision is made. The decision memo is narrow and provisional: it asks a small audience to find the holes before the decision is made.
 
-**Ask Store directly**
+## **Ask Store directly**
 ![Full Workflow](./images/ask_store_brand.svg)
 
 *A small sidecar node beside Store, labelled "ask a question," with its three rules shown as a short legend.*
@@ -107,7 +107,7 @@ This only reads from the approved layer of Store, after Review, never from draft
 
 The benefit compounds. Small, in-the-moment questions no longer wait for a scheduled Distribute or a message to the product manager. The source of truth becomes something a person can interrogate directly, not something only one person can navigate.
 
-**The teams, both ways**
+## **The teams, both ways**
 
 ![Full Workflow](./images/team_hinge_brand.svg)
 
@@ -117,7 +117,7 @@ The teams are not the end of the line. The same people who receive documents are
 
 An exec who gets a briefing on WhatsApp can reply with a voice note in seconds. Ask the same person to log into a tool and complete a form, and you get silence. The channel decides whether feedback happens at all, so the framework treats each person's channel as part of the design.
 
-**Properties that run through every layer**
+## **Properties that run through every layer**
 
 Four things apply to every layer, so they sit across the whole framework rather than inside any single step:
 
@@ -126,7 +126,7 @@ Four things apply to every layer, so they sit across the whole framework rather 
 - system ownership — one person keeps the system itself healthy, with prompts current, tags tidy, and stale evidence archived
 - channel routing — each person's preferred platform and format, used both to send to them and to hear back from them, including the small circle who receive the decision memo
 
-**Why this is content design, not admin**
+# **Why this is content design, not admin**
 
 It is easy to mistake this for tidy paperwork. It is not. One shared record with generated outputs removes three kinds of debt at once:
 

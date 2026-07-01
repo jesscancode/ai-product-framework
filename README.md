@@ -2,11 +2,12 @@
 
 This framework is a way of running product management work so AI does the heavy lifting and a person still owns every decision. This walkthrough covers what it is, why it helps, and how the workflow fits together, layer by layer.
 
+**Legend** ![Knowledge loop](https://img.shields.io/badge/Knowledge%20loop-84c65a?style=flat-square) ![Decision & query loop](https://img.shields.io/badge/Decision%20%26%20query%20loop-0d76eb?style=flat-square) ![Shared hub](https://img.shields.io/badge/Shared%20hub-111111?style=flat-square)
 # **The framework in one idea**
 
-I have been more than a little obsessed with the work [Sarah Winter's](https://www.linkedin.com/in/sarahwinterscontentstrategist/) and her team are doing at [Content Design London](https://contentdesign.london/). Their work on [Content Design](https://contentdesign.london/blog/why-content-design-exists) has changed the way I work entirely and I've used their principles here to start thinking about how product teams may work alongside AI tooling. 
+I have been more than a little obsessed with the work [Sarah Winter's](https://www.linkedin.com/in/sarahwinterscontentstrategist/) and her team are doing at [Content Design London](https://contentdesign.london/). Their work on [Content Design](https://contentdesign.london/blog/why-content-design-exists) has changed the way I work entirely and I've used their principles here to start thinking about how product teams may work alongside AI tooling.
 
-Simply put, I've pointed the discipline of content design inward, at my own work and the work of the teams I run. 
+Simply put, I've pointed the discipline of content design inward, at my own work and the work of the teams I run.
 
 `Content used to be something you read. Now it's something you use. Content design is about giving your audience what they want, when they need it, in the way they expect.` - Sarah Winters
 
@@ -16,11 +17,11 @@ Most teams aim that at customers. This framework aims it at the product manager'
 
 ![Full Workflow](./images/case_study_example.svg)
 
-Qual customer interviews recordings, Team meeting transcriptions from Google Meet, product metrics from APIs, support tickets, sales conversations all flow into the Capture layer, where AI organises them into a shared knowledge base. 
+Qual customer interviews recordings, Team meeting transcriptions from Google Meet, product metrics from APIs, support tickets, sales conversations all flow into the ![Capture](https://img.shields.io/badge/Capture-84c65a?style=flat-square) layer, where AI organises them into a shared knowledge base.
 
-From there, it drafts research summaries, prioritisation recommendations, a product roadmap and team-specific updates, which the product manager reviews before they're distributed to each team in the tools they already use. 
+From there, it drafts research summaries, prioritisation recommendations, a product roadmap and team-specific updates, which the product manager reviews before they're distributed to each team in the tools they already use.
 
-The executive receives a concise roadmap update on WhatsApp, replies with a voice note containing new feedback or ideas, and that response is automatically transcribed and fed back into the Capture layer, where it becomes part of the evidence that informs the next round of product decisions, creating a continuous learning loop.
+The executive receives a concise roadmap update on WhatsApp, replies with a voice note containing new feedback or ideas, and that response is automatically transcribed and fed back into the ![Capture](https://img.shields.io/badge/Capture-84c65a?style=flat-square) layer, where it becomes part of the evidence that informs the next round of product decisions, creating a continuous learning loop.
 
 Here's what the workflow could look like at the orchestration layer in n8n as an example.
 
@@ -50,9 +51,9 @@ The knowledge loop moves raw signal into a shared record, turns it into document
 
 The decision loop sets the goal, makes the call, tests it, measures the result, and learns from it.
 
-Both loops read from and write to the same hub, called Store. Both pass through one human checkpoint, called Review. Colour tells the two apart in every diagram here: teal for the knowledge loop, purple for the decision loop.
+Both loops read from and write to the same hub, called ![Store](https://img.shields.io/badge/Store-111111?style=flat-square). Both pass through one human checkpoint, called ![Review](https://img.shields.io/badge/Review-111111?style=flat-square). Colour tells the two apart in every diagram here: green for the knowledge loop, blue for the decision loop.
 
-Two more things sit close to Store, and each gets its own section below: a decision memo that circulates early, while a call is still being tested, and a way to query Store directly, in plain language, at any time.
+Two more things sit close to ![Store](https://img.shields.io/badge/Store-111111?style=flat-square), and each gets its own section below: a ![Decision Memo](https://img.shields.io/badge/Decision%20Memo-0d76eb?style=flat-square) that circulates early, while a call is still being tested, and a way to query ![Store](https://img.shields.io/badge/Store-111111?style=flat-square) directly, in plain language, at any time.
 
 ## **The knowledge loop**
 
@@ -60,33 +61,33 @@ Two more things sit close to Store, and each gets its own section below: a decis
 
 *The knowledge loop: Capture, Store, Author, Review, Distribute as one teal strand, plus the return arrow from the teams back to Capture.*
 
-**Capture** — takes in signal from every source, in whatever form it arrives: product metrics from an API, meeting transcriptions, a support ticket, a sales note, a voice message from an exec, raw usage data. It meets people where they are instead of forcing everything into one channel.
+![Capture](https://img.shields.io/badge/Capture-84c65a?style=flat-square) — takes in signal from every source, in whatever form it arrives: product metrics from an API, meeting transcriptions, a support ticket, a sales note, a voice message from an exec, raw usage data. It meets people where they are instead of forcing everything into one channel.
 
-**Store** — the shared record, and the hub of the whole system. One place where the real evidence and reasoning live. Everything downstream is generated from it rather than copied by hand, so nothing drifts out of sync.
+![Store](https://img.shields.io/badge/Store-111111?style=flat-square) — the shared record, and the hub of the whole system. One place where the real evidence and reasoning live. Everything downstream is generated from it rather than copied by hand, so nothing drifts out of sync.
 
-**Author** — AI drafts the working documents straight from Store: decision logs, research summaries, specifications, work logs. Guardrails keep the record honest, so it is dated to the real work and hard to rewrite.
+![Author](https://img.shields.io/badge/Author-84c65a?style=flat-square) — AI drafts the working documents straight from ![Store](https://img.shields.io/badge/Store-111111?style=flat-square): decision logs, research summaries, specifications, work logs. Guardrails keep the record honest, so it is dated to the real work and hard to rewrite.
 
-**Review** — the human checkpoint. AI drafts; a person edits, decides, and approves. Nothing leaves this step without judgment behind it.
+![Review](https://img.shields.io/badge/Review-111111?style=flat-square) — the human checkpoint. AI drafts; a person edits, decides, and approves. Nothing leaves this step without judgment behind it.
 
-**Distribute** — sends each team the document it needs, shaped for that team and delivered in the channel they use. Because every version is generated from Store, the teams never end up working from conflicting copies.
+![Distribute](https://img.shields.io/badge/Distribute-84c65a?style=flat-square) — sends each team the document it needs, shaped for that team and delivered in the channel they use. Because every version is generated from ![Store](https://img.shields.io/badge/Store-111111?style=flat-square), the teams never end up working from conflicting copies.
 
 ## **The decision loop**
 
 ![Full Workflow](./images/decision_loop_brand.svg)
 
-*The decision loop: Strategy, Decide, Validate, Measure, Learn as one purple strand, sharing Store and Review, with the return arrow from Learn back to Strategy.*
+*The decision loop: Strategy, Decide, Validate, Measure, Learn as one blue strand, sharing Store and Review, with the return arrow from Learn back to Strategy.*
 
-The decision loop shares Store and Review with the knowledge loop. It adds the parts that make and test a call.
+The decision loop shares ![Store](https://img.shields.io/badge/Store-111111?style=flat-square) and ![Review](https://img.shields.io/badge/Review-111111?style=flat-square) with the knowledge loop. It adds the parts that make and test a call.
 
-**Strategy and objectives** — the yardstick. The numbers this product area exists to move, such as gross profit, retention, and activation. Every later decision is judged against them.
+![Strategy](https://img.shields.io/badge/Strategy-0d76eb?style=flat-square) — the yardstick. The numbers this product area exists to move, such as gross profit, retention, and activation. Every later decision is judged against them.
 
-**Decide and prioritise** — the call itself. Weigh the options against the objectives, choose what to build and in what order, and record why the other options were deprioritised. This is what sets the roadmap.
+![Decide](https://img.shields.io/badge/Decide-0d76eb?style=flat-square) — the call itself. Weigh the options against the objectives, choose what to build and in what order, and record why the other options were deprioritised. This is what sets the roadmap.
 
-**Validate and experiment** — test the riskiest assumption cheaply before committing to it. My own approach here, as the product manager, is to spin up the test myself: build the MCP layers, use n8n and a bit of code, and move as fast as I can. A small test produces fresh evidence, which flows straight back into Store.
+![Validate](https://img.shields.io/badge/Validate-0d76eb?style=flat-square) — test the riskiest assumption cheaply before committing to it. My own approach here, as the product manager, is to spin up the test myself: build the MCP layers, use n8n and a bit of code, and move as fast as I can. A small test produces fresh evidence, which flows straight back into ![Store](https://img.shields.io/badge/Store-111111?style=flat-square).
 
-**Measure** — choose the success metric at the moment you make the decision, then set up the measurement and watch it after launch. The metric is set up front, not reverse-engineered later.
+![Measure](https://img.shields.io/badge/Measure-0d76eb?style=flat-square) — choose the success metric at the moment you make the decision, then set up the measurement and watch it after launch. The metric is set up front, not reverse-engineered later.
 
-**Learn** — compare what you predicted with what actually happened. The gap is the lesson, and it feeds back into strategy and the next decision, so decisions get better over time.
+![Learn](https://img.shields.io/badge/Learn-0d76eb?style=flat-square) — compare what you predicted with what actually happened. The gap is the lesson, and it feeds back into strategy and the next decision, so decisions get better over time.
 
 ## **The decision memo: a provisional distribution, while the call is still in flight**
 
@@ -94,32 +95,33 @@ The decision loop shares Store and Review with the knowledge loop. It adds the p
 
 *The decision memo loop: Validate branching right to the memo, out to a small circle, back through Capture.*
 
-Distribute is not the only point where a document leaves the system. At Validate, before a decision is settled, I circulate a decision memo: a timestamped snapshot of the thinking so far. The riskiest assumption, how it is being tested, what I am assuming, what I expect to see.
+![Distribute](https://img.shields.io/badge/Distribute-84c65a?style=flat-square) is not the only point where a document leaves the system. At ![Validate](https://img.shields.io/badge/Validate-0d76eb?style=flat-square), before a decision is settled, I circulate a ![Decision Memo](https://img.shields.io/badge/Decision%20Memo-0d76eb?style=flat-square): a timestamped snapshot of the thinking so far. The riskiest assumption, how it is being tested, what I am assuming, what I expect to see.
 
 This goes to a small circle, not the whole company: engineering, product peers, and the management layer above. Their job is to pressure-test the thinking, not to sign off on a finished decision.
 
-It runs in two versions, not one. The first goes out before the test, with the assumptions and the test plan, so the circle can catch a bad test before it costs any effort. The second goes out after, with what was found and what I now think, for a final check. Both versions are just Author's existing guardrails at work: dated, and hard to quietly rewrite after the fact.
+It runs in two versions, not one. The first goes out before the test, with the assumptions and the test plan, so the circle can catch a bad test before it costs any effort. The second goes out after, with what was found and what I now think, for a final check. Both versions are just ![Author](https://img.shields.io/badge/Author-84c65a?style=flat-square)'s existing guardrails at work: dated, and hard to quietly rewrite after the fact.
 
-Whatever comments come back are signal, so they come in the same way as everything else: through Capture, then into Store, sharpening the decision before it is finalised.
+Whatever comments come back are signal, so they come in the same way as everything else: through ![Capture](https://img.shields.io/badge/Capture-84c65a?style=flat-square), then into ![Store](https://img.shields.io/badge/Store-111111?style=flat-square), sharpening the decision before it is finalised.
 
-The difference between this and Distribute is temperature, not mechanism. Distribute is wide and settled: it tells a large audience a decision is made. The decision memo is narrow and provisional: it asks a small audience to find the holes before the decision is made.
+The difference between ![Decision Memo](https://img.shields.io/badge/Decision%20Memo-0d76eb?style=flat-square) and ![Distribute](https://img.shields.io/badge/Distribute-84c65a?style=flat-square) is temperature, not mechanism. ![Distribute](https://img.shields.io/badge/Distribute-84c65a?style=flat-square) is wide and settled: it tells a large audience a decision is made. ![Decision Memo](https://img.shields.io/badge/Decision%20Memo-0d76eb?style=flat-square) is narrow and provisional: it asks a small audience to find the holes before the decision is made.
 
 ## **Ask Store directly**
+
 ![Full Workflow](./images/ask_store_brand.svg)
 
 *A small sidecar node beside Store, labelled "ask a question," with its three rules shown as a short legend.*
 
-Distribute is one route out of Store: push, on a schedule, shaped for each team. There is a second route: pull, on demand, in plain language. Anyone can ask Store a direct question — "what did we decide about X", "what's the status of Y" — and get an answer sourced from the real documents.
+![Distribute](https://img.shields.io/badge/Distribute-84c65a?style=flat-square) is one route out of ![Store](https://img.shields.io/badge/Store-111111?style=flat-square): push, on a schedule, shaped for each team. There is a second route: pull, on demand, in plain language. Anyone can ![Ask Store](https://img.shields.io/badge/Ask%20Store-0d76eb?style=flat-square) a direct question — "what did we decide about X", "what's the status of Y" — and get an answer sourced from the real documents.
 
 Three rules keep this honest:
 
-- it answers only from documents that are actually in Store, never from general knowledge
+- it answers only from documents that are actually in ![Store](https://img.shields.io/badge/Store-111111?style=flat-square), never from general knowledge
 - every answer names and links to the document it came from
-- if nothing in Store covers the question, it says so, rather than guessing
+- if nothing in ![Store](https://img.shields.io/badge/Store-111111?style=flat-square) covers the question, it says so, rather than guessing
 
-This only reads from the approved layer of Store, after Review, never from drafts still in Author. A half-finished draft is not yet true, and this must never present it as if it were.
+This only reads from the approved layer of ![Store](https://img.shields.io/badge/Store-111111?style=flat-square), after ![Review](https://img.shields.io/badge/Review-111111?style=flat-square), never from drafts still in ![Author](https://img.shields.io/badge/Author-84c65a?style=flat-square). A half-finished draft is not yet true, and this must never present it as if it were.
 
-The benefit compounds. Small, in-the-moment questions no longer wait for a scheduled Distribute or a message to the product manager. The source of truth becomes something a person can interrogate directly, not something only one person can navigate.
+The benefit compounds. Small, in-the-moment questions no longer wait for a scheduled ![Distribute](https://img.shields.io/badge/Distribute-84c65a?style=flat-square) or a message to the product manager. The source of truth becomes something a person can interrogate directly, not something only one person can navigate.
 
 ## **The teams, both ways**
 
@@ -127,7 +129,7 @@ The benefit compounds. Small, in-the-moment questions no longer wait for a sched
 
 *The team hinge (the close-up built earlier).*
 
-The teams are not the end of the line. The same people who receive documents are the freshest source of signal you have, so the arrow runs both ways. Distribute sends out in each person's preferred format. Capture takes feedback back in that same format.
+The teams are not the end of the line. The same people who receive documents are the freshest source of signal you have, so the arrow runs both ways. ![Distribute](https://img.shields.io/badge/Distribute-84c65a?style=flat-square) sends out in each person's preferred format. ![Capture](https://img.shields.io/badge/Capture-84c65a?style=flat-square) takes feedback back in that same format.
 
 An exec who gets a briefing on WhatsApp can reply with a voice note in seconds. Ask the same person to log into a tool and complete a form, and you get silence. The channel decides whether feedback happens at all, so the framework treats each person's channel as part of the design.
 
@@ -135,10 +137,10 @@ An exec who gets a briefing on WhatsApp can reply with a voice note in seconds. 
 
 Four things apply to every layer, so they sit across the whole framework rather than inside any single step:
 
-- provenance — every output can be traced back to the evidence that justified it, including every answer given through Ask Store
+- provenance — every output can be traced back to the evidence that justified it, including every answer given through ![Ask Store](https://img.shields.io/badge/Ask%20Store-0d76eb?style=flat-square)
 - access control — who can see what, with sensitive material such as personal data or exec-only notes kept protected
 - system ownership — one person keeps the system itself healthy, with prompts current, tags tidy, and stale evidence archived
-- channel routing — each person's preferred platform and format, used both to send to them and to hear back from them, including the small circle who receive the decision memo
+- channel routing — each person's preferred platform and format, used both to send to them and to hear back from them, including the small circle who receive the ![Decision Memo](https://img.shields.io/badge/Decision%20Memo-0d76eb?style=flat-square)
 
 # **Why this is content design, not admin**
 
@@ -148,20 +150,19 @@ It is easy to mistake this for tidy paperwork. It is not. One shared record with
 - strategic debt — decisions get re-argued, or built over
 - technical debt — teams act on mismatched information, and someone patches the gap under deadline
 
-Removing all three is what lets a team move fast without the mess building up. The decision memo adds a fourth defence, earlier in the process: it catches a flawed test before it runs, rather than a flawed decision after it ships.
+Removing all three is what lets a team move fast without the mess building up. ![Decision Memo](https://img.shields.io/badge/Decision%20Memo-0d76eb?style=flat-square) adds a fourth defence, earlier in the process: it catches a flawed test before it runs, rather than a flawed decision after it ships.
 
 There is a second point worth stating plainly. This framework is a product built for the people who build products. It treats the product manager's own process as something worth designing. It has real users — the product manager and the internal teams — and shapes the content to what each of them needs. It also puts AI to work in how the product gets built, not only in what the product does for customers.
 
-## **Next steps: a risk and trade-off layer**
+# **Next steps: a risk and trade-off layer**
 
-Everything above answers *what did we decide and why*. It doesn't yet answer *what did we knowingly accept to get there*. 
+Everything above answers *what did we decide and why*. It doesn't yet answer *what did we knowingly accept to get there*.
 
-Right now Decide sets the direction and Validate tests it, but the cost of a choice — rarely gets written down in the same disciplined way. It lives in the PM's head, same problem the whole framework exists to remove elsewhere.
+Right now ![Decide](https://img.shields.io/badge/Decide-0d76eb?style=flat-square) sets the direction and ![Validate](https://img.shields.io/badge/Validate-0d76eb?style=flat-square) tests it, but the cost of a choice — rarely gets written down in the same disciplined way. It lives in the PM's head, same problem the whole framework exists to remove elsewhere.
 
-**Risk & Trade-off** sits alongside Decide, the way the decision memo sits alongside Validate. Author drafts it the moment a Decide record is created, pulling from Store — known dependencies, how similar past decisions played out, how thin or solid the evidence behind this one actually is. The PM reviews it the same way they review everything else: reads, edits, decides, owns it.
+![Risk & Trade-off](https://img.shields.io/badge/Risk%20%26%20Trade--off-0d76eb?style=flat-square) sits alongside ![Decide](https://img.shields.io/badge/Decide-0d76eb?style=flat-square), the way ![Decision Memo](https://img.shields.io/badge/Decision%20Memo-0d76eb?style=flat-square) sits alongside ![Validate](https://img.shields.io/badge/Validate-0d76eb?style=flat-square). ![Author](https://img.shields.io/badge/Author-84c65a?style=flat-square) drafts it the moment a ![Decide](https://img.shields.io/badge/Decide-0d76eb?style=flat-square) record is created, pulling from ![Store](https://img.shields.io/badge/Store-111111?style=flat-square) — known dependencies, how similar past decisions played out, how thin or solid the evidence behind this one actually is. The PM reviews it the same way they review everything else: reads, edits, decides, owns it.
 
 ![Full Workflow](./images/risk_tradeoff_layer.svg)
-
 
 Each record holds a small, consistent shape:
 
@@ -171,14 +172,14 @@ Each record holds a small, consistent shape:
 - **the call** — accept, mitigate, avoid, or transfer, stated outright
 - **the reasoning** — in the PM's own words, so it's a decision and not just a checkbox
 - **an owner**
-- **a revisit trigger** — a date or condition that forces a second look, so the record doesn't just sit there
+- a ![Revisit Trigger](https://img.shields.io/badge/Revisit%20Trigger-0d76eb?style=flat-square) — a date or condition that forces a second look, so the record doesn't just sit there
 
-For anything irreversible or wide-blast-radius, it can circulate like the decision memo does — out to the small circle before the trade-off is locked in, so someone else gets a chance to catch it while it's still cheap to change.
+For anything irreversible or wide-blast-radius, it can circulate like ![Decision Memo](https://img.shields.io/badge/Decision%20Memo-0d76eb?style=flat-square) does — out to the small circle before the trade-off is locked in, so someone else gets a chance to catch it while it's still cheap to change.
 
-The revisit trigger is what keeps this clear over time. It feeds Learn exactly the way Measure does: did the risk we accepted actually happen, did the mitigation hold etc. That answer goes back into Store, so the next Risk & Trade-off record Author drafts is a little sharper than the last one — creating a growing memory of what this team's trade-offs actually cost.
+![Revisit Trigger](https://img.shields.io/badge/Revisit%20Trigger-0d76eb?style=flat-square) is what keeps this clear over time. It feeds ![Learn](https://img.shields.io/badge/Learn-0d76eb?style=flat-square) exactly the way ![Measure](https://img.shields.io/badge/Measure-0d76eb?style=flat-square) does: did the risk we accepted actually happen, did the mitigation hold etc. That answer goes back into ![Store](https://img.shields.io/badge/Store-111111?style=flat-square), so the next ![Risk & Trade-off](https://img.shields.io/badge/Risk%20%26%20Trade--off-0d76eb?style=flat-square) record ![Author](https://img.shields.io/badge/Author-84c65a?style=flat-square) drafts is a little sharper than the last one — creating a growing memory of what this team's trade-offs actually cost.
 
-And it plugs into Ask Store for free. *"What did we accept when we shipped X"* or *"what were we assuming about Y"* becomes answerable the same way *"what did we decide about X"* already is — sourced, or it says it doesn't know.
+And it plugs into ![Ask Store](https://img.shields.io/badge/Ask%20Store-0d76eb?style=flat-square) for free. *"What did we accept when we shipped X"* or *"what were we assuming about Y"* becomes answerable the same way *"what did we decide about X"* already is — sourced, or it says it doesn't know.
 
-Documentation debt is decisions going stale. Strategic debt is decisions being re-argued. Technical debt is teams acting on mismatched information. 
+Documentation debt is decisions going stale. Strategic debt is decisions being re-argued. Technical debt is teams acting on mismatched information.
 
 This is **risk debt** — the cost of a choice arriving later as a surprise, to someone who never got to weigh in on whether it was worth taking.

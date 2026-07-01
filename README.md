@@ -8,7 +8,7 @@ I have been more than a little obsessed with the work [Sarah Winter's](https://w
 
 Simply put, I've pointed the discipline of content design inward, at my own work and the work of the teams I run. 
 
-`Content design means giving people the exact content they need, in a form they can use, based on evidence of what they are trying to do.`
+`Content used to be something you read. Now it's something you use. Content design is about giving your audience what they want, when they need it, in the way they expect.` - Sarah Winters
 
 Most teams aim that at customers. This framework aims it at the product manager's own process: the research, the decisions, the specs, and the updates other teams depend on. Heavily guided AI tooling gathers the raw material and drafts the outputs. The person reviews, decides, and approves. Everything traces back to one shared record.
 

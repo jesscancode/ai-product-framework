@@ -85,11 +85,9 @@ The fix is the loop: make a better call, record it once, deliver it to each team
 
 ## A worked example
 
-One small story shows the shape of the whole thing. Read it from the end — the reply — because that is where the loop closes.
-
 An exec receives a concise roadmap update on WhatsApp and answers with a four-minute voice note. That reply is transcribed automatically, flows into Capture, lands in Store as evidence, and reshapes the next decision. Ask the same person to log into a tool and fill in a form and you would have got silence — the channel is what makes the feedback happen at all.
 
-That single arrow — out to each team in the channel they already use, back in through the same one — is one of the four loops closing. Everything upstream of it is the rest of the system doing its job: customer interviews, Google Meet transcripts, product metrics from APIs, support tickets, and sales conversations all flowed into Capture and into Store; AI drafted the research summaries, the prioritisation call, and the team-specific updates; and the PM reviewed them before a word went out.
+That single arrow — out to each team in the channel they already use, back in through the same one — is **one of the four loops closing**. Everything upstream of it is the rest of the system doing its job: customer interviews, Google Meet transcripts, product metrics from APIs, support tickets, and sales conversations all flowed into Capture and into Store; AI drafted the research summaries, the prioritisation call, and the team-specific updates; and the PM reviewed them before a word went out.
 
 ![Example n8n workflow](./images/n8n_workflow.png)
 

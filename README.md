@@ -1,6 +1,18 @@
-# A framework for running product work with AI tooling
+# Agentic Product Management ✦ A framework for running product work with AI tooling
 
-This is a way of running product management so AI does the heavy lifting and a person still owns every decision. AI gathers the raw material and drafts the outputs. The person reviews, decides, and approves. Everything traces back to one shared record.
+This is a system for running product management work so AI does the heavy lifting and a person still owns every decision.
+▎
+▎ It has two halves. The framework defines what happens: signal is captured into one shared record (Store), AI drafts the documents a team needs, a person reviews and approves, and outputs are distributed to each team in the channel they already use. The harness defines who does it: eight specialised agents (Scribe, Custodian, Drafter, Courier, Strategist, Analyst, Challenger, and a Conductor that routes but never writes).
+▎
+▎ Four feedback loops run through it, all sharing one source of truth and one human review gate:
+▎
+▎ - knowledge — turns raw signal into documents and sends them to the teams (continuous)
+▎ - decision — sets goals, makes the call, tests it, measures, and learns (event-driven)
+▎ - risk validation — re-checks accepted risks when a revisit trigger fires (event-triggered)
+▎ - system health — audits the shared record for stale, duplicate, or orphaned entries (scheduled)
+▎
+▎ Underneath sits an enforcement layer of deterministic rules — staging before Store, write boundaries, provenance, active recall — that stops the system decaying when agents or people take shortcuts. The whole thing applies the discipline of content design inward, at the product manager's own process, removing four kinds of debt at once: documentation, strategic, technical, and risk.
+
 
 This README covers the whole system: the idea, the two loops, the shared hub, the satellites, the eight agents that staff it, the loops the design was missing, and the enforcement that keeps it from decaying. Every part is drawn as a diagram, with a short text summary beside it.
 
@@ -143,11 +155,11 @@ A solo PM at low volume does not need eight agents on day one. The minimum viabl
 
 The knowledge loop moves raw signal into the shared record, turns it into documents, and sends those to the teams. It runs continuously.
 
-- **Capture** — takes in signal from every source, in whatever form it arrives: metrics from an API, meeting transcripts, a support ticket, a sales note, an exec's voice message
-- **Store** — the shared record and the hub of the whole system, the one place the real evidence and reasoning live
-- **Author** — AI drafts working documents straight from Store: decision logs, research summaries, specifications, work logs
-- **Review** — the human gate, where a person edits, decides, and approves; nothing leaves without judgment behind it
-- **Distribute** — sends each team the document it needs, shaped for that team, in the channel they already use
+- **Capture** ✦ takes in signal from every source, in whatever form it arrives: metrics from an API, meeting transcripts, a support ticket, a sales note, an exec's voice message
+- **Store** ✦ the shared record and the hub of the whole system, the one place the real evidence and reasoning live
+- **Author** ✦ AI drafts working documents straight from Store: decision logs, research summaries, specifications, work logs
+- **Review** ✦ the human gate, where a person edits, decides, and approves; nothing leaves without judgment behind it
+- **Distribute** ✦ sends each team the document it needs, shaped for that team, in the channel they already use
 
 Because every version is generated from Store, teams never work from conflicting copies.
 
@@ -155,11 +167,11 @@ Because every version is generated from Store, teams never work from conflicting
 
 The decision loop sets the goal, makes the call, tests it, measures the result, and learns from it. It shares Store and Review with the knowledge loop, and it is event-driven rather than continuous.
 
-- **Strategy** — the yardstick: the numbers this product area exists to move, such as gross profit, retention, and activation
-- **Decide** — the call itself: weigh the options against the objectives, choose what to build and in what order, and record why the rest were deprioritised
-- **Validate** — test the riskiest assumption cheaply before committing; the PM spins the test up directly to stay closest to the evidence
-- **Measure** — choose the success metric at the moment of the decision, then set up measurement and watch it after launch
-- **Learn** — compare prediction with outcome; the gap is the lesson, and it feeds back into strategy and the next decision
+- **Strategy** ✦ the yardstick: the numbers this product area exists to move, such as gross profit, retention, and activation
+- **Decide** ✦ the call itself: weigh the options against the objectives, choose what to build and in what order, and record why the rest were deprioritised
+- **Validate** ✦ test the riskiest assumption cheaply before committing; the PM spins the test up directly to stay closest to the evidence
+- **Measure** ✦ choose the success metric at the moment of the decision, then set up measurement and watch it after launch
+- **Learn** ✦ compare prediction with outcome; the gap is the lesson, and it feeds back into strategy and the next decision
 
 ## The satellites
 
@@ -185,13 +197,13 @@ It reads only the approved layer of Store, after Review, never drafts still in A
 
 Decide sets the direction and Validate tests it, but the *cost* of a choice rarely gets written down in the same disciplined way. Risk & Trade-off sits alongside Decide the way the memo sits alongside Validate. The moment a Decide record is created, Author drafts a record from Store — known dependencies, how similar past decisions played out, how solid the evidence is. Each record holds a consistent shape:
 
-- **the risk** — named plainly
-- **reversibility** — a one-way or two-way door, which alone sets how much scrutiny it gets
-- **blast radius** — who or what breaks if this is wrong
-- **the call** — accept, mitigate, avoid, or transfer, stated outright
-- **the reasoning** — in the PM's own words, so it's a decision and not a checkbox
+- **the risk** ✦ named plainly
+- **reversibility** ✦ a one-way or two-way door, which alone sets how much scrutiny it gets
+- **blast radius** ✦ who or what breaks if this is wrong
+- **the call** ✦ accept, mitigate, avoid, or transfer, stated outright
+- **the reasoning** ✦ in the PM's own words, so it's a decision and not a checkbox
 - **an owner**
-- **a revisit trigger** — a date or condition that forces a second look
+- **a revisit trigger** ✦ a date or condition that forces a second look
 
 This is **risk debt**: the cost of a choice arriving later as a surprise, to someone who never got to weigh in on whether it was worth taking.
 
@@ -462,19 +474,19 @@ The through-line is unchanged: AI does the heavy lifting, a person owns every de
 
 Four things apply to every layer, so they sit across the whole system rather than inside any single step:
 
-- **provenance** — every output traces back to the evidence that justified it, including every Ask Store answer
-- **access control** — who can see what, with sensitive material such as personal data or exec-only notes kept protected
-- **system ownership** — one person keeps the system healthy, with prompts current, tags tidy, and stale evidence archived
-- **channel routing** — each person's preferred platform and format, used both to send to them and to hear back from them
+- **provenance** ✦ every output traces back to the evidence that justified it, including every Ask Store answer
+- **access control** ✦ who can see what, with sensitive material such as personal data or exec-only notes kept protected
+- **system ownership** ✦ one person keeps the system healthy, with prompts current, tags tidy, and stale evidence archived
+- **channel routing** ✦ each person's preferred platform and format, used both to send to them and to hear back from them
 
 ## Why this is content design, not admin
 
 It is easy to mistake this for tidy paperwork. It is not. One shared record with generated outputs removes four kinds of debt at once:
 
-- **documentation debt** — docs go stale and start to contradict each other
-- **strategic debt** — decisions get re-argued, or built over
-- **technical debt** — teams act on mismatched information, and someone patches the gap under deadline
-- **risk debt** — the cost of a choice arrives later as a surprise, to someone who never got to weigh in
+- **documentation debt** ✦ docs go stale and start to contradict each other
+- **strategic debt** ✦ decisions get re-argued, or built over
+- **technical debt** ✦ teams act on mismatched information, and someone patches the gap under deadline
+- **risk debt** ✦ the cost of a choice arrives later as a surprise, to someone who never got to weigh in
 
 Removing all four is what lets a team move fast without the mess building up.
 

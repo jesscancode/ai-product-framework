@@ -2,8 +2,6 @@
 
 This framework is a way of running product management work so AI does the heavy lifting and a person still owns every decision. This walkthrough covers what it is, why it helps, and how the workflow fits together, layer by layer.
 
-It's for anyone weighing how a product manager works. That includes another product manager, a hiring manager, or a team deciding how to run product with AI in the mix.
-
 # **The framework in one idea**
 
 I have been more than a little obsessed with the work [Sarah Winter's](https://www.linkedin.com/in/sarahwinterscontentstrategist/) and her team are doing at [Content Design London](https://contentdesign.london/). Their work on [Content Design](https://contentdesign.london/blog/why-content-design-exists) has changed the way I work entirely and I've used their principles here to start thinking about how product teams may work alongside AI tooling. 

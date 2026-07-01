@@ -1,17 +1,17 @@
 # Agentic Product Management ✦ A framework for running product work with AI tooling
 
 This is a system for running product management work so AI does the heavy lifting and a person still owns every decision.
-▎
-▎ It has two halves. The framework defines what happens: signal is captured into one shared record (Store), AI drafts the documents a team needs, a person reviews and approves, and outputs are distributed to each team in the channel they already use. The harness defines who does it: eight specialised agents (Scribe, Custodian, Drafter, Courier, Strategist, Analyst, Challenger, and a Conductor that routes but never writes).
-▎
-▎ Four feedback loops run through it, all sharing one source of truth and one human review gate:
-▎
-▎ - knowledge — turns raw signal into documents and sends them to the teams (continuous)
-▎ - decision — sets goals, makes the call, tests it, measures, and learns (event-driven)
-▎ - risk validation — re-checks accepted risks when a revisit trigger fires (event-triggered)
-▎ - system health — audits the shared record for stale, duplicate, or orphaned entries (scheduled)
-▎
-▎ Underneath sits an enforcement layer of deterministic rules — staging before Store, write boundaries, provenance, active recall — that stops the system decaying when agents or people take shortcuts. The whole thing applies the discipline of content design inward, at the product manager's own process, removing four kinds of debt at once: documentation, strategic, technical, and risk.
+
+It has two halves. The framework defines what happens: signal is captured into one shared record (Store), AI drafts the documents a team needs, a person reviews and approves, and outputs are distributed to each team in the channel they already use. The harness defines who does it: eight specialised agents (Scribe, Custodian, Drafter, Courier, Strategist, Analyst, Challenger, and a Conductor that routes but never writes).
+
+Four feedback loops run through it, all sharing one source of truth and one human review gate:
+
+- knowledge ✦ turns raw signal into documents and sends them to the teams (continuous)
+- decision ✦ sets goals, makes the call, tests it, measures, and learns (event-driven)
+- risk validation ✦ re-checks accepted risks when a revisit trigger fires (event-triggered)
+- system health ✦ audits the shared record for stale, duplicate, or orphaned entries (scheduled)
+
+Underneath sits an enforcement layer of deterministic rules — staging before Store, write boundaries, provenance, active recall — that stops the system decaying when agents or people take shortcuts. The whole thing applies the discipline of content design inward, at the product manager's own process, removing four kinds of debt at once: documentation, strategic, technical, and risk.
 
 
 This README covers the whole system: the idea, the two loops, the shared hub, the satellites, the eight agents that staff it, the loops the design was missing, and the enforcement that keeps it from decaying. Every part is drawn as a diagram, with a short text summary beside it.

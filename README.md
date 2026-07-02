@@ -4,9 +4,11 @@ This is a system for running product management work so AI does the heavy liftin
 
 ## Start here — the concept at a glance
 
+> **For illustration only — the system is not linear.** The diagram below straightens the workflow into a single top-to-bottom pass so a first-time reader can learn the steps and vocabulary in order. The real system does **not** run this way: it is **agentic and loops back on itself** — the knowledge loop feeds team signal back into Capture, the decision loop carries what you Learn back into Strategy, sidecars circulate in and out of Store continuously, and the enforcement layer runs across every step at once. Treat this as a primer, not the architecture. The looped, agent-staffed version follows below.
+
 ![Linear illustration of the workflow](./images/linear_example.svg)
 
-> **For illustration only — the system is not linear.** The diagram above straightens the workflow into a single top-to-bottom pass so a first-time reader can learn the steps and vocabulary in order. The real system does **not** run this way: it is **agentic and loops back on itself** — the knowledge loop feeds team signal back into Capture, the decision loop carries what you Learn back into Strategy, sidecars circulate in and out of Store continuously, and the enforcement layer runs across every step at once. Treat this as a primer, not the architecture. The looped, agent-staffed version follows below.
+
 
 ## How the System is structured
 

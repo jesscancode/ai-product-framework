@@ -1,8 +1,7 @@
 # The Agentic AI Product Framework — Visual
 
-This visualises the **reviewed, agentic** version of the framework end to end. It
-combines four bodies of work, all of which are *yours* (the SINGULARITY / Kirk
-material was reference only and is excluded):
+This visualises the **agentic** version of the framework end to end. It
+combines four bodies of work:
 
 1. **The framework** — the original two loops, shared hub, and satellites
    (README / `ai-pf-01..12`).

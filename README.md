@@ -2,6 +2,14 @@
 
 This is a system for running product management work so AI does the heavy lifting and a person still owns every decision.
 
+## Start here — the concept at a glance
+
+![Linear illustration of the workflow](./images/linear_example.svg)
+
+> **For illustration only — the system is not linear.** The diagram above straightens the workflow into a single top-to-bottom pass so a first-time reader can learn the steps and vocabulary in order. The real system does **not** run this way: it is **agentic and loops back on itself** — the knowledge loop feeds team signal back into Capture, the decision loop carries what you Learn back into Strategy, sidecars circulate in and out of Store continuously, and the enforcement layer runs across every step at once. Treat this as a primer, not the architecture. The looped, agent-staffed version follows below.
+
+## How the System is structured
+
 It has two halves: the **framework** defines *what* happens, and the **harness** defines *who* does it.
 
 ```mermaid
@@ -67,7 +75,7 @@ Every diagram uses the same colours. Colour is never the only signal — each no
 
 ## The framework 
 
-I have been more than a little obsessed with the work [Sarah Winters](https://www.linkedin.com/in/sarahwinterscontentstrategist/) and her team are doing at [Content Design London](https://contentdesign.london/). Their work on Content Design has changed the way I work entirely and I've used their principles here to start thinking about how product teams may work alongside AI tooling.
+I have been more than a little obsessed with the work [Sarah Winters](https://www.linkedin.com/in/sarahwinterscontentstrategist/) and her team are doing at [Content Design London](https://contentdesign.london/). Their work on Content Design has changed the way I work entirely and I've used their principles here to start thinking about how product teams may work alongside AI tooling and treat all documentation as 'content'.
 
 The discipline of [content design](https://contentdesign.london/blog/why-content-design-exists) asks one question before any writing starts: what does the reader actually need, and what is the best form to meet it? This framework points that question inward — at the product manager's own process rather than at customers.
 

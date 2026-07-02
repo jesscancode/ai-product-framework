@@ -1,0 +1,150 @@
+<svg width="100%" viewBox="0 0 690 1074" role="img" style="" xmlns="http://www.w3.org/2000/svg">
+<title style="font-family:'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">Linear view of the workflow — one straight pass from goal to outcome, with sidecars and the enforcement layer, in brand colours</title>
+<desc style="font-family:'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">Eleven steps run top to bottom in a single straight line, each handing to the next: Strategy, Capture, Store, Decide, Validate, Author, Review, Distribute, Teams, Measure, and Learn, closing on a final Outcome. Three sidecars sit beside the step they attach to: Ask Store beside Store, Risk and Trade-off beside Decide, and the Decision Memo beside Validate. A cross-cutting Enforcement layer runs underneath every step. Green marks knowledge steps, blue marks decision steps, black marks the shared Store, the human Review gate and the closing Outcome, and purple marks enforcement. There are no feedback curves — this is the simplified, linear primer. The real system loops these steps back on themselves; that comes next.</desc>
+<defs>
+<marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker>
+</defs>
+<rect x="0" y="0" width="680" height="1064" fill="#FFFFFF" style="fill:rgb(255,255,255);"/>
+
+<!-- legend -->
+<rect x="40" y="17" width="12" height="12" rx="3" fill="#a3e972"/>
+<text x="57" y="27" style="font-family:'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;font-size:12px;fill:#333333">knowledge step</text>
+<rect x="185" y="17" width="12" height="12" rx="3" fill="#0d76eb"/>
+<text x="202" y="27" style="font-family:'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;font-size:12px;fill:#333333">decision step</text>
+<rect x="315" y="17" width="12" height="12" rx="3" fill="#111111"/>
+<text x="332" y="27" style="font-family:'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;font-size:12px;fill:#333333">hub · gate · outcome</text>
+<rect x="490" y="17" width="12" height="12" rx="3" fill="#7b4fe0"/>
+<text x="507" y="27" style="font-family:'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;font-size:12px;fill:#333333">enforcement</text>
+
+<!-- ============ SPINE ============ -->
+
+<!-- 1 Strategy -->
+<g style="font-family:'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+<rect x="215" y="58" width="250" height="50" rx="8" fill="#EAF3FD" stroke="#0d76eb" stroke-width="1"/>
+<text x="340" y="77" text-anchor="middle" dominant-baseline="central" style="font-size:14px;font-weight:500;fill:#111111">1 · Strategy &amp; objectives</text>
+<text x="340" y="95" text-anchor="middle" dominant-baseline="central" style="font-size:12px;fill:#4d4d4d">the goal you want to move</text>
+</g>
+<line x1="340" y1="110" x2="340" y2="130" stroke="#111111" stroke-width="1" marker-end="url(#arrow)"/>
+
+<!-- 2 Capture -->
+<g style="font-family:'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+<rect x="215" y="132" width="250" height="50" rx="8" fill="#F1FAEA" stroke="#84c65a" stroke-width="1"/>
+<text x="340" y="151" text-anchor="middle" dominant-baseline="central" style="font-size:14px;font-weight:500;fill:#111111">2 · Capture</text>
+<text x="340" y="169" text-anchor="middle" dominant-baseline="central" style="font-size:11px;fill:#4d4d4d">calls · tickets · usage · sales &amp; exec notes</text>
+</g>
+<line x1="340" y1="184" x2="340" y2="204" stroke="#111111" stroke-width="1" marker-end="url(#arrow)"/>
+
+<!-- 3 Store  (+ Ask Store sidecar) -->
+<g style="font-family:'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+<rect x="215" y="206" width="250" height="50" rx="8" fill="#111111"/>
+<text x="340" y="225" text-anchor="middle" dominant-baseline="central" style="font-size:14px;font-weight:500;fill:#FFFFFF">3 · Store</text>
+<text x="340" y="243" text-anchor="middle" dominant-baseline="central" style="font-size:12px;fill:#cfd2d6">one source of truth — query-able hub</text>
+</g>
+<line x1="465" y1="231" x2="490" y2="231" stroke="#111111" stroke-width="1" stroke-dasharray="4 3"/>
+<g style="font-family:'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+<rect x="490" y="204" width="180" height="54" rx="8" fill="#111111"/>
+<text x="580" y="222" text-anchor="middle" dominant-baseline="central" style="font-size:13px;font-weight:500;fill:#FFFFFF">Ask Store</text>
+<text x="580" y="238" text-anchor="middle" dominant-baseline="central" style="font-size:11px;fill:#cfd2d6">plain-language query</text>
+<text x="580" y="252" text-anchor="middle" dominant-baseline="central" style="font-size:11px;fill:#cfd2d6">cites its source</text>
+</g>
+<line x1="340" y1="258" x2="340" y2="278" stroke="#111111" stroke-width="1" marker-end="url(#arrow)"/>
+
+<!-- 4 Decide  (+ Risk & trade-off sidecar) -->
+<g style="font-family:'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+<rect x="215" y="280" width="250" height="50" rx="8" fill="#EAF3FD" stroke="#0d76eb" stroke-width="1"/>
+<text x="340" y="299" text-anchor="middle" dominant-baseline="central" style="font-size:14px;font-weight:500;fill:#111111">4 · Decide &amp; prioritise</text>
+<text x="340" y="317" text-anchor="middle" dominant-baseline="central" style="font-size:12px;fill:#4d4d4d">sets the roadmap &amp; state</text>
+</g>
+<line x1="215" y1="305" x2="200" y2="305" stroke="#0d76eb" stroke-width="1" stroke-dasharray="4 3"/>
+<g style="font-family:'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+<rect x="20" y="278" width="180" height="54" rx="8" fill="#EAF3FD" stroke="#0d76eb" stroke-width="1"/>
+<text x="110" y="296" text-anchor="middle" dominant-baseline="central" style="font-size:13px;font-weight:500;fill:#111111">Risk &amp; trade-off</text>
+<text x="110" y="312" text-anchor="middle" dominant-baseline="central" style="font-size:11px;fill:#4d4d4d">what we knowingly accept</text>
+<text x="110" y="326" text-anchor="middle" dominant-baseline="central" style="font-size:11px;fill:#4d4d4d">reversibility · blast radius</text>
+</g>
+<line x1="340" y1="332" x2="340" y2="352" stroke="#111111" stroke-width="1" marker-end="url(#arrow)"/>
+
+<!-- 5 Validate  (+ Decision memo sidecar) -->
+<g style="font-family:'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+<rect x="215" y="354" width="250" height="50" rx="8" fill="#EAF3FD" stroke="#0d76eb" stroke-width="1"/>
+<text x="340" y="373" text-anchor="middle" dominant-baseline="central" style="font-size:14px;font-weight:500;fill:#111111">5 · Validate &amp; experiment</text>
+<text x="340" y="391" text-anchor="middle" dominant-baseline="central" style="font-size:12px;fill:#4d4d4d">test the risky assumption</text>
+</g>
+<line x1="465" y1="379" x2="490" y2="379" stroke="#0d76eb" stroke-width="1" stroke-dasharray="4 3"/>
+<g style="font-family:'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+<rect x="490" y="352" width="180" height="54" rx="8" fill="#EAF3FD" stroke="#0d76eb" stroke-width="1"/>
+<text x="580" y="370" text-anchor="middle" dominant-baseline="central" style="font-size:13px;font-weight:500;fill:#111111">Decision memo</text>
+<text x="580" y="386" text-anchor="middle" dominant-baseline="central" style="font-size:11px;fill:#4d4d4d">provisional — circulated</text>
+<text x="580" y="400" text-anchor="middle" dominant-baseline="central" style="font-size:11px;fill:#4d4d4d">while the call is tested</text>
+</g>
+<line x1="340" y1="404" x2="340" y2="424" stroke="#111111" stroke-width="1" marker-end="url(#arrow)"/>
+
+<!-- 6 Author -->
+<g style="font-family:'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+<rect x="215" y="426" width="250" height="50" rx="8" fill="#F1FAEA" stroke="#84c65a" stroke-width="1"/>
+<text x="340" y="445" text-anchor="middle" dominant-baseline="central" style="font-size:14px;font-weight:500;fill:#111111">6 · Author</text>
+<text x="340" y="463" text-anchor="middle" dominant-baseline="central" style="font-size:12px;fill:#4d4d4d">auto-drafted, on guardrails</text>
+</g>
+<line x1="340" y1="478" x2="340" y2="498" stroke="#111111" stroke-width="1" marker-end="url(#arrow)"/>
+
+<!-- 7 Review -->
+<g style="font-family:'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+<rect x="215" y="500" width="250" height="50" rx="8" fill="#111111"/>
+<text x="340" y="519" text-anchor="middle" dominant-baseline="central" style="font-size:14px;font-weight:500;fill:#FFFFFF">7 · Review</text>
+<text x="340" y="537" text-anchor="middle" dominant-baseline="central" style="font-size:12px;fill:#cfd2d6">the PM edits and approves</text>
+</g>
+<line x1="340" y1="552" x2="340" y2="572" stroke="#111111" stroke-width="1" marker-end="url(#arrow)"/>
+
+<!-- 8 Distribute -->
+<g style="font-family:'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+<rect x="215" y="574" width="250" height="50" rx="8" fill="#F1FAEA" stroke="#84c65a" stroke-width="1"/>
+<text x="340" y="593" text-anchor="middle" dominant-baseline="central" style="font-size:14px;font-weight:500;fill:#111111">8 · Distribute</text>
+<text x="340" y="611" text-anchor="middle" dominant-baseline="central" style="font-size:12px;fill:#4d4d4d">audience-shaped, per channel</text>
+</g>
+<line x1="340" y1="626" x2="340" y2="646" stroke="#111111" stroke-width="1" marker-end="url(#arrow)"/>
+
+<!-- 9 Teams -->
+<g style="font-family:'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+<rect x="215" y="648" width="250" height="50" rx="8" fill="#FFFFFF" stroke="#111111" stroke-width="1"/>
+<text x="340" y="667" text-anchor="middle" dominant-baseline="central" style="font-size:14px;font-weight:500;fill:#111111">9 · Teams: get &amp; give back</text>
+<text x="340" y="685" text-anchor="middle" dominant-baseline="central" style="font-size:12px;fill:#4d4d4d">Sales, CS, Support, Exec, Eng</text>
+</g>
+<line x1="340" y1="700" x2="340" y2="720" stroke="#111111" stroke-width="1" marker-end="url(#arrow)"/>
+
+<!-- 10 Measure -->
+<g style="font-family:'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+<rect x="215" y="722" width="250" height="50" rx="8" fill="#EAF3FD" stroke="#0d76eb" stroke-width="1"/>
+<text x="340" y="741" text-anchor="middle" dominant-baseline="central" style="font-size:14px;font-weight:500;fill:#111111">10 · Measure</text>
+<text x="340" y="759" text-anchor="middle" dominant-baseline="central" style="font-size:12px;fill:#4d4d4d">the metric you defined</text>
+</g>
+<line x1="340" y1="774" x2="340" y2="794" stroke="#111111" stroke-width="1" marker-end="url(#arrow)"/>
+
+<!-- 11 Learn -->
+<g style="font-family:'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+<rect x="215" y="796" width="250" height="50" rx="8" fill="#EAF3FD" stroke="#0d76eb" stroke-width="1"/>
+<text x="340" y="815" text-anchor="middle" dominant-baseline="central" style="font-size:14px;font-weight:500;fill:#111111">11 · Learn</text>
+<text x="340" y="833" text-anchor="middle" dominant-baseline="central" style="font-size:12px;fill:#4d4d4d">predicted vs actual</text>
+</g>
+<line x1="340" y1="848" x2="340" y2="868" stroke="#111111" stroke-width="1" marker-end="url(#arrow)"/>
+
+<!-- Outcome -->
+<g style="font-family:'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+<rect x="215" y="870" width="250" height="50" rx="8" fill="#111111"/>
+<text x="340" y="889" text-anchor="middle" dominant-baseline="central" style="font-size:14px;font-weight:500;fill:#FFFFFF">Outcome</text>
+<text x="340" y="907" text-anchor="middle" dominant-baseline="central" style="font-size:12px;fill:#cfd2d6">a shipped, measured result</text>
+</g>
+
+<!-- ============ ENFORCEMENT (cross-cutting) ============ -->
+<g style="font-family:'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+<rect x="20" y="944" width="650" height="54" rx="8" fill="#F3ECFB" stroke="#7b4fe0" stroke-width="1"/>
+<text x="345" y="966" text-anchor="middle" dominant-baseline="central" style="font-size:13px;font-weight:500;fill:#4a148c">Enforcement layer — cross-cutting, runs under every step above</text>
+<text x="345" y="984" text-anchor="middle" dominant-baseline="central" style="font-size:11px;fill:#6a4bb0">golden source · staging &amp; write-boundaries · provenance · access control · revisit triggers · audit</text>
+</g>
+
+<!-- caption -->
+<g style="font-family:'Anthropic Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+<rect x="20" y="1010" width="650" height="52" rx="8" fill="#FAFAFA" stroke="#D9D9D9" stroke-width="1"/>
+<text x="345" y="1028" text-anchor="middle" dominant-baseline="central" style="font-size:11px;fill:#333333">The simplified view: one straight pass. Sidecars sit beside the step they attach to; the enforcement layer</text>
+<text x="345" y="1044" text-anchor="middle" dominant-baseline="central" style="font-size:11px;fill:#333333">runs underneath all of it. The real system loops these steps back on themselves — that comes next.</text>
+</g>
+</svg>

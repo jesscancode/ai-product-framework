@@ -2,13 +2,55 @@
 
 This is a system for running product management work so AI does the heavy lifting and a person still owns every decision.
 
+> New to angentic systems, or want the plain-language version? Read the [simplified README](./README_simplified.md) first — same system, fewer diagrams, written to be read straight through.
+
 ## Start here — the concept at a glance
 
 > **For illustration only — the system is not linear.** The diagram below straightens the workflow into a single top-to-bottom pass so a first-time reader can learn the steps and vocabulary in order. The real system does **not** run this way: it is **agentic and loops back on itself** — the knowledge loop feeds team signal back into Capture, the decision loop carries what you Learn back into Strategy, sidecars circulate in and out of Store continuously, and the enforcement layer runs across every step at once. Treat this as a primer, not the architecture. The looped, agent-staffed version follows below.
 
 ![Linear illustration of the workflow](./images/linear_example.svg)
 
+## The problem it removes
 
+Every product team has the same leak. Decisions live in one person's head, so they get re-argued or reversed. Documents drift out of date, so people act on stale information. Sales promises one thing while the roadmap says another, and engineering absorbs the gap as rushed rework. Insight arrives in a quarterly rush instead of continuously.
+
+This is a missing system, not a people problem. Faster documents do not help if a team is acting on the wrong decision.
+
+The fix is the loop: make a better call, record it once, deliver it to each team in a form they will use, measure what happens, and feed that back in. Hold one queryable source of truth, and generate everything else from it.
+
+## A worked example
+
+An exec receives a concise roadmap update on WhatsApp and answers with a four-minute voice note. That reply is transcribed automatically, flows into Capture, lands in Store as evidence, and reshapes the next decision. Ask the same person to log into a tool and fill in a form and you would have got silence — the channel is what makes the feedback happen at all.
+
+That single arrow — out to each team in the channel they already use, back in through the same one — is **one of the four loops closing**. Everything upstream of it is the rest of the system doing its job: customer interviews, Google Meet transcripts, product metrics from APIs, support tickets, and sales conversations all flowed into Capture and into Store; AI drafted the research summaries, the prioritisation call, and the team-specific updates; and the PM reviewed them before a word went out.
+
+![Example n8n workflow](./images/n8n_workflow.png)
+
+In practice the orchestration layer runs on something like n8n, but the tool is an implementation detail, not part of the design.
+
+## The framework 
+
+I have been more than a little obsessed with the work [Sarah Winters](https://www.linkedin.com/in/sarahwinterscontentstrategist/) and her team are doing at [Content Design London](https://contentdesign.london/). Their work on Content Design has changed the way I work entirely and I've used their principles here to start thinking about how product teams may work alongside AI tooling and treat all documentation as 'content'.
+
+The discipline of [content design](https://contentdesign.london/blog/why-content-design-exists) asks one question before any writing starts: what does the reader actually need, and what is the best form to meet it? This framework points that question inward — at the product manager's own process rather than at customers.
+
+> Content used to be something you read. Now it's something you use. Content design is about giving your audience what they want, when they need it, in the way they expect. — Sarah Winters
+
+Most teams aim that at customers. This framework aims it at the research, the decisions, the specs, and the updates other teams depend on. The [content design principles](./content_design_principals/universal-content-design-rules.md) it draws on are written up separately as a domain-agnostic set of rules — the same discipline stated for any document, which the framework then turns inward on the PM's own process.
+
+## Colour key
+
+Every diagram uses the same colours. Colour is never the only signal — each node is also labelled in text.
+
+| Colour | Meaning |
+|--------|---------|
+| Green | Knowledge loop ✦ Capture, Store, Author, Review, Distribute |
+| Blue | Decision loop ✦ Strategy, Decide, Validate, Measure, Learn |
+| Black | Shared hub ✦ Store and Review, used by both loops |
+| Grey | Infrastructure ✦ the Conductor, which routes but produces no content |
+| Orange | Human ✦ the product manager, who owns every gate |
+| Purple | Spans both loops ✦ the Challenger, plus the enforcement spine |
+| Red | Boundary failures ✦ where the system breaks first |
 
 ## How the System is structured
 
@@ -48,62 +90,9 @@ flowchart LR
 
 The [engineering companion](./ENGINEERING-COMPANION.md) is the deeper build-facing counterpart to this README — it explains how the harness is staffed and governed, the principles each agent must hold, the anti-patterns that break them, and the checklist for adding a new one.
 
-Four feedback loops run through it, all sharing one source of truth and one human review gate:
-
-- knowledge ✦ turns raw signal into documents and sends them to the teams (continuous)
-- decision ✦ sets goals, makes the call, tests it, measures, and learns (event-driven)
-- risk validation ✦ re-checks accepted risks when a revisit trigger fires (event-triggered)
-- system health ✦ audits the shared record for stale, duplicate, or orphaned entries (scheduled)
-
-Underneath sits an enforcement layer of deterministic rules — staging before Store, write boundaries, provenance, active recall — that stops the system decaying when agents or people take shortcuts. The whole thing applies the discipline of content design inward, at the product manager's own process, removing four kinds of debt at once: documentation, strategic, technical, and risk.
-
 This README covers the whole system: the idea, the loops, the shared hub, the satellites, the eight agents that staff it, and the enforcement that keeps it from decaying. Every part is drawn as a diagram, with a short text summary beside it.
 
-If you only want the concept, read **The framework in one idea** and **The whole system in one diagram**, then stop. If you want to build it, keep going. A parallel [LLM-facing reference](./core-idea-llm--facing-reference/index.md) holds the same idea split into small, individually addressable sections, written for an agent to load one piece at a time rather than read end to end.
-
-## Colour key
-
-Every diagram uses the same colours. Colour is never the only signal — each node is also labelled in text.
-
-| Colour | Meaning |
-|--------|---------|
-| Green | Knowledge loop ✦ Capture, Store, Author, Review, Distribute |
-| Blue | Decision loop ✦ Strategy, Decide, Validate, Measure, Learn |
-| Black | Shared hub ✦ Store and Review, used by both loops |
-| Grey | Infrastructure ✦ the Conductor, which routes but produces no content |
-| Orange | Human ✦ the product manager, who owns every gate |
-| Purple | Spans both loops ✦ the Challenger, plus the enforcement spine |
-| Red | Boundary failures ✦ where the system breaks first |
-
-## The framework 
-
-I have been more than a little obsessed with the work [Sarah Winters](https://www.linkedin.com/in/sarahwinterscontentstrategist/) and her team are doing at [Content Design London](https://contentdesign.london/). Their work on Content Design has changed the way I work entirely and I've used their principles here to start thinking about how product teams may work alongside AI tooling and treat all documentation as 'content'.
-
-The discipline of [content design](https://contentdesign.london/blog/why-content-design-exists) asks one question before any writing starts: what does the reader actually need, and what is the best form to meet it? This framework points that question inward — at the product manager's own process rather than at customers.
-
-> Content used to be something you read. Now it's something you use. Content design is about giving your audience what they want, when they need it, in the way they expect. — Sarah Winters
-
-Most teams aim that at customers. This framework aims it at the research, the decisions, the specs, and the updates other teams depend on. The [content design principles](./content_design_principals/universal-content-design-rules.md) it draws on are written up separately as a domain-agnostic set of rules — the same discipline stated for any document, which the framework then turns inward on the PM's own process.
-
-## The problem it removes
-
-Every product team has the same leak. Decisions live in one person's head, so they get re-argued or reversed. Documents drift out of date, so people act on stale information. Sales promises one thing while the roadmap says another, and engineering absorbs the gap as rushed rework. Insight arrives in a quarterly rush instead of continuously.
-
-This is a missing system, not a people problem. Faster documents do not help if a team is acting on the wrong decision.
-
-The fix is the loop: make a better call, record it once, deliver it to each team in a form they will use, measure what happens, and feed that back in. Hold one queryable source of truth, and generate everything else from it.
-
-## A worked example
-
-An exec receives a concise roadmap update on WhatsApp and answers with a four-minute voice note. That reply is transcribed automatically, flows into Capture, lands in Store as evidence, and reshapes the next decision. Ask the same person to log into a tool and fill in a form and you would have got silence — the channel is what makes the feedback happen at all.
-
-That single arrow — out to each team in the channel they already use, back in through the same one — is **one of the four loops closing**. Everything upstream of it is the rest of the system doing its job: customer interviews, Google Meet transcripts, product metrics from APIs, support tickets, and sales conversations all flowed into Capture and into Store; AI drafted the research summaries, the prioritisation call, and the team-specific updates; and the PM reviewed them before a word went out.
-
-![Example n8n workflow](./images/n8n_workflow.png)
-
-In practice the orchestration layer runs on something like n8n, but the tool is an implementation detail, not part of the design.
-
-
+If you only want the concept, read as far as **The whole system in one diagram**, then stop. If you want to build it, keep going. A parallel [LLM-facing reference](./core-idea-llm--facing-reference/index.md) holds the same idea split into small, individually addressable sections, written for an agent to load one piece at a time rather than read end to end.
 
 ## The whole system in one diagram
 
@@ -182,21 +171,6 @@ flowchart TB
 ```
 
 *Diagram summary: signal flows into Capture and lands in Store. From Store, the knowledge loop authors drafts, stages them, passes the human Review gate, and distributes team-shaped outputs. From Store, the decision loop runs Strategy, Decide, Validate, Measure, and Learn, feeding lessons back to Strategy. Two satellites branch off: a Risk & Trade-off record from Decide, and a Decision Memo from Validate to a small circle. Ask Store pulls sourced answers on demand. The Conductor routes work to every agent but writes no content.*
-
-## Where to start building
-
-Not everything is built at once. This sequence follows dependencies — each phase produces something usable.
-
-| Phase | Build | Delivers |
-|-------|-------|----------|
-| 1 | Store + Scribe + Custodian | A working knowledge base with ingestion and maintenance |
-| 2 | Drafter + Conductor | Documents generated from Store, with basic routing |
-| 3 | Challenger | Adversarial review before the PM sees anything |
-| 4 | Strategist + Analyst | A working decision loop with measurement and learning |
-| 5 | Courier | Channel-aware delivery, completing the knowledge loop |
-| 6 | Ask Store | A plain-language query interface on Store |
-
-A solo PM at low volume does not need eight agents on day one. The minimum viable harness is **Store + Scribe + Drafter** — the PM plays Challenger, Strategist, and Analyst, which is what they already do. Add each agent when its absence starts costing PM attention. Below the full-team threshold, fewer agents with the PM filling the gaps is not a compromise — it is the right configuration.
 
 ## The knowledge loop
 
@@ -528,6 +502,21 @@ Four things apply to every layer, so they sit across the whole system rather tha
 - **system ownership** ✦ one person keeps the system healthy, with prompts current, tags tidy, and stale evidence archived
 - **channel routing** ✦ each person's preferred platform and format, used both to send to them and to hear back from them
 
+## Where to start building
+
+Not everything is built at once. This sequence follows dependencies — each phase produces something usable.
+
+| Phase | Build | Delivers |
+|-------|-------|----------|
+| 1 | Store + Scribe + Custodian | A working knowledge base with ingestion and maintenance |
+| 2 | Drafter + Conductor | Documents generated from Store, with basic routing |
+| 3 | Challenger | Adversarial review before the PM sees anything |
+| 4 | Strategist + Analyst | A working decision loop with measurement and learning |
+| 5 | Courier | Channel-aware delivery, completing the knowledge loop |
+| 6 | Ask Store | A plain-language query interface on Store |
+
+A solo PM at low volume does not need eight agents on day one. The minimum viable harness is **Store + Scribe + Drafter** — the PM plays Challenger, Strategist, and Analyst, which is what they already do. Add each agent when its absence starts costing PM attention. Below the full-team threshold, fewer agents with the PM filling the gaps is not a compromise — it is the right configuration.
+
 ## Why this is content design, not admin
 
 It is easy to mistake this for tidy paperwork. It is not. One shared record with generated outputs removes four kinds of debt at once:
@@ -540,5 +529,3 @@ It is easy to mistake this for tidy paperwork. It is not. One shared record with
 Removing all four is what lets a team move fast without the mess building up.
 
 This is a product built for the people who build products. It treats the product manager's own process as something worth designing, with real users — the PM and the internal teams — and shapes the content to what each of them needs. It puts AI to work in how the product gets built, not only in what the product does for customers.
-
-

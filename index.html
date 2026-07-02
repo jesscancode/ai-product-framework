@@ -259,7 +259,8 @@
 
 <div class="section-label">The one idea</div>
 <div class="section-title">Content design, pointed inward</div>
-<div class="lede">This framework borrows a discipline from <a href="https://contentdesign.london/" style="color:#185FA5">Content Design London</a> and Sarah Winters, and aims it not at customers but at the product manager&rsquo;s own process &mdash; the research, the decisions, the specs, and the updates other teams depend on.</div>
+<div class="lede">I have been more than a little obsessed with the work <a href="https://www.linkedin.com/in/sarahwinterscontentstrategist/" target="_blank" rel="noopener" style="color:#185FA5">Sarah Winters</a> and her team are doing at <a href="https://contentdesign.london/" target="_blank" rel="noopener" style="color:#185FA5">Content Design London</a>. Their work on <span class="term" tabindex="0" data-term="Content Design">Content Design</span> has changed the way I work entirely and I&rsquo;ve used their principles here to start thinking about how product teams may work alongside AI tooling and treat all documentation as &lsquo;content&rsquo;.</div>
+<div class="lede">This framework borrows that discipline and aims it not at customers but at the product manager&rsquo;s own process &mdash; the research, the decisions, the specs, and the updates other teams depend on.</div>
 <div class="quote">Content used to be something you read. Now it&rsquo;s something you use. Content design is about giving your audience what they want, when they need it, in the way they expect.
   <span class="attr">Sarah Winters, Content Design London</span></div>
 <div class="lede">Heavily guided AI tooling gathers the raw material and drafts the outputs. The person reviews, decides, and approves. Everything traces back to one shared record &mdash; so decisions get recorded, teams stay aligned, insight stays current, and debt stops piling up.</div>
@@ -638,6 +639,7 @@
 
   /* ---------- 1. GLOSSARY (plain-language definitions) ---------- */
   var GLOSSARY = {
+    "Content Design":  "A discipline pioneered by Sarah Winters and Content Design London: work out what your reader actually needs, and the best form to meet it, before you write a word.",
     "agentic":        "Software that can take actions on its own toward a goal — not just answer questions, but do the work.",
     "agent":          "A focused AI worker with one clear job, like a specialist on a team.",
     "agents":         "Focused AI workers, each with one clear job — like specialists on a team.",
@@ -688,7 +690,9 @@
   var SKIP_TAGS = { SCRIPT:1, STYLE:1, A:1, BUTTON:1, TITLE:1, H1:1 };
   var wrapped = {};
   // longest first so multi-word terms win over their substrings
-  var terms = Object.keys(GLOSSARY).sort(function (a, b) { return b.length - a.length; });
+  var MANUAL_TERMS = ["Content Design"]; // already hand-placed in the markup — skip in auto-wrap
+  var terms = Object.keys(GLOSSARY).filter(function (k) { return MANUAL_TERMS.indexOf(k) === -1; })
+    .sort(function (a, b) { return b.length - a.length; });
 
   function esc(s) { return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); }
 

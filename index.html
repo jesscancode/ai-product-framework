@@ -200,6 +200,67 @@
   .res-card .rc-d { font-size: 12px; color: #5F5E5A; line-height: 1.45; }
   .res-card .rc-path { font-size: 10px; color: #A9A79F; font-family: ui-monospace, "SF Mono", Menlo, monospace; margin-top: 7px; display: block; word-break: break-all; }
 
+  /* ============ WORKED-EXAMPLE FLOW ============ */
+  .cap-rail { border: 1px solid #97C459; background: #F3F8EC; border-radius: 12px; padding: 12px 14px 14px; margin-top: 4px; }
+  .rail-tag { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; color: #27500A; margin-bottom: 10px; display: flex; align-items: center; gap: 7px; }
+  .rail-tag::before { content: ""; width: 10px; height: 10px; border-radius: 3px; background: #84c65a; border: 1px solid #4f7d33; flex: none; }
+  .src-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
+  .src { background: #fff; border: 1px solid #CFE0B6; border-radius: 8px; padding: 8px 10px; }
+  .src-h { font-size: 12.5px; font-weight: 500; color: #27500A; }
+  .src-s { font-size: 10.5px; color: #5F5E5A; line-height: 1.35; margin-top: 2px; }
+  .funnel { text-align: center; font-size: 11px; color: #888780; padding: 9px 0 7px; letter-spacing: 0.3px; }
+  .funnel .chev { display: block; color: #B4B2A9; font-size: 13px; line-height: 1; margin-top: 2px; }
+  .spine { display: flex; align-items: stretch; flex-wrap: wrap; gap: 5px; }
+  .node { flex: 1; min-width: 100px; border-radius: 10px; border: 1px solid; padding: 9px 8px; text-align: center; display: flex; flex-direction: column; justify-content: center; }
+  .node .n-name { font-size: 14px; font-weight: 500; }
+  .node .n-sub { font-size: 10.5px; margin-top: 3px; line-height: 1.35; }
+  .node .n-dots { display: flex; gap: 4px; justify-content: center; margin-top: 6px; }
+  .node .n-dots i { width: 7px; height: 7px; border-radius: 50%; display: inline-block; border: 1px solid rgba(0,0,0,.15); }
+  .node.green { background: #EAF3DE; border-color: #84c65a; } .node.green .n-name { color: #27500A; } .node.green .n-sub { color: #3B6D11; }
+  .node.dark { background: #111111; border-color: #111111; } .node.dark .n-name { color: #fff; } .node.dark .n-sub { color: #B4B2A9; }
+  .node.amber { background: #FAEEDA; border-color: #EF9F27; } .node.amber .n-name { color: #633806; } .node.amber .n-sub { color: #8A5A12; }
+  .node.work { background: #FAFAF7; border-color: #D3D1C7; } .node.work .n-name { color: #2C2C2A; } .node.work .n-sub { color: #5F5E5A; }
+  .spine .arrow { align-self: center; color: #B4B2A9; font-size: 14px; flex: none; }
+  .store-col { flex: 1; min-width: 100px; display: flex; flex-direction: column; gap: 6px; }
+  .store-col .node { flex: 1; }
+  .sidecar { position: relative; border: 1px dashed #7D7B74; border-radius: 8px; padding: 6px 8px 7px; text-align: center; background: #F7F6F1; }
+  .sidecar::before { content: ""; position: absolute; top: -6px; left: 50%; width: 1px; height: 6px; background: #7D7B74; }
+  .sidecar .sc-name { font-size: 11px; font-weight: 500; color: #2C2C2A; }
+  .sidecar .sc-sub { font-size: 10px; color: #5F5E5A; margin-top: 1px; line-height: 1.3; }
+  .node.exec .n-name::before { content: "\1F4AC  "; }
+  .return-bar { display: flex; align-items: center; gap: 9px; font-size: 13px; font-style: italic; color: #8A5A12; background: #FCF6EA; border: 1px solid #EAD9B4; border-radius: 9px; padding: 9px 13px; margin-top: 11px; }
+  .return-bar .loop { font-style: normal; font-size: 16px; flex: none; }
+  .return-bar b { font-style: normal; font-weight: 500; color: #633806; }
+  .tn-label { font-size: 11px; font-weight: 500; color: #888780; text-transform: uppercase; letter-spacing: 0.5px; margin: 22px 0 8px; }
+  .tn-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(255px, 1fr)); gap: 10px; }
+  .tn-card { border: 1px solid #E4E2DB; border-radius: 8px; padding: 10px 12px; border-left: 3px solid #B4B2A9; background: #fff; }
+  .tn-card.green { border-left-color: #84c65a; } .tn-card.dark { border-left-color: #111111; } .tn-card.amber { border-left-color: #EF9F27; } .tn-card.work { border-left-color: #B4B2A9; }
+  .tn-head { display: flex; align-items: baseline; gap: 7px; margin-bottom: 5px; flex-wrap: wrap; }
+  .tn-step { font-size: 13.5px; font-weight: 500; color: #2C2C2A; }
+  .tn-agent { font-size: 10px; font-weight: 500; border-radius: 20px; padding: 1px 8px; border: 1px solid; white-space: nowrap; }
+  .tn-agent.green { background: #EAF3DE; color: #27500A; border-color: #97C459; }
+  .tn-agent.dark { background: #111111; color: #fff; border-color: #111111; }
+  .tn-agent.amber { background: #FAEEDA; color: #633806; border-color: #EF9F27; }
+  .tn-agent.coral { background: #FAECE7; color: #712B13; border-color: #F0997B; }
+  .tn-plain { font-size: 12px; color: #5F5E5A; line-height: 1.5; }
+  .tn-tech { font-size: 11.5px; color: #444441; line-height: 1.5; margin-top: 8px; padding-top: 8px; border-top: 1px dashed #E4E2DB; }
+  .tech-tag { font-weight: 500; text-transform: uppercase; font-size: 9px; letter-spacing: 0.4px; color: #5F5E5A; background: #F1EFE8; border: 1px solid #D3D1C7; border-radius: 4px; padding: 1px 5px; margin-right: 5px; }
+  .caveat { font-size: 11.5px; color: #888780; font-style: italic; margin-top: 16px; line-height: 1.55; border-top: 1px solid #E4E2DB; padding-top: 12px; }
+  body.dark .cap-rail { background: #1a2113; border-color: #3f5a26; }
+  body.dark .rail-tag { color: #b6d894; }
+  body.dark .src { background: #212024; border-color: #38373D; }
+  body.dark .src-h { color: #b6d894; }
+  body.dark .src-s, body.dark .sidecar .sc-sub, body.dark .caveat, body.dark .funnel { color: #A9A79F; }
+  body.dark .node.green { background: #1f2a17; border-color: #3f5a26; } body.dark .node.green .n-name { color: #d4ecb8; } body.dark .node.green .n-sub { color: #9cc47a; }
+  body.dark .node.work { background: #212024; border-color: #45444C; } body.dark .node.work .n-name { color: #EDEBE4; } body.dark .node.work .n-sub { color: #A9A79F; }
+  body.dark .node.amber { background: #3a2f14; border-color: #7a5f1e; } body.dark .node.amber .n-name { color: #f0d79a; } body.dark .node.amber .n-sub { color: #cbae6e; }
+  body.dark .sidecar { background: #1E1D21; border-color: #55545B; } body.dark .sidecar .sc-name { color: #EDEBE4; } body.dark .sidecar::before { background: #55545B; }
+  body.dark .return-bar { background: #3a2f14; border-color: #7a5f1e; color: #cbae6e; } body.dark .return-bar b { color: #f0d79a; }
+  body.dark .tn-card { background: #212024; border-color: #38373D; }
+  body.dark .tn-card.dark { border-left-color: #55545B; }
+  body.dark .tn-step { color: #EDEBE4; } body.dark .tn-plain { color: #A9A79F; } body.dark .tn-tech { color: #C9C7BF; border-top-color: #38373D; }
+  body.dark .tech-tag { background: #2A2930; border-color: #45444C; color: #A9A79F; }
+
   /* ============ DARK MODE ============ */
   body.dark { background: #17171A; color: #C9C7BF; }
   body.dark .hero { border-color: #34343A; }
@@ -261,18 +322,105 @@
 <div class="section-title">Content design, pointed inward</div>
 <div class="lede">I have been more than a little obsessed with the work <a href="https://www.linkedin.com/in/sarahwinterscontentstrategist/" target="_blank" rel="noopener" style="color:#185FA5">Sarah Winters</a> and her team are doing at <a href="https://contentdesign.london/" target="_blank" rel="noopener" style="color:#185FA5">Content Design London</a>. Their work on <span class="term" tabindex="0" data-term="Content Design">Content Design</span> has changed the way I work entirely and I&rsquo;ve used their principles here to start thinking about how product teams may work alongside AI tooling and treat all documentation as &lsquo;content&rsquo;.</div>
 <div class="lede">This framework borrows that discipline and aims it not at customers but at the product manager&rsquo;s own process &mdash; the research, the decisions, the specs, and the updates other teams depend on.</div>
-<div class="quote">Content used to be something you read. Now it&rsquo;s something you use. Content design is about giving your audience what they want, when they need it, in the way they expect.
+<div class="quote">Content used to be something you read. Now it&rsquo;s something you use. Content design is about giving your user what they want, when they need it, in the way they expect.
   <span class="attr">Sarah Winters, Content Design London</span></div>
-<div class="lede">Heavily guided AI tooling gathers the raw material and drafts the outputs. The person reviews, decides, and approves. Everything traces back to one shared record &mdash; so decisions get recorded, teams stay aligned, insight stays current, and debt stops piling up.</div>
+<div class="section-label">A single workflow example</div>
+<div class="section-title">Generating a roadmap update and getting feedback from an exec</div>
+<div class="lede">This is the whole idea in a single run. AI tooling gathers the raw material and drafts the outputs, the person reviews and decides, and everything traces back to one shared record.</div>
+<div class="lede">Below, raw signal comes in from eight sources, a reviewed roadmap update reaches the exec on WhatsApp, and the exec&rsquo;s four-minute voice note in reply becomes the next piece of signal to go in.</div>
+
+<div class="cap-rail">
+  <div class="rail-tag">Capture layer &middot; raw signal in, in whatever form it arrives</div>
+  <div class="src-grid">
+    <div class="src"><div class="src-h">Product metrics</div><div class="src-s">usage, activation, retention &middot; via API</div></div>
+    <div class="src"><div class="src-h">Research</div><div class="src-s">deep qual interviews + quant surveys</div></div>
+    <div class="src"><div class="src-h">Site visits</div><div class="src-s">notes from watching customers work</div></div>
+    <div class="src"><div class="src-h">Support tickets</div><div class="src-s">recurring issues, at volume</div></div>
+    <div class="src"><div class="src-h">Sales notes</div><div class="src-s">deals, blockers, feature asks</div></div>
+    <div class="src"><div class="src-h">Meeting transcripts</div><div class="src-s">customer and internal calls</div></div>
+    <div class="src"><div class="src-h">Voice notes</div><div class="src-s">spoken updates, sent async</div></div>
+    <div class="src"><div class="src-h">Team feedback</div><div class="src-s">replies from eng, sales, support</div></div>
+  </div>
+</div>
+
+<div class="funnel">all eight funnel into Capture<span class="chev">&#9662;</span></div>
+
+<div class="spine">
+  <div class="node green"><div class="n-name">Capture</div><div class="n-sub">Scribe</div></div>
+  <span class="arrow">&rarr;</span>
+  <div class="store-col">
+    <div class="node dark"><div class="n-name">Store</div><div class="n-sub">Custodian</div></div>
+    <div class="sidecar"><div class="sc-name">Ask Store</div><div class="sc-sub">query it, plain language</div></div>
+  </div>
+  <span class="arrow">&rarr;</span>
+  <div class="node work"><div class="n-name">Agents</div><div class="n-sub">draft the update</div><div class="n-dots" title="Strategist &middot; Analyst &middot; Drafter &middot; Challenger"><i style="background:#0d76eb"></i><i style="background:#0d76eb"></i><i style="background:#84c65a"></i><i style="background:#F0997B"></i></div></div>
+  <span class="arrow">&rarr;</span>
+  <div class="node amber"><div class="n-name">Review</div><div class="n-sub">PM decides</div></div>
+  <span class="arrow">&rarr;</span>
+  <div class="node green"><div class="n-name">Distribute</div><div class="n-sub">Distributor</div></div>
+  <span class="arrow">&rarr;</span>
+  <div class="node green exec"><div class="n-name">Exec</div><div class="n-sub">on WhatsApp</div></div>
+</div>
+
+<div class="return-bar"><span class="loop">&#8635;</span> <span>The exec lives in WhatsApp all day, so the update goes to them there and the reply comes back the same way. Talking is easy, so a short prompt gets you four minutes of honest, detailed feedback the exec would never sit down and type. That reply re-enters at Capture and shapes the next decision. <b>Meet people in the channel they already use, and the feedback actually happens.</b></span></div>
+
+<div class="lede" style="margin-top:14px">Do this continuously and decisions get recorded, teams stay aligned, insight stays current, and debt stops piling up.</div>
+
+<div class="tn-label">Technical notes &middot; what each agent is doing</div>
+<div class="tn-grid">
+  <div class="tn-card green">
+    <div class="tn-head"><span class="tn-step">Capture</span><span class="tn-agent green">Scribe</span></div>
+    <div class="tn-plain">Takes every source in and transcribes anything that was spoken or handwritten.</div>
+    <div class="tn-tech"><span class="tech-tag">Technical</span>One Scribe runs per source, in parallel. Each input is transcribed if needed, tagged, and written to Store with a link back to its origin (provenance).</div>
+  </div>
+  <div class="tn-card dark">
+    <div class="tn-head"><span class="tn-step">Store</span><span class="tn-agent dark">Custodian</span></div>
+    <div class="tn-plain">The one shared record. Everything downstream is generated from it, so nothing drifts.</div>
+    <div class="tn-tech"><span class="tech-tag">Technical</span>The Custodian dedupes, tags, and links related records, so the metric drop, the ticket cluster, and the interview quotes about the same step all join into one thread.</div>
+  </div>
+  <div class="tn-card dark">
+    <div class="tn-head"><span class="tn-step">Ask Store</span><span class="tn-agent dark">query</span></div>
+    <div class="tn-plain">Ask the record a plain-language question whenever you want and get an answer pulled straight from the real documents. It hangs off Store as a side tool, ready when you need it.</div>
+    <div class="tn-tech"><span class="tech-tag">Technical</span>Distribute sends updates out on a schedule; Ask Store works the other way, answering only when you ask. It draws from the approved part of Store, the version that has passed Review, and links the document behind every answer. If Store has nothing on the question, it says so. It runs off the Custodian&rsquo;s index.</div>
+  </div>
+  <div class="tn-card work">
+    <div class="tn-head"><span class="tn-step">Agents</span><span class="tn-agent green">Drafter</span><span class="tn-agent coral">Challenger</span></div>
+    <div class="tn-plain">Working only from Store, the agents turn the clustered evidence into a roadmap update: what moves up, what drops, and why.</div>
+    <div class="tn-tech"><span class="tech-tag">Technical</span>Strategist weighs the evidence against the goals and frames the options; Analyst sets the metric; Drafter writes the update; Challenger red-teams it and has to back every objection with real evidence from Store.</div>
+  </div>
+  <div class="tn-card amber">
+    <div class="tn-head"><span class="tn-step">Review</span><span class="tn-agent amber">PM</span></div>
+    <div class="tn-plain">The PM reads the draft, edits it, and approves it. No agent can skip this step, and the PM has the final say on what goes out.</div>
+    <div class="tn-tech"><span class="tech-tag">Technical</span>The draft waits in a staging area first. It only joins the approved part of Store once the PM signs off, so nothing unapproved can go out.</div>
+  </div>
+  <div class="tn-card green">
+    <div class="tn-head"><span class="tn-step">Distribute</span><span class="tn-agent green">Distributor</span></div>
+    <div class="tn-plain">Turns the approved update into a short WhatsApp message the exec can read on their phone in seconds. Everyone hears the same decision; each team just gets it written up in the way that works for them.</div>
+    <div class="tn-tech"><span class="tech-tag">Technical</span>The Distributor shapes the update for each channel and sends them at the same time: the exec on WhatsApp, and eng, sales, and support each in the tool they work in.</div>
+  </div>
+  <div class="tn-card amber">
+    <div class="tn-head"><span class="tn-step">The loop closes</span><span class="tn-agent green">Scribe</span></div>
+    <div class="tn-plain">The exec records a voice note in reply.</div>
+    <div class="tn-tech"><span class="tech-tag">Technical</span>The reply re-enters at Capture as a new input and lands in Store, where it feeds the next decision. That return arrow is what closes the loop.</div>
+  </div>
+</div>
+
+<div class="caveat">Drawn as a single left-to-right pass for this example. In the real system the knowledge loop (continuous) and the decision loop (event-driven) run separately and in parallel, Distribute fans out to every team at once, and the Conductor routes every hop in the background.</div>
 
 <div class="section-label">The problem it removes</div>
-<div class="section-title">Every product team has the same leak</div>
+<div class="section-title">Good teams still lose track of their own work</div>
 <div class="lede">Decisions live in one person&rsquo;s head, so they get re-argued or accidentally reversed. Documents drift out of date, so people act on stale information. Sales promises one thing while the roadmap says another, and engineering absorbs the gap as rushed rework. This is not a people problem &mdash; it is a missing system. The fix is the loop: make a better call, record it once, deliver it to each team in a form they will actually use, measure what happens, and feed that back in.</div>
 <div class="card-grid">
   <div class="info-card debt"><div class="tagline">Debt 1</div><h4>Documentation debt</h4><p>Docs go stale and start to contradict each other.</p></div>
   <div class="info-card debt"><div class="tagline">Debt 2</div><h4>Strategic debt</h4><p>Decisions get re-argued, or quietly built over.</p></div>
   <div class="info-card debt"><div class="tagline">Debt 3</div><h4>Technical debt</h4><p>Teams act on mismatched information; someone patches the gap under deadline.</p></div>
   <div class="info-card debt" style="border-left-color:#0d76eb"><div class="tagline" style="color:#185FA5">Debt 4</div><h4>Risk debt</h4><p>The cost of a choice arrives later as a surprise, to someone who never got to weigh in.</p></div>
+</div>
+
+<div class="lede small" style="margin-top:14px">The four above pile up in the documents and the code. The next two pile up in the PM&rsquo;s own head. Good AI tooling relieves the first and quietly creates the second, so this system is built to lift the load without hollowing out your grip on the work.</div>
+<div class="card-grid">
+  <div class="info-card debt" style="border-left-color:#EF9F27"><div class="tagline" style="color:#B9781A">The human cost</div><h4>PM cognitive overload</h4><p>A PM carries every decision, document, and open thread in their head at once. All that load leaves little room for the judgment only a person can bring. The system holds the record and drafts the outputs, so the PM can spend their attention on the calls that actually need a human.</p></div>
+  <div class="info-card debt" style="border-left-color:#EF9F27"><div class="tagline" style="color:#B9781A">The AI-native risk</div><h4>Cognitive debt</h4><p>Hand enough of the thinking to AI tools and you slowly lose your grip on your own work, until you cannot recall the detail or defend a decision you approved. This system is built to prevent that. The PM still makes every call, and every output links back to the evidence behind it, so the team stays close to the source as more of the work becomes AI-native.</p></div>
 </div>
 
 <div class="section-label">The whole system</div>
@@ -391,8 +539,8 @@
 </ol>
 
 <div class="section-label">Why this is content design, not admin</div>
-<div class="section-title">One shared record removes four kinds of debt at once</div>
-<div class="callout">It is easy to mistake this for tidy paperwork. It is not. Removing documentation, strategic, technical, and risk debt at once is what lets a team move fast without the mess building up. This framework is a product built for the people who build products &mdash; it treats the product manager&rsquo;s own process as something worth designing, with real users (the PM and the internal teams) and content shaped to what each of them needs.</div>
+<div class="section-title">One shared record removes six kinds of debt at once</div>
+<div class="callout">It is easy to mistake this for tidy paperwork. It is not. It removes six kinds of debt at once: documentation, strategic, technical, and risk debt in the work, plus cognitive overload and cognitive debt in the people who run it. Removing all six is what lets a team move fast without the mess building up. This framework is a product built for the people who build products &mdash; it treats the product manager&rsquo;s own process as something worth designing, with real users (the PM and the internal teams) and content shaped to what each of them needs.</div>
 
 <div class="section-label">What it looks like running</div>
 <div class="section-title">A typical week</div>
